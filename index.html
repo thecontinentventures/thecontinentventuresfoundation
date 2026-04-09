@@ -6,6 +6,8 @@
     <title>The Continent Ventures | Supporting Africa's Children</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
     <style>
         :root {
             --primary-green: #2e7d32;
@@ -18,79 +20,86 @@
             margin: 0;
             font-family: 'Inter', sans-serif;
             background-color: var(--deep-black);
-            overflow-x: hidden;
+            overflow: hidden;
         }
 
-        /* Navigation */
         .navbar { 
-            background-color: rgba(0, 0, 0, 0.85) !important;
-            backdrop-filter: blur(10px);
+            background-color: rgba(0, 0, 0, 0.8) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border-bottom: 2px solid var(--primary-green);
             z-index: 1000;
             padding: 15px 0;
         }
         .text-green { color: var(--primary-green) !important; }
 
-        /* Full-Screen Video Background */
-        #video-viewport {
-            position: fixed;
-            top: 0;
-            left: 0;
+        .myHeroSlider {
             width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1;
-            background: #000;
-        }
-
-        #bg-video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-            filter: brightness(0.5); /* Darkens video for text readability */
-        }
-
-        /* Fallback Background for very slow connections */
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 100%);
-        }
-
-        .hero-container {
             height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .swiper-slide {
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
+            background-color: #000;
+        }
+
+        .slide-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.4);
+            z-index: -1;
+        }
+
+        .hero-content {
+            z-index: 10;
             text-align: center;
             color: var(--pure-white);
             padding: 0 20px;
-        }
-
-        /* Dynamic Animations */
-        .animate-up {
-            animation: fadeInUp 1.2s ease-out forwards;
-            opacity: 0;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            max-width: 1000px;
         }
 
         .hero-content h1 {
             font-weight: 800;
+            font-size: calc(2.2rem + 3vw);
             letter-spacing: -1px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            text-shadow: 0 4px 15px rgba(0,0,0,0.6);
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s ease 0.4s;
+        }
+
+        .hero-content p {
+            font-size: calc(1.1rem + 0.6vw);
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s ease 0.6s;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .btn-group-wrap {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s ease 0.8s;
+            margin-top: 40px;
+        }
+
+        .swiper-slide-active .hero-content h1,
+        .swiper-slide-active .hero-content p,
+        .swiper-slide-active .btn-group-wrap {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .btn-green { 
@@ -107,8 +116,10 @@
             background-color: #1b5e20; 
             color: white; 
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(46, 125, 50, 0.6);
         }
+
+        .swiper-pagination-bullet { background: #fff; opacity: 0.5; }
+        .swiper-pagination-bullet-active { background: var(--primary-green); opacity: 1; }
 
         footer {
             background-color: transparent;
@@ -117,13 +128,13 @@
             position: fixed;
             bottom: 0;
             width: 100%;
-            z-index: 10;
+            z-index: 100;
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center fw-bold" href="index.html">
                 <img src="logo.jpg" alt="Logo" height="50" class="me-2 rounded-circle">
@@ -133,63 +144,94 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto text-center">
                     <li class="nav-item"><a class="nav-link active fw-bold" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-                    <li class="nav-item"><a class="nav-link btn btn-green ms-lg-4 px-4 py-2" href="donate.html">Donate Now</a></li>
+                    <li class="nav-item mt-2 mt-lg-0"><a class="nav-link btn btn-green ms-lg-4 px-4 py-2" href="donate.html">Donate Now</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div id="video-viewport">
-        <video id="bg-video" autoplay muted loop playsinline preload="auto" poster="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1920&q=80">
-            <source src="https://player.vimeo.com/external/370331493.hd.mp4?s=338c351f38e697841c10d3f2956f4d2a1389e13d&profile_id=175" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="video-overlay"></div>
-    </div>
-
-    <header class="hero-container">
-        <div class="hero-content">
-            <h1 class="display-1 animate-up mb-3">Empowering Africa's Future</h1>
-            <p class="lead animate-up fs-3 mb-5" style="animation-delay: 0.3s;">Building hope for needy children through community and care.</p>
-            <div class="d-flex justify-content-center gap-3 animate-up" style="animation-delay: 0.6s;">
-                <a href="about.html" class="btn btn-outline-light btn-lg rounded-pill px-5">Our Story</a>
-                <a href="donate.html" class="btn btn-green btn-lg px-5">Get Involved</a>
+    <div class="swiper myHeroSlider">
+        <div class="swiper-wrapper">
+            
+            <div class="swiper-slide">
+                <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=1920&auto=format&fit=crop" class="slide-bg" alt="African students in class">
+                <div class="hero-content">
+                    <h1>Your Giving, Their Future</h1>
+                    <p>Every donation provides a stepping stone for children across Africa to reach their potential through education.</p>
+                    <div class="btn-group-wrap">
+                        <a href="donate.html" class="btn btn-green btn-lg px-5">Make a Donation</a>
+                    </div>
+                </div>
             </div>
+
+            <div class="swiper-slide">
+                <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=1920&auto=format&fit=crop" class="slide-bg" alt="African children eating healthy meals">
+                <div class="hero-content">
+                    <h1>Nutrition & Nourishment</h1>
+                    <p>We provide healthy meals to ensure that no child has to study or sleep on an empty stomach.</p>
+                    <div class="btn-group-wrap">
+                        <a href="donate.html" class="btn btn-green btn-lg px-5">Feed a Child</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?q=80&w=1920&auto=format&fit=crop" class="slide-bg" alt="Clean water access in Africa">
+                <div class="hero-content">
+                    <h1>Clean Water for Life</h1>
+                    <p>Access to safe, clean drinking water is a fundamental right that we bring to every community we serve.</p>
+                    <div class="btn-group-wrap">
+                        <a href="donate.html" class="btn btn-green btn-lg px-5">Support Water Projects</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <img src="https://images.unsplash.com/photo-1524062731217-640ba3c3a4b9?q=80&w=1920&auto=format&fit=crop" class="slide-bg" alt="Happy African children">
+                <div class="hero-content">
+                    <h1>Warmth and Dignity</h1>
+                    <p>Providing quality clothing and school uniforms so every child feels proud, confident, and protected.</p>
+                    <div class="btn-group-wrap">
+                        <a href="donate.html" class="btn btn-green btn-lg px-5">Donate Clothes</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=1920&auto=format&fit=crop" class="slide-bg" alt="Medical care for African children">
+                <div class="hero-content">
+                    <h1>Health and Healing</h1>
+                    <p>Essential medical care, first-aid, and vaccinations to build a healthier, stronger generation for Africa's future.</p>
+                    <div class="btn-group-wrap">
+                        <a href="donate.html" class="btn btn-green btn-lg px-5">Support Healthcare</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </header>
+        <div class="swiper-pagination"></div>
+    </div>
 
     <footer class="text-center">
         <div class="container">
-            <p class="small opacity-75 text-white m-0">
-                &copy; <span id="currentYear"></span> The Continent Ventures. All Rights Reserved.
-            </p>
+            <p class="small opacity-75 text-white m-0">&copy; <span id="currentYear"></span> The Continent Ventures. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // Update the Year automatically
         document.getElementById("currentYear").textContent = new Date().getFullYear();
-
-        // Browser Force-Play Script
-        // Some mobile browsers block autoplay until the user interacts. 
-        // This script attempts to play the video as soon as the page loads.
-        window.addEventListener('load', function() {
-            var video = document.getElementById('bg-video');
-            var promise = video.play();
-
-            if (promise !== undefined) {
-                promise.then(_ => {
-                    // Autoplay started!
-                }).catch(error => {
-                    // Autoplay was prevented. Show a message or play on first click.
-                    console.log("Video playback delayed by browser settings.");
-                });
-            }
+        var swiper = new Swiper(".myHeroSlider", {
+            loop: true,
+            effect: "fade",
+            autoplay: { delay: 6500, disableOnInteraction: false },
+            speed: 2500,
+            pagination: { el: ".swiper-pagination", clickable: true },
         });
     </script>
 </body>
