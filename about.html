@@ -4,220 +4,297 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | The Continent Ventures</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-green: #2e7d32;
-            --pure-white: #ffffff;
+            --primary-green: #1b5e20;
+            --accent-green: #66bb6a;
+            --glass-bg: rgba(15, 23, 42, 0.85);
+            --border-glow: rgba(102, 187, 106, 0.3);
         }
 
-        /* Responsive Reset */
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: #000; /* Backdrop for loading */
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #000;
+            color: #f8fafc;
             overflow-x: hidden;
+            margin: 0;
         }
 
-        /* Adaptive Navbar */
-        .navbar { 
-            background-color: rgba(0, 0, 0, 0.8) !important;
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-bottom: 2px solid var(--primary-green);
-            z-index: 1050;
-        }
-        .text-green { color: var(--primary-green) !important; }
-
-        /* Full Screen Background Slider */
-        .swiper {
-            width: 100%;
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: -2;
-        }
-
-        .swiper-slide {
-            background-position: center;
-            background-size: cover;
-            animation: zoomEffect 20s infinite alternate;
-        }
-
-        @keyframes zoomEffect {
-            from { transform: scale(1); }
-            to { transform: scale(1.1); }
-        }
-
-        .slider-overlay {
+        /* Responsive Background Effect */
+        .hero-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4);
+            z-index: -2;
+            background-image: url('https://images.unsplash.com/photo-1503919919749-6466a55d6928?q=80&w=1920&auto=format');
+            background-size: cover;
+            background-position: center;
+            animation: kenBurns 30s infinite alternate;
+        }
+
+        @keyframes kenBurns {
+            from { transform: scale(1); }
+            to { transform: scale(1.15); }
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.95) 100%);
             z-index: -1;
         }
 
-        /* Responsive Wrapper */
-        .main-wrapper {
-            position: relative;
-            z-index: 10;
-            padding-top: 100px; /* Space for fixed navbar */
-            padding-bottom: 60px;
-            min-height: 100vh;
-            display: flex;
-            align-items: center; /* Center card vertically on large screens */
-        }
-
-        /* Adaptive Glass Card */
-        .about-glass-card {
-            background: rgba(255, 255, 255, 0.12);
+        /* --- STICKY DYNAMIC NAVIGATION --- */
+        .navbar {
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 2rem; /* Using rem for scaling */
-            color: var(--pure-white);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            margin: 15px; /* Margin for mobile breathing room */
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 1rem 0;
         }
 
-        /* Responsive Text Sizing */
-        h1.display-responsive {
-            font-size: calc(1.8rem + 1.5vw);
+        .navbar-brand {
             font-weight: 800;
+            letter-spacing: -1px;
+            font-size: clamp(1rem, 4vw, 1.4rem);
         }
 
-        .section-accent {
+        .nav-link {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-green) !important;
+        }
+
+        /* --- MAIN CARD --- */
+        .scroll-container {
+            padding-top: 120px;
+            padding-bottom: 60px;
+            min-height: 100vh;
+        }
+
+        .main-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid var(--border-glow);
+            border-radius: clamp(20px, 5vw, 40px);
+            padding: clamp(25px, 6vw, 80px);
+            box-shadow: 0 50px 100px -20px rgba(0,0,0,0.8);
+        }
+
+        h1.headline {
+            font-size: clamp(2rem, 8vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Grid for Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .stat-box h2 {
+            font-weight: 800;
+            color: var(--accent-green);
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin: 0;
+        }
+
+        /* Feature Cards */
+        .impact-feature {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: clamp(20px, 4vw, 40px);
+            border-radius: 25px;
+            height: 100%;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .impact-feature:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-green);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .icon-circle {
             width: 50px;
-            height: 5px;
+            height: 50px;
             background: var(--primary-green);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-bottom: 20px;
-            border-radius: 3px;
+            font-size: 1.2rem;
         }
 
-        .btn-green { 
-            background-color: var(--primary-green); 
-            color: white; 
-            border: none; 
-            padding: 12px 30px;
-            font-weight: 700;
-            border-radius: 50px;
+        /* --- FOOTER & ADDRESS --- */
+        .footer-address {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .address-text {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .social-links a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 1.2rem;
             transition: 0.3s;
-            display: inline-block;
+            opacity: 0.6;
         }
 
-        /* Mobile specific adjustments */
-        @media (max-width: 576px) {
-            .about-glass-card {
-                padding: 1.5rem;
-                border-radius: 15px;
-            }
-            .main-wrapper {
-                padding-top: 80px;
-            }
+        .social-links a:hover {
+            color: var(--accent-green);
+            opacity: 1;
         }
 
-        .footer-responsive {
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 15px 0;
-            width: 100%;
-            position: relative;
-            z-index: 20;
+        /* Responsive Breakpoints */
+        @media (max-width: 991px) {
+            .navbar { background: rgba(0, 0, 0, 0.95); }
+            .scroll-container { padding-top: 100px; }
+            .main-card { border-radius: 0; margin-top: -20px; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center fw-bold" href="index.html">
-                <img src="logo.jpg" alt="Logo" height="40" class="me-2 rounded-circle">
-                <span style="font-size: 0.9rem; letter-spacing: 1px;">THE <span class="text-green">CONTINENT</span> VENTURES</span>
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="logo.jpg" alt="Logo" height="35" class="me-2 rounded-circle">
+                <span>THE <span style="color:var(--accent-green)">CONTINENT</span> VENTURES</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto text-center">
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active fw-bold" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-                    <li class="nav-item mt-2 mt-lg-0"><a class="nav-link btn btn-green ms-lg-4 px-4" href="donate.html">Donate</a></li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <a class="btn btn-success rounded-pill px-4 fw-bold w-100 w-lg-auto" href="donate.html">Donate</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="swiper aboutSwiper">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1920&q=80');"></div>
-            <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1920&q=80');"></div>
-            <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1524069290683-0457abfe42c3?auto=format&fit=crop&w=1920&q=80');"></div>
-        </div>
-    </div>
-    
-    <div class="slider-overlay"></div>
+    <div class="hero-bg"></div>
+    <div class="overlay"></div>
 
-    <div class="main-wrapper">
+    <div class="scroll-container">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-xl-9 col-lg-10">
-                    <div class="about-glass-card">
-                        <div class="section-accent"></div>
-                        <h1 class="display-responsive mb-4">Our Heart for Africa</h1>
-                        
-                        <p class="lead mb-4" style="font-size: calc(1rem + 0.2vw);">
-                            <strong>The Continent Ventures</strong> is a Nairobi-based non-profit organization dedicated to serving the most vulnerable children across Africa.
-                        </p>
+                <div class="col-xl-11">
+                    
+                    <div class="main-card">
+                        <div class="text-center mb-5">
+                            <span class="badge bg-success bg-opacity-10 text-success px-3 py-2 rounded-pill mb-3 fw-bold">OUR STORY</span>
+                            <h1 class="headline">Driven by Passion, <br><span style="color:var(--accent-green)">Guided by Impact.</span></h1>
+                            <p class="lead opacity-75 mx-auto" style="max-width: 800px;">
+                                We are a movement dedicated to rewriting the narrative for vulnerable children across Africa. By providing nutrition, education, and health support, we build the foundation for future leaders.
+                            </p>
+                        </div>
 
-                        <div class="row g-4 mb-4">
-                            <div class="col-md-6">
-                                <h4 class="fw-bold text-green">Our Mission</h4>
-                                <p class="opacity-75 small">To bridge the gap of inequality by providing essential resources to underprivileged children, ensuring they have the tools to succeed.</p>
+                        <div class="stats-grid text-center">
+                            <div class="stat-box"><h2>500+</h2><p class="small opacity-50">DAILY MEALS</p></div>
+                            <div class="stat-box"><h2>1.2k</h2><p class="small opacity-50">STUDENTS HELPED</p></div>
+                            <div class="stat-box"><h2>12</h2><p class="small opacity-50">LOCAL SCHOOLS</p></div>
+                            <div class="stat-box"><h2>100%</h2><p class="small opacity-50">TRANSPARENCY</p></div>
+                        </div>
+
+                        <div class="row g-4">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="impact-feature">
+                                    <div class="icon-circle"><i class="fa-solid fa-utensils"></i></div>
+                                    <h5 class="fw-bold">Sustainable Nutrition</h5>
+                                    <p class="small opacity-70 mb-0">Fighting classroom hunger with consistent, nutrient-rich meal programs designed for growth.</p>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <h4 class="fw-bold text-green">Our Impact</h4>
-                                <p class="opacity-75 small">Focused on education, nutrition, and sustainable health programs within Kenyan slums and rural communities.</p>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="impact-feature">
+                                    <div class="icon-circle"><i class="fa-solid fa-laptop-code"></i></div>
+                                    <h5 class="fw-bold">Digital Literacy</h5>
+                                    <p class="small opacity-70 mb-0">Bridging the gap by providing digital tools and modern educational resources to local schools.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <div class="impact-feature">
+                                    <div class="icon-circle"><i class="fa-solid fa-heart-pulse"></i></div>
+                                    <h5 class="fw-bold">Healthcare Access</h5>
+                                    <p class="small opacity-70 mb-0">Providing medical checkups and essential healthcare support to ensure every child stays healthy.</p>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="d-flex flex-wrap gap-3 mt-4">
-                            <a href="donate.html" class="btn btn-green">Donate Now</a>
-                            <a href="contact.html" class="btn btn-outline-light rounded-pill px-4">Contact Us</a>
+                        <div class="footer-address text-center">
+                            <div class="row justify-content-center">
+                                <div class="col-md-8">
+                                    <div class="social-links mb-4">
+                                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                                    </div>
+                                    <div class="address-text mb-3">
+                                        <i class="fa-solid fa-location-dot text-success me-2"></i>
+                                        NAIROBI, KENYA<br>
+                                        P.O. Box 27475-00100 GPO, Nairobi, Kenya
+                                    </div>
+                                    <div class="address-text">
+                                        <i class="fa-solid fa-envelope text-success me-2"></i> info@thecontinentventures.org | 
+                                        <i class="fa-solid fa-phone text-success ms-2 me-2"></i> +254 700 000 000
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+                    <footer class="text-center mt-4 mb-4">
+                        <p class="small opacity-40">
+                            &copy; <span id="autoYear"></span> The Continent Ventures. All Rights Reserved.
+                        </p>
+                    </footer>
+
                 </div>
             </div>
         </div>
     </div>
 
-    <footer class="footer-responsive text-center">
-        <div class="container">
-            <p class="m-0 small">&copy; <span id="year"></span> The Continent Ventures. All Rights Reserved.</p>
-        </div>
-    </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        document.getElementById("year").textContent = new Date().getFullYear();
-
-        var swiper = new Swiper(".aboutSwiper", {
-            loop: true,
-            effect: "fade",
-            fadeEffect: { crossFade: true },
-            autoplay: { delay: 5000, disableOnInteraction: false },
-            speed: 2500,
-        });
+        // Dynamically update the copyright year
+        document.getElementById("autoYear").textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
