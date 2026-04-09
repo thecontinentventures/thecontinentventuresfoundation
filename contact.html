@@ -13,7 +13,8 @@
             --primary-green: #2e7d32;
             --deep-black: #0a0a0a;
             --pure-white: #ffffff;
-            --glass-bg: rgba(255, 255, 255, 0.95);
+            --glass-bg: rgba(255, 255, 255, 0.98);
+            --whatsapp-color: #25d366;
         }
 
         body, html {
@@ -24,108 +25,136 @@
             overflow-x: hidden;
         }
 
-        /* Responsive Background Image */
+        /* Background Layer */
         .page-bg {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), 
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), 
                         url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             z-index: -1;
         }
 
-        /* Navigation Styling */
+        /* Navigation */
         .navbar { 
-            background-color: rgba(0, 0, 0, 0.9) !important;
-            backdrop-filter: blur(10px);
+            background-color: rgba(0, 0, 0, 0.95) !important;
+            backdrop-filter: blur(15px);
             border-bottom: 2px solid var(--primary-green);
-            z-index: 1000;
+            padding: 15px 0;
         }
         .text-green { color: var(--primary-green) !important; }
 
-        /* Content Wrapper */
+        /* Main Wrapper */
         .contact-wrapper {
-            padding: 120px 0 60px;
+            padding: 140px 0 80px;
             min-height: 100vh;
             display: flex;
             align-items: center;
         }
 
-        /* Contact Card Styling */
+        /* Contact Card */
         .contact-card {
             background: var(--glass-bg);
-            border-radius: 20px;
+            border-radius: 30px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
             border: none;
         }
 
-        /* Info Sidebar */
+        /* Sidebar Panel */
         .contact-info-panel {
-            background-color: var(--primary-green);
+            background: linear-gradient(135deg, var(--primary-green) 0%, #1b5e20 100%);
             color: white;
-            padding: 40px;
+            padding: 50px 40px;
             height: 100%;
         }
 
         .info-item {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 30px;
+            align-items: center;
+            margin-bottom: 35px;
+            transition: 0.3s;
         }
-        .info-item i {
+        
+        .info-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
             font-size: 1.2rem;
-            margin-right: 15px;
-            margin-top: 5px;
         }
 
         /* Form Styling */
-        .form-panel {
-            padding: 40px;
-        }
+        .form-panel { padding: 50px; }
         .form-control {
-            border: 1px solid #dee2e6;
-            padding: 12px 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            padding: 14px 18px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
         }
         .form-control:focus {
             border-color: var(--primary-green);
             box-shadow: 0 0 0 0.25rem rgba(46, 125, 50, 0.1);
+            background: #ffffff;
         }
 
         .btn-green { 
             background-color: var(--primary-green); 
             color: white; 
-            border: none; 
-            padding: 14px 30px;
+            padding: 16px;
             font-weight: 700;
-            border-radius: 8px;
+            border-radius: 12px;
             width: 100%;
-            transition: 0.3s;
+            transition: 0.4s;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         .btn-green:hover { 
             background-color: #1b5e20; 
-            transform: translateY(-2px);
+            transform: translateY(-3px); 
+            box-shadow: 0 10px 20px rgba(46,125,50,0.3); 
         }
 
-        /* Footer */
-        footer {
-            background-color: rgba(0,0,0,0.8);
+        /* WhatsApp Button */
+        .whatsapp-float {
+            background-color: var(--whatsapp-color);
             color: white;
-            padding: 20px 0;
-            position: relative;
+            padding: 12px 25px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+            margin-top: 20px;
+            cursor: pointer;
+            border: none;
+        }
+        .whatsapp-float:hover { 
+            background-color: #128c7e; 
+            color: white; 
+            transform: scale(1.05); 
         }
 
-        /* Responsive Breakpoints */
-        @media (max-width: 768px) {
-            .contact-info-panel { padding: 30px; }
-            .form-panel { padding: 30px; }
+        footer { 
+            background: rgba(0,0,0,0.9); 
+            color: #777; 
+            padding: 30px 0; 
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 991px) {
+            .contact-card { border-radius: 0; }
             .contact-wrapper { padding-top: 100px; }
+            .form-panel, .contact-info-panel { padding: 40px 25px; }
         }
     </style>
 </head>
@@ -133,10 +162,10 @@
 
     <div class="page-bg"></div>
 
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center fw-bold" href="index.html">
-                <img src="logo.jpg" alt="Logo" height="45" class="me-2 rounded-circle">
+                <img src="logo.jpg" alt="Logo" height="40" class="me-2 rounded-circle">
                 <span>THE <span class="text-green">CONTINENT</span> VENTURES</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -146,8 +175,8 @@
                 <ul class="navbar-nav ms-auto text-center">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link active fw-bold" href="contact.html">Contact Us</a></li>
-                    <li class="nav-item mt-2 mt-lg-0"><a class="nav-link btn btn-success ms-lg-4 px-4" href="donate.html" style="background-color: var(--primary-green);">Donate</a></li>
+                    <li class="nav-item"><a class="nav-link active fw-bold text-green" href="contact.html">Contact Us</a></li>
+                    <li class="nav-item mt-2 mt-lg-0 ms-lg-4"><a class="btn btn-success rounded-pill px-4 fw-bold" href="donate.html">Donate</a></li>
                 </ul>
             </div>
         </div>
@@ -156,69 +185,73 @@
     <div class="contact-wrapper">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-xl-10">
+                <div class="col-xl-11">
                     <div class="contact-card">
                         <div class="row g-0">
                             <div class="col-lg-5">
                                 <div class="contact-info-panel">
-                                    <h2 class="fw-bold mb-4">Connect With Us</h2>
-                                    <p class="mb-5 opacity-75">Have questions about our projects or want to partner with us? Reach out and our team will get back to you shortly.</p>
+                                    <h2 class="fw-bold mb-4">Get in Touch</h2>
+                                    <p class="mb-5 opacity-75">We are ready to answer your questions and discuss partnership opportunities for the African child.</p>
                                     
                                     <div class="info-item">
-                                        <i class="fa-solid fa-location-dot"></i>
+                                        <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
                                         <div>
-                                            <h6 class="fw-bold mb-0">Address</h6>
-                                            <p class="small mb-0">P.O. Box 27475 - 00100 GPO<br>Nairobi, Kenya</p>
+                                            <h6 class="fw-bold mb-1">Our Headquarters</h6>
+                                            <p class="small mb-0 opacity-75">Nairobi, Kenya</p>
                                         </div>
                                     </div>
 
                                     <div class="info-item">
-                                        <i class="fa-solid fa-envelope"></i>
+                                        <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
                                         <div>
-                                            <h6 class="fw-bold mb-0">Email Us</h6>
-                                            <p class="small mb-0">thecontinentventures@gmail.com</p>
+                                            <h6 class="fw-bold mb-1">Call Us</h6>
+                                            <p class="small mb-0 opacity-75">
+                                                <a href="tel:+254799744340" style="color: inherit; text-decoration: none;">+254 799 744 340</a>
+                                            </p>
                                         </div>
                                     </div>
 
                                     <div class="info-item">
-                                        <i class="fa-solid fa-phone"></i>
+                                        <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
                                         <div>
-                                            <h6 class="fw-bold mb-0">Call Support</h6>
-                                            <p class="small mb-0">+254 70000000000</p>
+                                            <h6 class="fw-bold mb-1">Official Email</h6>
+                                            <p class="small mb-0 opacity-75">info@thecontinentventures.org</p>
                                         </div>
                                     </div>
 
-                                    <div class="mt-5">
-                                        <a href="#" class="text-white me-3 fs-5"><i class="fa-brands fa-facebook"></i></a>
-                                        <a href="#" class="text-white me-3 fs-5"><i class="fa-brands fa-instagram"></i></a>
-                                        <a href="#" class="text-white me-3 fs-5"><i class="fa-brands fa-whatsapp"></i></a>
-                                    </div>
+                                    <button class="whatsapp-float" onclick="openWhatsApp()">
+                                        <i class="fa-brands fa-whatsapp fs-4 me-2"></i> Chat on WhatsApp
+                                    </button>
                                 </div>
                             </div>
 
                             <div class="col-lg-7">
                                 <div class="form-panel">
-                                    <h3 class="fw-bold mb-4 text-dark text-center text-lg-start">Send a Message</h3>
-                                    <form action="#">
+                                    <h3 class="fw-bold mb-4 text-dark">Send us a Message</h3>
+                                    
+                                    <form action="https://formspree.io/f/xojpzyqd" method="POST">
+                                        <input type="hidden" name="_next" value="thank-you.html">
+                                        <input type="hidden" name="_subject" value="New Inquiry: The Continent Ventures">
+                                        
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label class="form-label small fw-bold">Full Name</label>
-                                                <input type="text" class="form-control" placeholder="John Doe" required>
+                                                <label class="form-label small fw-bold text-muted">Your Name</label>
+                                                <input type="text" name="name" class="form-control" placeholder="Full Name" required>
                                             </div>
                                             <div class="col-md-6">
-                                                <label class="form-label small fw-bold">Email Address</label>
-                                                <input type="email" class="form-control" placeholder="name@example.com" required>
+                                                <label class="form-label small fw-bold text-muted">Your Email</label>
+                                                <input type="email" name="email" class="form-control" placeholder="Email Address" required>
                                             </div>
                                         </div>
                                         <div class="mb-3">
-                                            <label class="form-label small fw-bold">Subject</label>
-                                            <input type="text" class="form-control" placeholder="How can we help?" required>
+                                            <label class="form-label small fw-bold text-muted">Subject</label>
+                                            <input type="text" name="user_subject" class="form-control" placeholder="Inquiry Subject" required>
                                         </div>
                                         <div class="mb-4">
-                                            <label class="form-label small fw-bold">Message</label>
-                                            <textarea class="form-control" rows="5" placeholder="Write your message here..." required></textarea>
+                                            <label class="form-label small fw-bold text-muted">How can we help?</label>
+                                            <textarea name="message" class="form-control" rows="5" placeholder="Type your message here..." required></textarea>
                                         </div>
-                                        <button type="submit" class="btn btn-green shadow-sm">Send Message</button>
+                                        <button type="submit" class="btn btn-green shadow-sm">Submit Message</button>
                                     </form>
                                 </div>
                             </div>
@@ -238,6 +271,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.getElementById("year").textContent = new Date().getFullYear();
+
+        function openWhatsApp() {
+            const countryCode = "254";
+            const phoneNumber = "799744340";
+            const text = encodeURIComponent("Hello The Continent Ventures, I would like to inquire about your projects.");
+            window.open(`https://wa.me/${countryCode}${phoneNumber}?text=${text}`, '_blank');
+        }
     </script>
 </body>
 </html>
