@@ -67,7 +67,7 @@
             color: var(--accent-gold) !important;
         }
 
-        /* --- Hero Slider Enhancements --- */
+        /* --- Hero Slider --- */
         .myHeroSlider { width: 100%; height: 100vh; }
 
         .slide-bg-container {
@@ -81,7 +81,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at center, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%);
+            background: radial-gradient(circle at center, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.85) 100%);
         }
 
         .slide-bg {
@@ -90,7 +90,6 @@
             transition: transform 10s linear;
         }
         
-        /* Ken Burns Effect */
         .swiper-slide-active .slide-bg { transform: scale(1.15); }
 
         .hero-content {
@@ -126,13 +125,15 @@
             color: #fff;
             padding: 20px 50px;
             font-weight: 700;
-            border-radius: 4px; /* Professional sharp-rounded edges */
+            border-radius: 4px;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-size: 0.85rem;
             transition: all 0.4s ease;
             border: none;
             box-shadow: 0 15px 35px rgba(197, 160, 89, 0.2);
+            text-decoration: none;
+            display: inline-block;
         }
 
         .btn-gold:hover {
@@ -153,6 +154,9 @@
             font-size: 0.85rem;
             margin-left: 15px;
             transition: 0.4s;
+            text-decoration: none;
+            color: white;
+            display: inline-block;
         }
 
         .btn-outline-white:hover {
@@ -164,18 +168,18 @@
         /* --- Scroll Indicator --- */
         .scroll-indicator {
             position: absolute;
-            bottom: 120px;
+            bottom: 60px; /* Adjusted since ticker is gone */
             left: 50%;
             transform: translateX(-50%);
             z-index: 100;
             display: flex;
             flex-direction: column;
             align-items: center;
-            opacity: 0.6;
+            opacity: 0.5;
         }
 
         .mouse {
-            width: 20px; height: 35px;
+            width: 20px; height: 32px;
             border: 2px solid white;
             border-radius: 20px;
             position: relative;
@@ -186,42 +190,16 @@
             width: 4px; height: 4px;
             background: white;
             position: absolute;
-            left: 50%; top: 8px;
+            left: 50%; top: 6px;
             transform: translateX(-50%);
             border-radius: 50%;
             animation: scrollDown 2s infinite;
         }
 
         @keyframes scrollDown {
-            0% { opacity: 0; top: 8px; }
+            0% { opacity: 0; top: 6px; }
             50% { opacity: 1; }
-            100% { opacity: 0; top: 20px; }
-        }
-
-        /* --- Mission Ticker --- */
-        .mission-ticker {
-            position: fixed;
-            bottom: 60px;
-            width: 100%;
-            background: linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.1), transparent);
-            padding: 15px 0;
-            z-index: 50;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .ticker-content {
-            display: inline-block;
-            animation: ticker 40s linear infinite;
-            font-weight: 400;
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            letter-spacing: 4px;
-            color: var(--accent-gold);
-        }
-
-        @keyframes ticker {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
+            100% { opacity: 0; top: 18px; }
         }
 
         footer {
@@ -229,16 +207,17 @@
             position: fixed;
             bottom: 0; width: 100%;
             z-index: 100;
-            background: #000;
+            background: rgba(0,0,0,0.8);
             font-size: 0.75rem;
             letter-spacing: 1px;
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            .hero-content h1 { font-size: 3rem; }
+            .hero-content h1 { font-size: 2.5rem; }
             .btn-outline-white { margin-left: 0; margin-top: 10px; display: block; }
             .btn-gold { display: block; width: 100%; }
+            .scroll-indicator { bottom: 80px; }
         }
     </style>
 </head>
@@ -270,7 +249,7 @@
             
             <div class="swiper-slide d-flex align-items-center justify-content-center">
                 <div class="slide-bg-container">
-                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1920" class="slide-bg" alt="Global Support">
+                    <img src="https://images.pexels.com/photos/1013534/pexels-photo-1013534.jpeg?auto=format&fit=crop&q=80&w=1920" class="slide-bg" alt="Global Support">
                 </div>
                 <div class="hero-content">
                     <h1>Hope for Every <br>African Child</h1>
@@ -284,7 +263,7 @@
 
             <div class="swiper-slide d-flex align-items-center justify-content-center">
                 <div class="slide-bg-container">
-                    <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=1920" class="slide-bg" alt="Nutrition">
+                    <img src="https://images.pexels.com/photos/1101358/pexels-photo-1101358.jpeg?auto=format&fit=crop&q=80&w=1920" class="slide-bg" alt="Nutrition">
                 </div>
                 <div class="hero-content">
                     <h1>Nourishing <br>Potential</h1>
@@ -305,19 +284,13 @@
         <div class="swiper-pagination"></div>
     </div>
 
-    <div class="mission-ticker">
-        <div class="ticker-content">
-            Sustainable Ventures • Quality Education • Clean Water Solutions • Global Impact • Nairobi, Kenya • The Continent Ventures Foundation • Join the movement
-        </div>
-    </div>
-
     <footer class="text-center">
         <div class="container d-flex justify-content-between align-items-center opacity-50">
             <p class="m-0">&copy; <span id="currentYear"></span> The Continent Ventures Foundation.</p>
             <div class="socials d-none d-md-block">
-                <i class="fab fa-facebook-f mx-2"></i>
-                <i class="fab fa-instagram mx-2"></i>
-                <i class="fab fa-twitter mx-2"></i>
+                <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
             </div>
         </div>
     </footer>
@@ -335,7 +308,6 @@
             pagination: { el: ".swiper-pagination", clickable: true },
             on: {
                 slideChangeTransitionStart: function () {
-                    // Reset animations
                     const contents = document.querySelectorAll('.hero-content h1, .hero-content p, .btn-group-wrap');
                     contents.forEach(el => {
                         el.style.opacity = "0";
@@ -344,20 +316,21 @@
                     });
                 },
                 slideChangeTransitionEnd: function () {
-                    // Trigger animations
                     const activeSlide = document.querySelector('.swiper-slide-active .hero-content');
-                    const h1 = activeSlide.querySelector('h1');
-                    const p = activeSlide.querySelector('p');
-                    const btn = activeSlide.querySelector('.btn-group-wrap');
+                    if(activeSlide) {
+                        const h1 = activeSlide.querySelector('h1');
+                        const p = activeSlide.querySelector('p');
+                        const btn = activeSlide.querySelector('.btn-group-wrap');
 
-                    h1.style.transition = "all 1s ease 0.2s";
-                    p.style.transition = "all 1s ease 0.4s";
-                    btn.style.transition = "all 1s ease 0.6s";
+                        h1.style.transition = "all 1s ease 0.2s";
+                        p.style.transition = "all 1s ease 0.4s";
+                        btn.style.transition = "all 1s ease 0.6s";
 
-                    [h1, p, btn].forEach(el => {
-                        el.style.opacity = "1";
-                        el.style.transform = "translateY(0)";
-                    });
+                        [h1, p, btn].forEach(el => {
+                            el.style.opacity = "1";
+                            el.style.transform = "translateY(0)";
+                        });
+                    }
                 }
             }
         });
