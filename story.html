@@ -28,21 +28,22 @@ layout: null
             font-family: 'Plus Jakarta Sans', sans-serif;
             margin: 0;
             overflow-x: hidden;
+            font-size: 0.9rem; /* Reduced base font size */
         }
 
         /* --- Refined Navbar --- */
         .navbar { 
             background: var(--deep-forest) !important;
             border-bottom: 2px solid var(--accent-gold);
-            padding: 1rem 0;
+            padding: 0.8rem 0;
         }
 
         .nav-link {
             color: var(--white) !important;
             font-weight: 700;
-            font-size: 0.85rem;
-            letter-spacing: 1.5px;
-            margin: 0 12px;
+            font-size: 0.75rem; /* Reduced */
+            letter-spacing: 1.2px;
+            margin: 0 10px;
             transition: 0.3s;
             text-transform: uppercase;
         }
@@ -56,9 +57,10 @@ layout: null
             color: var(--primary-green) !important;
             font-weight: 800;
             border-radius: 50px;
-            padding: 8px 25px !important;
+            padding: 6px 18px !important; /* Reduced */
             margin-left: 15px;
             transition: 0.3s ease;
+            font-size: 0.75rem; /* Reduced */
         }
 
         .btn-nav-donate:hover {
@@ -68,7 +70,7 @@ layout: null
 
         /* --- Hero Section --- */
         .hero-section {
-            padding: 200px 0 100px;
+            padding: 160px 0 80px; /* Reduced padding */
             background: linear-gradient(rgba(5, 26, 9, 0.8), rgba(10, 47, 16, 0.9)), url('assets/images/hero-bg.jpg') center/cover;
             text-align: center;
             position: relative;
@@ -77,67 +79,67 @@ layout: null
         .hero-section h1 {
             font-family: 'Playfair Display', serif;
             font-weight: 900;
-            font-size: clamp(3rem, 7vw, 5rem);
+            font-size: clamp(2rem, 5vw, 3.5rem); /* Reduced */
             color: var(--accent-gold);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             line-height: 1.1;
         }
 
         .hero-tagline {
-            font-size: 1rem;
+            font-size: 0.8rem; /* Reduced */
             text-transform: uppercase;
-            letter-spacing: 5px;
+            letter-spacing: 4px;
             color: var(--white);
             opacity: 0.7;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             display: block;
         }
 
         /* --- Content Blocks --- */
         .content-container {
-            max-width: 1000px;
+            max-width: 800px; /* Narrower for better readability with smaller font */
             margin: 0 auto;
-            padding: 100px 20px;
+            padding: 70px 20px;
         }
 
         .story-block {
-            margin-bottom: 120px;
+            margin-bottom: 80px; /* Reduced */
             position: relative;
-            padding-left: 50px;
+            padding-left: 40px;
             border-left: 2px solid var(--soft-gold);
         }
 
         .story-block::before {
             content: "";
             position: absolute;
-            left: -11px;
+            left: -9px;
             top: 0;
-            width: 20px;
-            height: 20px;
+            width: 16px;
+            height: 16px;
             background: var(--accent-gold);
             border-radius: 50%;
-            box-shadow: 0 0 15px var(--accent-gold);
+            box-shadow: 0 0 10px var(--accent-gold);
         }
 
         .story-block h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
+            font-size: 1.8rem; /* Reduced */
             color: var(--accent-gold);
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             font-weight: 700;
         }
 
         .story-block p {
-            line-height: 2;
-            font-size: 1.2rem;
+            line-height: 1.8;
+            font-size: 1rem; /* Reduced from 1.2rem */
             opacity: 0.85;
-            font-weight: 300;
+            font-weight: 400;
         }
 
         /* --- TICKER SECTION --- */
         .updates-container {
             background: var(--deep-forest);
-            padding: 100px 0;
+            padding: 80px 0;
             border-top: 1px solid var(--soft-gold);
             border-bottom: 1px solid var(--soft-gold);
         }
@@ -147,7 +149,7 @@ layout: null
             white-space: nowrap;
             width: 100%;
             position: relative;
-            padding: 40px 0;
+            padding: 30px 0;
         }
 
         .ticker-track {
@@ -168,10 +170,10 @@ layout: null
         .ticker-card {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--soft-gold);
-            padding: 35px;
-            margin: 0 20px;
-            width: 400px;
-            border-radius: 20px;
+            padding: 25px; /* Reduced */
+            margin: 0 15px;
+            width: 320px; /* Reduced */
+            border-radius: 15px;
             white-space: normal;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             text-decoration: none;
@@ -181,43 +183,56 @@ layout: null
         .ticker-card:hover {
             border-color: var(--accent-gold);
             background: rgba(212, 175, 55, 0.08);
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            transform: translateY(-5px);
         }
 
         .ticker-card h4 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
+            font-size: 1.1rem; /* Reduced */
             color: var(--white);
-            margin-top: 10px;
-            margin-bottom: 15px;
+            margin-top: 8px;
+            margin-bottom: 10px;
+        }
+
+        .ticker-card p.small {
+            font-size: 0.8rem; /* Reduced */
         }
 
         /* --- CTA SECTION --- */
         .cta-section {
             background: linear-gradient(rgba(10, 47, 16, 0.9), rgba(10, 47, 16, 0.9)), url('assets/images/cta-bg.jpg') center/cover fixed;
-            padding: 120px 0;
+            padding: 80px 0; /* Reduced */
             text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem; /* Reduced */
+        }
+
+        .cta-section p {
+            font-size: 1rem; /* Reduced */
         }
 
         /* --- Footer --- */
         footer {
-            padding: 80px 0 40px;
+            padding: 60px 0 30px;
             text-align: center;
             background: var(--deep-forest);
             border-top: 1px solid var(--soft-gold);
+            font-size: 0.8rem; /* Reduced */
         }
 
         .btn-gold {
             background: var(--accent-gold);
             color: var(--primary-green);
             font-weight: 800;
-            padding: 15px 40px;
+            padding: 12px 30px;
             border-radius: 50px;
             text-decoration: none;
             display: inline-block;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
+            font-size: 0.8rem; /* Reduced */
             transition: 0.3s;
         }
 
@@ -228,8 +243,9 @@ layout: null
         }
 
         @media (max-width: 768px) {
-            .story-block h2 { font-size: 2rem; }
-            .hero-section { padding: 150px 0 80px; }
+            .story-block h2 { font-size: 1.5rem; }
+            .hero-section { padding: 120px 0 60px; }
+            .cta-section h2 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -238,8 +254,8 @@ layout: null
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="assets/images/logo.jpg" alt="Logo" height="45" class="me-3 rounded-circle border border-warning">
-                <span class="text-uppercase fw-bold" style="letter-spacing: -0.5px;">The <span style="color:var(--accent-gold)">Continent</span> Ventures</span>
+                <img src="assets/images/logo.jpg" alt="Logo" height="35" class="me-2 rounded-circle border border-warning">
+                <span class="text-uppercase fw-bold" style="letter-spacing: -0.5px; font-size: 0.9rem;">The <span style="color:var(--accent-gold)">Continent</span> Ventures</span>
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -276,55 +292,55 @@ layout: null
     </main>
 
     <section class="updates-container">
-        <div class="container text-center mb-5">
-            <h2 style="font-family: 'Playfair Display', serif; color: var(--accent-gold); font-size: 3rem;">Field Updates</h2>
-            <p class="opacity-50">Real-time stories from our communities across the continent.</p>
+        <div class="container text-center mb-4">
+            <h2 style="font-family: 'Playfair Display', serif; color: var(--accent-gold); font-size: 2.2rem;">Field Updates</h2>
+            <p class="opacity-50 small">Real-time stories from our communities across the continent.</p>
         </div>
 
         <div class="ticker-window">
             <div class="ticker-track">
                 {% for post in site.posts %}
                 <a href="{{ post.url | relative_url }}" class="ticker-card">
-                    <span class="category-label" style="color: var(--accent-gold); font-weight: 800; font-size: 0.7rem; text-transform: uppercase;">{{ post.date | date: "%B %d, %Y" }}</span>
+                    <span class="category-label" style="color: var(--accent-gold); font-weight: 800; font-size: 0.6rem; text-transform: uppercase;">{{ post.date | date: "%B %d, %Y" }}</span>
                     <h4>{{ post.title }}</h4>
                     <p class="small opacity-75">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
-                    <span class="fw-bold mt-3 d-block" style="color:var(--accent-gold); font-size: 0.8rem;">READ FULL REPORT <i class="fas fa-arrow-right ms-1"></i></span>
+                    <span class="fw-bold mt-2 d-block" style="color:var(--accent-gold); font-size: 0.7rem;">READ FULL REPORT <i class="fas fa-arrow-right ms-1"></i></span>
                 </a>
                 {% endfor %}
 
                 {% for post in site.posts %}
                 <a href="{{ post.url | relative_url }}" class="ticker-card">
-                    <span class="category-label" style="color: var(--accent-gold); font-weight: 800; font-size: 0.7rem; text-transform: uppercase;">{{ post.date | date: "%B %d, %Y" }}</span>
+                    <span class="category-label" style="color: var(--accent-gold); font-weight: 800; font-size: 0.6rem; text-transform: uppercase;">{{ post.date | date: "%B %d, %Y" }}</span>
                     <h4>{{ post.title }}</h4>
                     <p class="small opacity-75">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
-                    <span class="fw-bold mt-3 d-block" style="color:var(--accent-gold); font-size: 0.8rem;">READ FULL REPORT <i class="fas fa-arrow-right ms-1"></i></span>
+                    <span class="fw-bold mt-2 d-block" style="color:var(--accent-gold); font-size: 0.7rem;">READ FULL REPORT <i class="fas fa-arrow-right ms-1"></i></span>
                 </a>
                 {% endfor %}
             </div>
         </div>
 
-        <div class="text-center mt-5">
-            <a href="blog.html" class="btn btn-outline-warning rounded-pill px-5 py-2 fw-bold">View The Full Archive</a>
+        <div class="text-center mt-4">
+            <a href="blog.html" class="btn btn-outline-warning rounded-pill px-4 py-2 fw-bold" style="font-size: 0.8rem;">View The Full Archive</a>
         </div>
     </section>
 
     <section class="cta-section">
         <div class="container">
-            <h2 style="font-family: 'Playfair Display', serif; font-size: 3.5rem;" class="mb-4">Be Part of the Next Chapter</h2>
-            <p class="mb-5 opacity-75 mx-auto" style="max-width: 600px; font-size: 1.2rem;">Your support turns our vision into reality. Together, we can sponsor the leaders of tomorrow.</p>
+            <h2 style="font-family: 'Playfair Display', serif;" class="mb-3">Be Part of the Next Chapter</h2>
+            <p class="mb-4 opacity-75 mx-auto" style="max-width: 500px;">Your support turns our vision into reality. Together, we can sponsor the leaders of tomorrow.</p>
             <a href="donate.html" class="btn-gold">Sponsor a Child Today</a>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <img src="assets/images/logo.jpg" alt="Logo" height="60" class="mb-4 rounded-circle">
+            <img src="assets/images/logo.jpg" alt="Logo" height="50" class="mb-3 rounded-circle">
             <p class="mb-1">&copy; 2026 The Continent Ventures Foundation. All Rights Reserved.</p>
             <p class="small opacity-50">Empowering Africa's Future through sustainable education and health ventures.</p>
-            <div class="mt-4">
-                <a href="#" class="text-white mx-3 opacity-50"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-white mx-3 opacity-50"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-white mx-3 opacity-50"><i class="fab fa-linkedin-in"></i></a>
+            <div class="mt-3">
+                <a href="#" class="text-white mx-2 opacity-50"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white mx-2 opacity-50"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white mx-2 opacity-50"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
     </footer>
