@@ -20,6 +20,7 @@
             --glass-bg: rgba(10, 47, 16, 0.9);
             --border-glow: rgba(212, 175, 55, 0.3);
             --off-white: #ffffff;
+            --whatsapp-green: #25D366;
         }
 
         body {
@@ -83,6 +84,12 @@
             border-radius: 40px;
             padding: clamp(30px, 6vw, 80px);
             box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+            animation: fadeInScale 0.8s ease-out;
+        }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         h1.headline {
@@ -98,22 +105,19 @@
         .form-control {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(212, 175, 55, 0.2);
-            color: #ffffff !important; /* Forces typed text to be white */
+            color: #ffffff !important;
             padding: 15px;
             border-radius: 15px;
             margin-bottom: 20px;
             transition: 0.3s;
         }
 
-        /* Styling placeholders to be white */
         .form-control::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-            opacity: 1;
+            color: rgba(255, 255, 255, 0.6) !important;
         }
 
-        /* Styling the dropdown options and text */
         select.form-control option {
-            background-color: var(--primary-green);
+            background-color: #0a2f10;
             color: white;
         }
 
@@ -121,7 +125,7 @@
             background: rgba(255, 255, 255, 0.1);
             border-color: var(--accent-gold);
             color: white;
-            box-shadow: none;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
         }
 
         .form-label {
@@ -132,19 +136,57 @@
             letter-spacing: 1px;
         }
 
-        /* --- INFO BOXES --- */
+        /* --- CONTACT CARDS --- */
         .contact-info-card {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(212, 175, 55, 0.1);
             padding: 30px;
             border-radius: 25px;
             height: 100%;
-            transition: 0.4s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            display: block;
+            color: white;
         }
 
         .contact-info-card:hover {
             border-color: var(--accent-gold);
-            background: rgba(212, 175, 55, 0.05);
+            background: rgba(212, 175, 55, 0.08);
+            transform: translateY(-10px);
+            color: white;
+        }
+
+        /* --- DYNAMIC FLOATING ICONS --- */
+        .floating-contact {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 9999;
+        }
+
+        .fab {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .fab-whatsapp { background-color: var(--whatsapp-green); }
+        .fab-phone { background-color: var(--accent-gold); color: var(--primary-green) !important; }
+
+        .fab:hover {
+            transform: scale(1.1) rotate(5deg);
+            color: white;
         }
 
         /* --- BUTTONS --- */
@@ -162,15 +204,10 @@
         .btn-gold:hover {
             background: transparent;
             color: var(--accent-gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
         }
 
-        /* --- FOOTER --- */
-        .footer-section {
-            margin-top: 5rem;
-            padding-top: 3rem;
-            border-top: 1px solid rgba(212, 175, 55, 0.1);
-        }
-
+        /* --- SOCIAL LINKS --- */
         .social-links a {
             color: var(--off-white);
             margin: 0 15px;
@@ -186,6 +223,15 @@
     </style>
 </head>
 <body>
+
+    <div class="floating-contact">
+        <a href="tel:+254799744340" class="fab fab-phone" title="Call Us">
+            <i class="fas fa-phone"></i>
+        </a>
+        <a href="https://wa.me/254799744340" target="_blank" class="fab fab-whatsapp" title="WhatsApp Us">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
@@ -217,17 +263,16 @@
                     
                     <div class="main-card">
                         <div class="text-center mb-5">
-                            <span class="badge rounded-pill mb-3 px-3 py-2" style="border: 1px solid var(--accent-gold); color: var(--accent-gold);">GET IN TOUCH</span>
+                            <span class="badge rounded-pill mb-3 px-3 py-2" style="border: 1px solid var(--accent-gold); color: var(--accent-gold); letter-spacing: 2px;">GET IN TOUCH</span>
                             <h1 class="headline">Let's Connect and <br><span class="accent-text">Create Change.</span></h1>
                             <p class="lead opacity-75 mx-auto" style="max-width: 850px; font-weight: 300;">
-                                Whether you have a question about our projects, partnerships, or how to get involved, our team is ready to assist you.
+                                Reach out via our form or use the quick links below. Our team is ready to assist you.
                             </p>
                         </div>
 
                         <div class="row g-5">
                             <div class="col-lg-7">
                                 <form action="https://formspree.io/f/xykbaoel" method="POST">
-                                    
                                     <input type="hidden" name="_next" value="https://thecontinentventures.github.io/thecontinentventures/thank-you.html">
                                     
                                     <div class="row">
@@ -258,7 +303,7 @@
 
                                     <div class="mb-4">
                                         <label class="form-label">Message</label>
-                                        <textarea name="message" class="form-control" rows="6" placeholder="Write your message here..." required></textarea>
+                                        <textarea name="message" class="form-control" rows="5" placeholder="Write your message here..." required></textarea>
                                     </div>
                                     
                                     <button type="submit" class="btn btn-gold w-100">Send Your Message</button>
@@ -266,20 +311,27 @@
                             </div>
 
                             <div class="col-lg-5">
-                                <div class="d-flex flex-column h-100">
-                                    <div class="contact-info-card mb-4">
-                                        <h4 class="accent-text mb-3"><i class="fas fa-location-dot me-3"></i>Visit Us</h4>
-                                        <p class="opacity-75">Nairobi, Kenya<br>P.O. Box 27475-00100 GPO</p>
-                                    </div>
+                                <div class="d-flex flex-column h-100 gap-4">
+                                    <a href="https://wa.me/254799744340" target="_blank" class="contact-info-card">
+                                        <h4 class="accent-text mb-2"><i class="fab fa-whatsapp me-3"></i>WhatsApp Us</h4>
+                                        <p class="opacity-75 mb-0">+254 799 744 340</p>
+                                        <small class="opacity-50">Instant response during work hours</small>
+                                    </a>
+
+                                    <a href="tel:+254799744340" class="contact-info-card">
+                                        <h4 class="accent-text mb-2"><i class="fas fa-phone-alt me-3"></i>Call Directly</h4>
+                                        <p class="opacity-75 mb-0">+254 799 744 340</p>
+                                        <small class="opacity-50">Available Mon-Fri, 9am - 5pm</small>
+                                    </a>
                                     
-                                    <div class="contact-info-card mb-4">
-                                        <h4 class="accent-text mb-3"><i class="fas fa-envelope-open-text me-3"></i>Email Us</h4>
-                                        <p class="opacity-75">info@thecontinentventures.org</p>
+                                    <div class="contact-info-card">
+                                        <h4 class="accent-text mb-2"><i class="fas fa-envelope-open-text me-3"></i>Email</h4>
+                                        <p class="opacity-75 mb-0">info@thecontinentventures.org</p>
                                     </div>
 
                                     <div class="contact-info-card">
-                                        <h4 class="accent-text mb-3"><i class="fas fa-clock me-3"></i>Hours</h4>
-                                        <p class="opacity-75 mb-0">Monday — Friday: 9am - 5pm<br>Saturday & Sunday: Closed</p>
+                                        <h4 class="accent-text mb-2"><i class="fas fa-location-dot me-3"></i>Visit</h4>
+                                        <p class="opacity-75 mb-0">Nairobi, Kenya<br>P.O. Box 27475-00100 GPO</p>
                                     </div>
                                 </div>
                             </div>
@@ -291,9 +343,7 @@
                                 <a href="#"><i class="fab fa-instagram"></i></a>
                                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
                             </div>
-                            <div class="address-text opacity-75 small">
-                                <p class="mb-0">Transforming lives through empathy and action across the African continent.</p>
-                            </div>
+                            <p class="opacity-50 small">Transforming lives through empathy and action across Africa.</p>
                         </div>
                     </div>
 
