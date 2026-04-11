@@ -16,47 +16,51 @@ layout: default
             --accent-gold: #d4af37;
             --soft-gold: rgba(212, 175, 55, 0.15);
             --white: #ffffff;
-            --text-gray: rgba(255, 255, 255, 0.85);
+            --text-gray: rgba(255, 255, 255, 0.75);
+            --glass: rgba(255, 255, 255, 0.03);
         }
 
         body {
             background-color: var(--primary-green);
             color: var(--white);
             font-family: 'Plus Jakarta Sans', sans-serif;
-            padding-top: 70px; /* Reduced space */
-            line-height: 1.6; /* Tighter line height for compactness */
+            padding-top: 60px; 
+            line-height: 1.5;
+            font-size: 0.9rem;
         }
 
-        /* --- Compact Navbar --- */
+        /* --- Minimalist Navbar --- */
         .navbar { 
-            background: var(--deep-forest) !important;
-            border-bottom: 1px solid var(--accent-gold);
-            padding: 0.4rem 0;
+            background: rgba(5, 26, 9, 0.95) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--soft-gold);
+            padding: 0.3rem 0;
         }
 
-        .navbar-brand span { font-size: 0.8rem; letter-spacing: 0.5px; }
-        .nav-link { font-size: 0.7rem; letter-spacing: 0.5px; }
+        .navbar-brand span { font-size: 0.75rem; letter-spacing: 0.5px; }
+        .nav-link { font-size: 0.65rem; font-weight: 600; }
         
         .btn-nav-donate {
             background: var(--accent-gold);
             color: var(--primary-green) !important;
-            padding: 3px 15px !important;
-            font-size: 0.7rem;
-            border-radius: 15px;
+            padding: 2px 12px !important;
+            font-size: 0.65rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
         }
+        .btn-nav-donate:hover { transform: translateY(-1px); box-shadow: 0 4px 10px rgba(212, 175, 55, 0.2); }
 
-        /* --- Balanced Layout Container --- */
+        /* --- Compact Layout --- */
         .post-container {
-            max-width: 1000px; /* Slightly narrower for focus */
+            max-width: 950px; 
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
 
         .post-header {
             text-align: center;
-            padding: 30px 0 25px; /* Compact padding */
-            border-bottom: 1px solid var(--soft-gold);
-            margin-bottom: 30px;
+            padding: 25px 0 20px;
+            margin-bottom: 25px;
         }
 
         .post-category {
@@ -64,123 +68,124 @@ layout: default
             text-transform: uppercase;
             font-weight: 800;
             letter-spacing: 2px;
-            font-size: 0.65rem;
-            margin-bottom: 10px;
-            border: 1px solid var(--accent-gold);
-            padding: 2px 10px;
-            border-radius: 4px; /* More modern than full round */
+            font-size: 0.6rem;
+            background: var(--soft-gold);
+            padding: 2px 8px;
+            border-radius: 3px;
         }
 
         .post-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(1.5rem, 4vw, 2.5rem); /* Scaled down */
-            line-height: 1.1;
-            margin-bottom: 15px;
+            font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+            line-height: 1.15;
+            margin: 12px 0;
+            font-weight: 700;
         }
 
         .post-meta {
-            font-size: 0.75rem;
-            color: var(--accent-gold);
-            opacity: 0.8;
+            font-size: 0.7rem;
+            color: var(--text-gray);
+            letter-spacing: 0.5px;
         }
 
-        /* --- Balanced Content Grid --- */
+        /* --- Content Balancing --- */
         .article-grid {
             display: grid;
-            grid-template-columns: 1fr 260px; /* More balanced ratio */
-            gap: 40px;
+            grid-template-columns: 1fr 240px;
+            gap: 35px;
             align-items: start;
         }
 
         .post-main-content {
-            font-size: 0.95rem; /* Reduced font size */
+            font-size: 0.9rem;
             color: var(--text-gray);
-            text-align: justify;
         }
 
-        /* Compact Drop Cap */
+        .post-main-content p { margin-bottom: 1.2rem; }
+
+        /* Elegant Drop Cap */
         .post-main-content > p:first-of-type::first-letter {
             font-family: 'Playfair Display', serif;
             float: left;
-            font-size: 3rem;
-            line-height: 0.8;
-            padding: 5px 8px 0 0;
+            font-size: 2.8rem;
+            line-height: 0.75;
+            padding: 4px 6px 0 0;
             color: var(--accent-gold);
-            font-weight: 900;
         }
 
         .post-main-content h2, .post-main-content h3 {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             color: var(--accent-gold);
-            margin: 25px 0 15px;
-            padding-bottom: 5px;
-            border-bottom: 1px solid var(--soft-gold);
+            margin: 20px 0 10px;
+            font-weight: 700;
         }
 
         .post-main-content img {
-            border-radius: 8px;
-            margin: 20px 0;
-            border: 1px solid var(--soft-gold);
+            border-radius: 6px;
+            margin: 15px 0;
+            filter: grayscale(20%);
+            transition: 0.4s ease;
         }
+        .post-main-content img:hover { filter: grayscale(0%); }
 
         .post-main-content blockquote {
-            font-size: 1.1rem;
-            padding: 15px 25px;
-            margin: 25px 0;
-            background: rgba(255,255,255,0.02);
-            border-left: 3px solid var(--accent-gold);
+            font-size: 1rem;
+            padding: 12px 20px;
+            margin: 20px 0;
+            border-left: 2px solid var(--accent-gold);
+            background: var(--glass);
             font-style: italic;
         }
 
-        /* --- Compact Sidebar --- */
+        /* --- Attractive Sidebar --- */
         .post-sidebar {
             position: sticky;
-            top: 90px;
-            padding: 20px;
-            background: var(--deep-forest);
+            top: 80px;
+            padding: 18px;
+            background: var(--glass);
             border: 1px solid var(--soft-gold);
-            border-radius: 10px;
+            border-radius: 8px;
         }
 
         .sidebar-title {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 800;
             text-transform: uppercase;
             color: var(--accent-gold);
-            margin-bottom: 15px;
-            border-bottom: 1px solid var(--soft-gold);
+            margin-bottom: 12px;
+            display: block;
         }
 
-        .sidebar-text { font-size: 0.8rem; line-height: 1.5; margin-bottom: 15px; }
+        .sidebar-text { font-size: 0.75rem; line-height: 1.4; color: var(--text-gray); }
 
-        /* --- Balanced Footer Nav --- */
+        /* --- Integrated Footer --- */
         .post-footer {
-            margin-top: 50px;
-            padding: 30px 0;
+            margin-top: 40px;
+            padding: 25px 0;
             border-top: 1px solid var(--soft-gold);
         }
 
         .nav-buttons {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 12px;
         }
 
         .nav-btn {
-            padding: 12px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid var(--soft-gold);
+            padding: 10px;
+            background: var(--glass);
+            border: 1px solid transparent;
             text-decoration: none;
             color: var(--white);
-            border-radius: 6px;
+            border-radius: 5px;
             transition: 0.2s;
         }
 
-        .nav-btn:hover { background: var(--soft-gold); border-color: var(--accent-gold); color: white; }
-        .nav-btn small { font-size: 0.6rem; color: var(--accent-gold); display: block; }
-        .nav-btn span { font-weight: 700; font-size: 0.8rem; display: block; }
+        .nav-btn:hover { border-color: var(--accent-gold); background: var(--soft-gold); }
+        .nav-btn small { font-size: 0.55rem; color: var(--accent-gold); text-transform: uppercase; display: block; }
+        .nav-btn span { font-weight: 600; font-size: 0.75rem; }
 
-        @media (max-width: 992px) {
+        @media (max-width: 850px) {
             .article-grid { grid-template-columns: 1fr; }
             .post-sidebar { display: none; }
         }
@@ -191,12 +196,12 @@ layout: default
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{{ '/index.html' | relative_url }}">
-                <img src="{{ '/assets/images/logo.jpg' | relative_url }}" alt="Logo" height="28" class="me-2 rounded-circle">
-                <span class="text-uppercase fw-bold">The <span style="color:var(--accent-gold)">Continent</span> Ventures</span>
+                <img src="{{ '/assets/images/logo.jpg' | relative_url }}" alt="Logo" height="24" class="me-2 rounded-circle">
+                <span class="text-uppercase fw-bold">The <span style="color:var(--accent-gold)">Continent</span></span>
             </a>
             
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon" style="width: 1.2em; height: 1.2em;"></span>
+                <i class="fas fa-bars fs-6 text-white"></i>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -205,7 +210,7 @@ layout: default
                     <li class="nav-item"><a class="nav-link mx-2" href="{{ '/about.html' | relative_url }}">About</a></li>
                     <li class="nav-item"><a class="nav-link mx-2 active" href="{{ '/story.html' | relative_url }}">Our Story</a></li>
                     <li class="nav-item"><a class="nav-link mx-2" href="{{ '/contact.html' | relative_url }}">Contact Us</a></li>
-                    <li class="nav-item"><a class="nav-link btn-nav-donate" href="{{ '/donate.html' | relative_url }}">Donate</a></li>
+                    <li class="nav-item"><a class="nav-link btn-nav-donate ms-lg-3" href="{{ '/donate.html' | relative_url }}">Donate</a></li>
                 </ul>
             </div>
         </div>
@@ -213,12 +218,12 @@ layout: default
 
     <article class="post-container">
         <header class="post-header">
-            <span class="post-category">{{ page.categories | first | default: "News Update" }}</span>
+            <span class="post-category">{{ page.categories | first | default: "Insight" }}</span>
             <h1 class="post-title">{{ page.title }}</h1>
             <div class="post-meta">
-                <i class="far fa-calendar-alt me-1"></i> {{ page.date | date: "%B %d, %Y" }} 
-                <span class="mx-2">|</span>
-                <i class="far fa-user me-1"></i> {{ page.author | default: "The Continent Team" }}
+                <span><i class="far fa-calendar me-1"></i> {{ page.date | date: "%d %b %Y" }}</span>
+                <span class="mx-2 opacity-25">|</span>
+                <span><i class="far fa-user me-1"></i> {{ page.author | default: "Continent Team" }}</span>
             </div>
         </header>
 
@@ -228,18 +233,18 @@ layout: default
             </div>
 
             <aside class="post-sidebar">
-                <span class="sidebar-title">Foundation Impact</span>
-                <p class="sidebar-text opacity-75">Your support helps us reach children across the continent with education and healthcare.</p>
-                <a href="{{ '/donate.html' | relative_url }}" class="btn btn-sm btn-outline-warning w-100 py-1" style="font-size: 0.7rem; font-weight: 700; border-radius: 4px;">Support Mission</a>
+                <span class="sidebar-title">Our Mission</span>
+                <p class="sidebar-text">Empowering African communities through sustainable education and direct healthcare support.</p>
+                <a href="{{ '/donate.html' | relative_url }}" class="btn btn-sm btn-outline-warning w-100 py-1 mt-1" style="font-size: 0.65rem; border-radius: 3px;">Join The Cause</a>
                 
-                <hr class="my-3" style="border-color: var(--soft-gold);">
+                <hr class="my-3 opacity-25">
                 
-                <span class="sidebar-title">Share Story</span>
-                <div class="d-flex justify-content-between px-2">
-                    <a href="#" class="text-white small"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="text-white small"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-white small"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="text-white small"><i class="fas fa-link"></i></a>
+                <span class="sidebar-title">Spread the Word</span>
+                <div class="d-flex justify-content-between px-1">
+                    <a href="#" class="text-white opacity-75 small"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-white opacity-75 small"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white opacity-75 small"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="text-white opacity-75 small"><i class="fas fa-link"></i></a>
                 </div>
             </aside>
         </div>
@@ -248,26 +253,26 @@ layout: default
             <div class="nav-buttons">
                 <div>
                     {% if page.previous.url %}
-                    <a class="nav-btn" href="{{ page.previous.url | relative_url }}">
-                        <small><i class="fas fa-arrow-left"></i> Previous</small>
-                        <span>{{ page.previous.title | truncate: 30 }}</span>
+                    <a class="nav-btn d-block" href="{{ page.previous.url | relative_url }}">
+                        <small>Previous</small>
+                        <span>{{ page.previous.title | truncate: 25 }}</span>
                     </a>
                     {% endif %}
                 </div>
 
                 <div class="text-end">
                     {% if page.next.url %}
-                    <a class="nav-btn" href="{{ page.next.url | relative_url }}">
-                        <small>Next <i class="fas fa-arrow-right"></i></small>
-                        <span>{{ page.next.title | truncate: 30 }}</span>
+                    <a class="nav-btn d-block" href="{{ page.next.url | relative_url }}">
+                        <small>Next</small>
+                        <span>{{ page.next.title | truncate: 25 }}</span>
                     </a>
                     {% endif %}
                 </div>
             </div>
             
             <div class="text-center mt-4">
-                <a href="{{ '/story.html' | relative_url }}" class="text-uppercase fw-bold text-decoration-none" style="color: var(--accent-gold); font-size: 0.7rem; letter-spacing: 1px;">
-                    View All Stories <i class="fas fa-th-large ms-1"></i>
+                <a href="{{ '/story.html' | relative_url }}" class="text-uppercase fw-bold text-decoration-none" style="color: var(--accent-gold); font-size: 0.65rem; letter-spacing: 1px;">
+                    Explore More Stories <i class="fas fa-arrow-right ms-1"></i>
                 </a>
             </div>
         </footer>
