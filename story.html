@@ -28,27 +28,40 @@ layout: null
             font-family: 'Plus Jakarta Sans', sans-serif;
             margin: 0;
             overflow-x: hidden;
-            font-size: 0.85rem; /* Slightly smaller base font */
+            font-size: 0.85rem;
         }
 
-        /* --- Navbar --- */
+        /* --- Updated Navbar --- */
         .navbar { 
             background: var(--deep-forest) !important;
             border-bottom: 1px solid var(--accent-gold);
-            padding: 0.5rem 0;
+            padding: 0.6rem 0;
         }
 
         .nav-link {
             color: var(--white) !important;
             font-weight: 700;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             letter-spacing: 1px;
             text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-gold) !important;
+        }
+
+        .btn-nav-donate {
+            background: var(--accent-gold);
+            color: var(--primary-green) !important;
+            padding: 5px 20px !important;
+            border-radius: 20px;
+            font-weight: 800;
         }
 
         /* --- Hero --- */
         .hero-section {
-            padding: 100px 0 50px; /* Compact padding */
+            padding: 120px 0 60px;
             background: linear-gradient(rgba(5, 26, 9, 0.85), rgba(10, 47, 16, 0.95)), url('assets/images/hero-bg.jpg') center/cover;
             text-align: center;
         }
@@ -57,81 +70,104 @@ layout: null
             font-family: 'Playfair Display', serif;
             font-size: clamp(1.8rem, 4vw, 2.8rem);
             color: var(--accent-gold);
-            margin-bottom: 10px;
+            margin-top: 10px;
         }
 
-        /* --- Main Content Grid --- */
+        /* --- Story Grid --- */
         .content-container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 50px 20px;
+            padding: 60px 20px;
         }
 
         .story-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
-            align-items: start;
         }
 
         .story-block {
             position: relative;
             padding-left: 25px;
             border-left: 1px solid var(--soft-gold);
-            margin-bottom: 0; /* Let the grid handle spacing */
         }
 
         .story-block::before {
             content: "";
             position: absolute;
             left: -6px;
-            top: 0;
+            top: 5px;
             width: 10px;
             height: 10px;
             background: var(--accent-gold);
             border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent-gold);
         }
 
         .story-block h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: var(--accent-gold);
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .story-block p {
-            line-height: 1.6;
-            opacity: 0.8;
-            margin-bottom: 0;
+            line-height: 1.7;
+            opacity: 0.85;
         }
 
-        /* --- Updates/Ticker --- */
+        /* --- Ticker Effect --- */
         .updates-container {
             background: var(--deep-forest);
-            padding: 50px 0;
+            padding: 60px 0;
             border-top: 1px solid var(--soft-gold);
+            overflow: hidden;
+        }
+
+        .ticker-window {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .ticker-track {
+            display: flex;
+            width: max-content;
+            animation: tickerMove 40s linear infinite;
+        }
+
+        .ticker-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes tickerMove {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         .ticker-card {
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--soft-gold);
             padding: 20px;
-            margin: 0 10px;
-            width: 280px;
+            margin: 0 15px;
+            width: 300px;
             border-radius: 12px;
             text-decoration: none;
             color: white;
-            display: inline-block;
+            white-space: normal;
+            transition: 0.3s;
         }
 
-        .ticker-card h4 {
-            font-size: 0.95rem;
-            margin: 5px 0;
+        .ticker-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-5px);
+            background: rgba(212, 175, 55, 0.05);
         }
 
-        /* --- Compact CTA --- */
+        /* --- Footer & CTA --- */
         .cta-section {
-            padding: 60px 0;
+            padding: 70px 0;
             text-align: center;
             background: rgba(0,0,0,0.2);
         }
@@ -140,24 +176,24 @@ layout: null
             background: var(--accent-gold);
             color: var(--primary-green);
             font-weight: 800;
-            padding: 10px 25px;
+            padding: 12px 30px;
             border-radius: 30px;
             text-decoration: none;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
+            display: inline-block;
         }
 
         footer {
-            padding: 40px 0 20px;
+            padding: 40px 0;
             text-align: center;
             background: var(--deep-forest);
-            font-size: 0.75rem;
             border-top: 1px solid var(--soft-gold);
         }
 
         @media (max-width: 768px) {
-            .story-grid { grid-template-columns: 1fr; gap: 30px; }
-            .hero-section { padding: 80px 0 40px; }
+            .story-grid { grid-template-columns: 1fr; }
+            .navbar-collapse { background: var(--deep-forest); padding: 1rem; }
         }
     </style>
 </head>
@@ -169,17 +205,26 @@ layout: null
                 <img src="assets/images/logo.jpg" alt="Logo" height="30" class="me-2 rounded-circle">
                 <span class="text-uppercase fw-bold" style="font-size: 0.8rem;">The <span style="color:var(--accent-gold)">Continent</span> Ventures</span>
             </a>
-            <div class="ms-auto d-flex align-items-center">
-                <a class="nav-link d-none d-md-block mx-2" href="index.html">Home</a>
-                <a class="nav-link d-none d-md-block mx-2" href="about.html">About</a>
-                <a class="nav-link btn-nav-donate" href="donate.html" style="background:var(--accent-gold); color:var(--primary-green)!important; padding: 4px 15px; border-radius: 20px; font-weight: 800; font-size: 0.7rem;">Donate</a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link mx-2" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link mx-2" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link mx-2 active" href="story.html">Our Story</a></li>
+                    <li class="nav-item"><a class="nav-link mx-2" href="contact.html">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link btn-nav-donate ms-lg-3" href="donate.html">Donate</a></li>
+                </ul>
             </div>
         </div>
     </nav>
 
     <header class="hero-section">
         <div class="container">
-            <span class="hero-tagline" style="font-size: 0.7rem; letter-spacing: 3px; opacity: 0.6;">EST. 2026</span>
+            <span class="hero-tagline" style="letter-spacing: 4px; opacity: 0.7; font-weight: 600;">EST. 2026</span>
             <h1>From a Vision to a Movement</h1>
         </div>
     </header>
@@ -199,18 +244,28 @@ layout: null
     </main>
 
     <section class="updates-container">
-        <div class="container text-center mb-3">
-            <h2 style="font-family: 'Playfair Display', serif; color: var(--accent-gold); font-size: 1.8rem; margin-bottom: 5px;">Field Updates</h2>
-            <p class="opacity-50 small">Stories from our communities.</p>
+        <div class="container text-center mb-4">
+            <h2 style="font-family: 'Playfair Display', serif; color: var(--accent-gold); font-size: 2rem;">Field Updates</h2>
+            <p class="opacity-50 small">Stories from our communities across the continent.</p>
         </div>
 
-        <div class="ticker-window" style="overflow: hidden; white-space: nowrap; padding: 10px 0;">
-            <div class="ticker-track" style="display: flex; animation: tickerMove 30s linear infinite;">
+        <div class="ticker-window">
+            <div class="ticker-track">
                 {% for post in site.posts %}
                 <a href="{{ post.url | relative_url }}" class="ticker-card">
-                    <span style="color: var(--accent-gold); font-weight: 800; font-size: 0.6rem;">{{ post.date | date: "%b %d, %Y" }}</span>
+                    <span style="color: var(--accent-gold); font-weight: 800; font-size: 0.65rem;">{{ post.date | date: "%B %d, %Y" }}</span>
                     <h4>{{ post.title }}</h4>
-                    <p class="small opacity-75" style="white-space: normal; font-size: 0.75rem;">{{ post.excerpt | strip_html | truncatewords: 10 }}</p>
+                    <p class="small opacity-75">{{ post.excerpt | strip_html | truncatewords: 12 }}</p>
+                    <span style="font-size: 0.65rem; color: var(--accent-gold); font-weight: 700;">READ MORE <i class="fas fa-arrow-right ms-1"></i></span>
+                </a>
+                {% endfor %}
+                
+                {% for post in site.posts %}
+                <a href="{{ post.url | relative_url }}" class="ticker-card">
+                    <span style="color: var(--accent-gold); font-weight: 800; font-size: 0.65rem;">{{ post.date | date: "%B %d, %Y" }}</span>
+                    <h4>{{ post.title }}</h4>
+                    <p class="small opacity-75">{{ post.excerpt | strip_html | truncatewords: 12 }}</p>
+                    <span style="font-size: 0.65rem; color: var(--accent-gold); font-weight: 700;">READ MORE <i class="fas fa-arrow-right ms-1"></i></span>
                 </a>
                 {% endfor %}
             </div>
@@ -219,19 +274,20 @@ layout: null
 
     <section class="cta-section">
         <div class="container">
-            <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem;" class="mb-2">Be Part of the Next Chapter</h2>
-            <p class="mb-4 opacity-75 mx-auto small" style="max-width: 450px;">Your support turns our vision into reality. Join us in sponsoring the leaders of tomorrow.</p>
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.2rem;" class="mb-3">Be Part of the Next Chapter</h2>
+            <p class="mb-4 opacity-75 mx-auto" style="max-width: 500px;">Your support turns our vision into reality. Together, we can sponsor the leaders of tomorrow.</p>
             <a href="donate.html" class="btn-gold">Sponsor a Child Today</a>
         </div>
     </section>
 
     <footer>
         <div class="container">
+            <img src="assets/images/logo.jpg" alt="Logo" height="40" class="mb-3 rounded-circle border border-warning">
             <p class="mb-1">&copy; 2026 The Continent Ventures Foundation. All Rights Reserved.</p>
-            <div class="opacity-50">
-                <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-white mx-2"><i class="fab fa-linkedin-in"></i></a>
+            <div class="mt-3">
+                <a href="#" class="text-white mx-2 opacity-50"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white mx-2 opacity-50"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white mx-2 opacity-50"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
     </footer>
