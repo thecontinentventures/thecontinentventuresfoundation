@@ -16,209 +16,173 @@ layout: default
             --accent-gold: #d4af37;
             --soft-gold: rgba(212, 175, 55, 0.15);
             --white: #ffffff;
-            --text-gray: rgba(255, 255, 255, 0.8);
+            --text-gray: rgba(255, 255, 255, 0.85);
         }
 
         body {
             background-color: var(--primary-green);
             color: var(--white);
             font-family: 'Plus Jakarta Sans', sans-serif;
-            padding-top: 80px; /* Space for the fixed navbar */
-            line-height: 1.8;
+            padding-top: 70px; /* Reduced space */
+            line-height: 1.6; /* Tighter line height for compactness */
         }
 
-        /* --- Global Navbar Styling --- */
+        /* --- Compact Navbar --- */
         .navbar { 
             background: var(--deep-forest) !important;
             border-bottom: 1px solid var(--accent-gold);
-            padding: 0.6rem 0;
+            padding: 0.4rem 0;
         }
 
-        .navbar-brand span {
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-        }
-
-        .nav-link {
-            color: var(--white) !important;
-            font-weight: 700;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            color: var(--accent-gold) !important;
-        }
-
+        .navbar-brand span { font-size: 0.8rem; letter-spacing: 0.5px; }
+        .nav-link { font-size: 0.7rem; letter-spacing: 0.5px; }
+        
         .btn-nav-donate {
             background: var(--accent-gold);
             color: var(--primary-green) !important;
-            padding: 5px 20px !important;
-            border-radius: 20px;
-            font-weight: 800;
-            margin-left: 15px;
+            padding: 3px 15px !important;
+            font-size: 0.7rem;
+            border-radius: 15px;
         }
 
-        /* --- Blog Header --- */
+        /* --- Balanced Layout Container --- */
         .post-container {
-            max-width: 1100px;
+            max-width: 1000px; /* Slightly narrower for focus */
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
 
         .post-header {
             text-align: center;
-            padding: 60px 0 40px;
+            padding: 30px 0 25px; /* Compact padding */
             border-bottom: 1px solid var(--soft-gold);
-            margin-bottom: 50px;
+            margin-bottom: 30px;
         }
 
         .post-category {
             color: var(--accent-gold);
             text-transform: uppercase;
             font-weight: 800;
-            letter-spacing: 4px;
-            font-size: 0.75rem;
-            display: inline-block;
-            margin-bottom: 20px;
+            letter-spacing: 2px;
+            font-size: 0.65rem;
+            margin-bottom: 10px;
             border: 1px solid var(--accent-gold);
-            padding: 4px 15px;
-            border-radius: 20px;
+            padding: 2px 10px;
+            border-radius: 4px; /* More modern than full round */
         }
 
         .post-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            line-height: 1.2;
-            margin-bottom: 25px;
-            color: var(--white);
+            font-size: clamp(1.5rem, 4vw, 2.5rem); /* Scaled down */
+            line-height: 1.1;
+            margin-bottom: 15px;
         }
 
         .post-meta {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 0.75rem;
             color: var(--accent-gold);
-            opacity: 0.9;
+            opacity: 0.8;
         }
 
-        /* --- Article Layout Grid --- */
+        /* --- Balanced Content Grid --- */
         .article-grid {
             display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 60px;
+            grid-template-columns: 1fr 260px; /* More balanced ratio */
+            gap: 40px;
             align-items: start;
         }
 
         .post-main-content {
-            font-size: 1.1rem;
+            font-size: 0.95rem; /* Reduced font size */
             color: var(--text-gray);
+            text-align: justify;
         }
 
-        /* Drop Cap */
+        /* Compact Drop Cap */
         .post-main-content > p:first-of-type::first-letter {
             font-family: 'Playfair Display', serif;
             float: left;
-            font-size: 4.5rem;
-            line-height: 1;
-            padding-right: 15px;
+            font-size: 3rem;
+            line-height: 0.8;
+            padding: 5px 8px 0 0;
             color: var(--accent-gold);
             font-weight: 900;
         }
 
         .post-main-content h2, .post-main-content h3 {
-            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
             color: var(--accent-gold);
-            margin: 50px 0 20px;
-            border-left: 3px solid var(--accent-gold);
-            padding-left: 20px;
+            margin: 25px 0 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--soft-gold);
         }
 
         .post-main-content img {
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            margin: 40px 0;
+            border-radius: 8px;
+            margin: 20px 0;
             border: 1px solid var(--soft-gold);
         }
 
         .post-main-content blockquote {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            color: var(--white);
-            border-top: 1px solid var(--accent-gold);
-            border-bottom: 1px solid var(--accent-gold);
-            padding: 30px 0;
-            margin: 45px 0;
-            text-align: center;
+            font-size: 1.1rem;
+            padding: 15px 25px;
+            margin: 25px 0;
+            background: rgba(255,255,255,0.02);
+            border-left: 3px solid var(--accent-gold);
             font-style: italic;
         }
 
-        /* --- Sidebar --- */
+        /* --- Compact Sidebar --- */
         .post-sidebar {
             position: sticky;
-            top: 100px;
-            padding: 25px;
+            top: 90px;
+            padding: 20px;
             background: var(--deep-forest);
             border: 1px solid var(--soft-gold);
-            border-radius: 15px;
+            border-radius: 10px;
         }
 
         .sidebar-title {
-            font-size: 0.9rem;
+            font-size: 0.75rem;
             font-weight: 800;
             text-transform: uppercase;
             color: var(--accent-gold);
-            margin-bottom: 20px;
-            display: block;
+            margin-bottom: 15px;
             border-bottom: 1px solid var(--soft-gold);
-            padding-bottom: 10px;
         }
 
-        /* --- Footer Navigation --- */
+        .sidebar-text { font-size: 0.8rem; line-height: 1.5; margin-bottom: 15px; }
+
+        /* --- Balanced Footer Nav --- */
         .post-footer {
-            margin-top: 80px;
-            padding-top: 40px;
+            margin-top: 50px;
+            padding: 30px 0;
             border-top: 1px solid var(--soft-gold);
-            padding-bottom: 60px;
         }
 
         .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
         }
 
         .nav-btn {
-            flex: 1;
-            padding: 20px;
+            padding: 12px;
             background: rgba(255,255,255,0.03);
             border: 1px solid var(--soft-gold);
             text-decoration: none;
             color: var(--white);
-            border-radius: 10px;
-            transition: 0.3s;
+            border-radius: 6px;
+            transition: 0.2s;
         }
 
-        .nav-btn:hover {
-            border-color: var(--accent-gold);
-            background: var(--soft-gold);
-        }
-
-        .nav-btn small {
-            display: block;
-            text-transform: uppercase;
-            font-size: 0.65rem;
-            color: var(--accent-gold);
-            margin-bottom: 5px;
-        }
+        .nav-btn:hover { background: var(--soft-gold); border-color: var(--accent-gold); color: white; }
+        .nav-btn small { font-size: 0.6rem; color: var(--accent-gold); display: block; }
+        .nav-btn span { font-weight: 700; font-size: 0.8rem; display: block; }
 
         @media (max-width: 992px) {
             .article-grid { grid-template-columns: 1fr; }
             .post-sidebar { display: none; }
-            .navbar-collapse { background: var(--deep-forest); padding: 1rem; }
         }
     </style>
 </head>
@@ -227,12 +191,12 @@ layout: default
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{{ '/index.html' | relative_url }}">
-                <img src="{{ '/assets/images/logo.jpg' | relative_url }}" alt="Logo" height="35" class="me-2 rounded-circle">
+                <img src="{{ '/assets/images/logo.jpg' | relative_url }}" alt="Logo" height="28" class="me-2 rounded-circle">
                 <span class="text-uppercase fw-bold">The <span style="color:var(--accent-gold)">Continent</span> Ventures</span>
             </a>
             
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon" style="width: 1.2em; height: 1.2em;"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -249,12 +213,12 @@ layout: default
 
     <article class="post-container">
         <header class="post-header">
-            <span class="post-category">{{ page.categories | first | default: "Field Update" }}</span>
+            <span class="post-category">{{ page.categories | first | default: "News Update" }}</span>
             <h1 class="post-title">{{ page.title }}</h1>
             <div class="post-meta">
-                <i class="far fa-calendar-alt me-2"></i> {{ page.date | date: "%B %d, %Y" }} 
-                <span class="mx-3">|</span>
-                <i class="far fa-user me-2"></i> {{ page.author | default: "The Continent Team" }}
+                <i class="far fa-calendar-alt me-1"></i> {{ page.date | date: "%B %d, %Y" }} 
+                <span class="mx-2">|</span>
+                <i class="far fa-user me-1"></i> {{ page.author | default: "The Continent Team" }}
             </div>
         </header>
 
@@ -265,41 +229,45 @@ layout: default
 
             <aside class="post-sidebar">
                 <span class="sidebar-title">Foundation Impact</span>
-                <p class="small opacity-75">Your support helps us reach children across the continent. Every contribution supports education, nutrition, and healthcare.</p>
-                <a href="{{ '/donate.html' | relative_url }}" class="btn btn-sm btn-outline-warning w-100 mt-2" style="border-radius: 20px; font-weight: 700;">Support Our Mission</a>
+                <p class="sidebar-text opacity-75">Your support helps us reach children across the continent with education and healthcare.</p>
+                <a href="{{ '/donate.html' | relative_url }}" class="btn btn-sm btn-outline-warning w-100 py-1" style="font-size: 0.7rem; font-weight: 700; border-radius: 4px;">Support Mission</a>
                 
-                <hr class="my-4" style="border-color: var(--soft-gold);">
+                <hr class="my-3" style="border-color: var(--soft-gold);">
                 
                 <span class="sidebar-title">Share Story</span>
-                <div class="d-flex justify-content-between">
-                    <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="text-white"><i class="fas fa-link"></i></a>
+                <div class="d-flex justify-content-between px-2">
+                    <a href="#" class="text-white small"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-white small"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white small"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="text-white small"><i class="fas fa-link"></i></a>
                 </div>
             </aside>
         </div>
 
         <footer class="post-footer">
             <div class="nav-buttons">
-                {% if page.previous.url %}
-                <a class="nav-btn" href="{{ page.previous.url | relative_url }}">
-                    <small><i class="fas fa-arrow-left"></i> Previous Article</small>
-                    <span>{{ page.previous.title | truncate: 40 }}</span>
-                </a>
-                {% endif %}
+                <div>
+                    {% if page.previous.url %}
+                    <a class="nav-btn" href="{{ page.previous.url | relative_url }}">
+                        <small><i class="fas fa-arrow-left"></i> Previous</small>
+                        <span>{{ page.previous.title | truncate: 30 }}</span>
+                    </a>
+                    {% endif %}
+                </div>
 
-                {% if page.next.url %}
-                <a class="nav-btn text-end" href="{{ page.next.url | relative_url }}">
-                    <small>Next Article <i class="fas fa-arrow-right"></i></small>
-                    <span>{{ page.next.title | truncate: 40 }}</span>
-                </a>
-                {% endif %}
+                <div class="text-end">
+                    {% if page.next.url %}
+                    <a class="nav-btn" href="{{ page.next.url | relative_url }}">
+                        <small>Next <i class="fas fa-arrow-right"></i></small>
+                        <span>{{ page.next.title | truncate: 30 }}</span>
+                    </a>
+                    {% endif %}
+                </div>
             </div>
             
-            <div class="text-center mt-5">
-                <a href="{{ '/story.html' | relative_url }}" class="text-uppercase fw-bold text-decoration-none" style="color: var(--accent-gold); font-size: 0.8rem; letter-spacing: 2px;">
-                    View All Stories <i class="fas fa-th-large ms-2"></i>
+            <div class="text-center mt-4">
+                <a href="{{ '/story.html' | relative_url }}" class="text-uppercase fw-bold text-decoration-none" style="color: var(--accent-gold); font-size: 0.7rem; letter-spacing: 1px;">
+                    View All Stories <i class="fas fa-th-large ms-1"></i>
                 </a>
             </div>
         </footer>
