@@ -41,7 +41,6 @@
             --accent-gold: #fbbf24;
             --deep-black: #0a0a0a;
             --pure-white: #ffffff;
-            --glass-bg: rgba(255, 255, 255, 0.03);
         }
 
         body, html {
@@ -60,32 +59,16 @@
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255,255,255,0.1);
             transition: all 0.4s ease;
-            padding: 20px 0;
+            padding: 15px 0;
         }
         
-        .nav-link {
-            font-weight: 600;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-
+        .nav-link { font-weight: 600; margin: 0 10px; transition: color 0.3s ease; }
         .text-green { color: var(--primary-green) !important; }
 
         /* Modern Hero Slider */
-        .myHeroSlider {
-            width: 100%;
-            height: 100vh;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
+        .myHeroSlider { width: 100%; height: 100vh; position: absolute; top: 0; left: 0; }
+        .swiper-slide { position: relative; overflow: hidden; }
 
-        .swiper-slide {
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Gradient Overlay for Readability */
         .slide-bg-container {
             position: absolute;
             width: 100%;
@@ -97,35 +80,30 @@
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.85) 100%);
         }
 
         .slide-bg {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transform: scale(1.1);
-            transition: transform 8s ease;
+            width: 100%; height: 100%; object-fit: cover;
+            transform: scale(1.1); transition: transform 8s ease;
         }
         
-        .swiper-slide-active .slide-bg {
-            transform: scale(1);
-        }
+        .swiper-slide-active .slide-bg { transform: scale(1); }
 
         .hero-content {
             z-index: 10;
             text-align: center;
             padding: 0 20px;
             max-width: 900px;
-            margin-top: 50px;
+            margin-top: 60px;
         }
 
         .hero-content h1 {
             font-weight: 800;
-            font-size: calc(2.5rem + 3.5vw);
+            font-size: calc(2.4rem + 3.5vw);
             line-height: 1.1;
-            margin-bottom: 25px;
-            background: linear-gradient(to bottom, #ffffff, #cccccc);
+            margin-bottom: 20px;
+            background: linear-gradient(to bottom, #ffffff, #e0e0e0);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             opacity: 0;
@@ -135,64 +113,80 @@
         .hero-content p {
             font-size: calc(1rem + 0.5vw);
             color: rgba(255,255,255,0.9);
-            margin-bottom: 40px;
+            margin-bottom: 45px;
             opacity: 0;
             transform: translateY(30px);
         }
 
-        /* Pulse Animation for Buttons */
+        /* Call to Action Buttons */
         .btn-green { 
             background: var(--primary-green);
-            color: white; 
-            border: none; 
-            padding: 18px 40px;
+            color: white; border: none; 
+            padding: 18px 45px;
             font-weight: 800;
             border-radius: 100px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 10px 30px rgba(46, 125, 50, 0.3);
+            letter-spacing: 1.5px;
+            box-shadow: 0 10px 30px rgba(46, 125, 50, 0.4);
+            text-decoration: none;
+            display: inline-block;
         }
 
         .btn-green:hover { 
             background-color: #388e3c; 
-            transform: scale(1.05);
+            transform: scale(1.05) translateY(-3px);
             color: white;
-            box-shadow: 0 15px 40px rgba(46, 125, 50, 0.5);
+            box-shadow: 0 15px 40px rgba(46, 125, 50, 0.6);
         }
 
-        /* Animations when active */
+        .btn-outline-white {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 16px 40px;
+            font-weight: 700;
+            border-radius: 100px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-left: 15px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-outline-white:hover {
+            background: white;
+            color: black;
+        }
+
+        /* Animations */
         .swiper-slide-active h1 { animation: fadeInUp 0.8s forwards 0.3s; }
         .swiper-slide-active p { animation: fadeInUp 0.8s forwards 0.5s; }
         .swiper-slide-active .btn-group-wrap { animation: fadeInUp 0.8s forwards 0.7s; }
 
-        @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
 
         /* Mission Ticker */
         .mission-ticker {
             position: fixed;
-            bottom: 80px;
-            width: 100%;
+            bottom: 80px; width: 100%;
             background: rgba(255,255,255,0.05);
             backdrop-filter: blur(5px);
-            padding: 10px 0;
+            padding: 12px 0;
             z-index: 50;
             border-top: 1px solid rgba(255,255,255,0.1);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
             overflow: hidden;
-            white-space: nowrap;
         }
 
         .ticker-content {
             display: inline-block;
-            animation: ticker 30s linear infinite;
-            font-weight: 600;
+            animation: ticker 35s linear infinite;
+            font-weight: 700;
             text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
+            font-size: 0.75rem;
+            letter-spacing: 2.5px;
             color: var(--accent-gold);
+            white-space: nowrap;
         }
 
         @keyframes ticker {
@@ -200,16 +194,21 @@
             100% { transform: translateX(-100%); }
         }
 
-        .swiper-pagination-bullet { background: #fff; width: 12px; height: 12px; }
-        .swiper-pagination-bullet-active { background: var(--primary-green); width: 30px; border-radius: 5px; }
+        .swiper-pagination-bullet { background: #fff; width: 10px; height: 10px; transition: 0.3s; }
+        .swiper-pagination-bullet-active { background: var(--primary-green); width: 35px; border-radius: 5px; }
 
         footer {
-            padding: 25px 0;
+            padding: 20px 0;
             position: fixed;
-            bottom: 0;
-            width: 100%;
+            bottom: 0; width: 100%;
             z-index: 100;
             background: var(--deep-black);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .btn-outline-white { margin-left: 0; margin-top: 15px; display: block; }
+            .hero-content { margin-top: 80px; }
         }
     </style>
 </head>
@@ -218,8 +217,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center fw-bold" href="index.html">
-                <img src="logo.jpg" alt="Foundation Logo" height="50" class="me-2 rounded-circle border border-2 border-success">
-                <span class="ls-tight">THE <span class="text-green">CONTINENT</span> VENTURES <small class="d-block d-sm-inline opacity-50 fw-light" style="font-size: 0.6em;">FOUNDATION</small></span>
+                <img src="logo.jpg" alt="Logo" height="50" class="me-2 rounded-circle border border-success">
+                <span class="ls-tight">THE <span class="text-green">CONTINENT</span> VENTURES <small class="opacity-50 fw-light" style="font-size: 0.6em;">FOUNDATION</small></span>
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -229,7 +228,7 @@
                     <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">Our Mission</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    <li class="nav-item ms-lg-3"><a class="btn btn-green btn-sm px-4" href="donate.html">Donate Now</a></li>
+                    <li class="nav-item ms-lg-3"><a class="btn btn-green btn-sm px-4 py-2" style="font-size: 0.8rem;" href="donate.html">Donate Now</a></li>
                 </ul>
             </div>
         </div>
@@ -246,7 +245,8 @@
                     <h1>Your Giving, <br>Their Future</h1>
                     <p>Every donation provides a stepping stone for children across Africa to reach their potential through education.</p>
                     <div class="btn-group-wrap opacity-0">
-                        <a href="donate.html" class="btn btn-green">Support Education</a>
+                        <a href="donate.html" class="btn btn-green"><i class="fas fa-heart me-2"></i> Donate Now</a>
+                        <a href="about.html" class="btn btn-outline-white">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -256,10 +256,11 @@
                     <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=1920&auto=format&fit=crop" class="slide-bg" alt="Nutrition">
                 </div>
                 <div class="hero-content">
-                    <h1>Nutrition & <br>Nourishment</h1>
+                    <h1>End Child <br>Hunger Today</h1>
                     <p>We provide healthy meals to ensure that no child has to study or sleep on an empty stomach.</p>
                     <div class="btn-group-wrap opacity-0">
-                        <a href="donate.html" class="btn btn-green">Feed a Child</a>
+                        <a href="donate.html" class="btn btn-green"><i class="fas fa-utensils me-2"></i> Donate Now</a>
+                        <a href="about.html" class="btn btn-outline-white">Our Food Programs</a>
                     </div>
                 </div>
             </div>
@@ -269,10 +270,11 @@
                     <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?q=80&w=1920&auto=format&fit=crop" class="slide-bg" alt="Clean Water">
                 </div>
                 <div class="hero-content">
-                    <h1>Clean Water <br>for Life</h1>
+                    <h1>Clean Water <br>Saves Lives</h1>
                     <p>Access to safe, clean drinking water is a fundamental right that we bring to every community we serve.</p>
                     <div class="btn-group-wrap opacity-0">
-                        <a href="donate.html" class="btn btn-green">Gift Clean Water</a>
+                        <a href="donate.html" class="btn btn-green"><i class="fas fa-tint me-2"></i> Donate Now</a>
+                        <a href="about.html" class="btn btn-outline-white">See Projects</a>
                     </div>
                 </div>
             </div>
@@ -283,13 +285,13 @@
 
     <div class="mission-ticker">
         <div class="ticker-content">
-            Education • Clean Water • Healthcare • Sustainable Agriculture • Child Nutrition • Empowerment • Nairobi • The Continent Ventures Foundation
+            Empowering Children • Education • Clean Water • Healthcare • Nutrition • Sustainability • Nairobi, Kenya • Support The Continent Ventures Foundation • Every Dollar Counts
         </div>
     </div>
 
     <footer class="text-center">
         <div class="container">
-            <p class="small opacity-50 m-0">&copy; <span id="currentYear"></span> The Continent Ventures Foundation. All Rights Reserved.</p>
+            <p class="small opacity-50 m-0">&copy; <span id="currentYear"></span> The Continent Ventures Foundation. <a href="donate.html" class="text-white text-decoration-none ms-2 fw-bold border-bottom border-success">Give Hope Today</a></p>
         </div>
     </footer>
 
@@ -301,7 +303,7 @@
             loop: true,
             effect: "fade",
             fadeEffect: { crossFade: true },
-            autoplay: { delay: 5000, disableOnInteraction: false },
+            autoplay: { delay: 6000, disableOnInteraction: false },
             speed: 1500,
             pagination: { el: ".swiper-pagination", clickable: true },
         });
