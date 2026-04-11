@@ -8,12 +8,6 @@
     <meta name="description" content="Empowering the African child through sustainable social ventures, education, nutrition, and clean water projects in Nairobi, Kenya.">
     <link rel="canonical" href="https://thecontinentventures.github.io/thecontinentventures/index.html" />
     
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://thecontinentventures.github.io/thecontinentventures/index.html">
-    <meta property="og:title" content="The Continent Ventures Foundation | Supporting Africa's Children">
-    <meta property="og:description" content="Your giving, their future. Supporting education and health for children across Africa.">
-    <meta property="og:image" content="https://thecontinentventures.github.io/thecontinentventures/logo.jpg">
-
     <link rel="icon" type="image/jpeg" href="logo.jpg" sizes="any">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -22,11 +16,10 @@
     
     <style>
         :root {
-            --primary-green: #1b5e20;
-            --light-green: #2e7d32;
-            --accent-gold: #c5a059;
-            --deep-black: #080808;
-            --off-white: #f8f9fa;
+            --primary-green: #0a2f10;
+            --accent-gold: #d4af37;
+            --deep-black: #050505;
+            --off-white: #ffffff;
         }
 
         body, html {
@@ -38,37 +31,17 @@
             color: var(--off-white);
         }
 
-        /* --- Refined Glass Navbar --- */
+        /* Snappy Navbar */
         .navbar { 
-            background: rgba(8, 8, 8, 0.7) !important;
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            padding: 12px 0;
-            transition: all 0.5s ease;
+            background: rgba(5, 5, 5, 0.9) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 10px 0;
+            z-index: 1000;
         }
 
-        .navbar-brand {
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            line-height: 1.2;
-        }
-
-        .nav-link {
-            font-size: 0.9rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            opacity: 0.8;
-            transition: 0.3s;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            opacity: 1;
-            color: var(--accent-gold) !important;
-        }
-
-        /* --- Hero Slider --- */
-        .myHeroSlider { width: 100%; height: 100vh; }
+        /* Faster Hero Slider */
+        .myHeroSlider { width: 100%; height: 100vh; background: #000; }
 
         .slide-bg-container {
             position: absolute;
@@ -81,17 +54,15 @@
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 100%);
+            background: linear-gradient(135deg, rgba(10, 47, 16, 0.6) 0%, rgba(5, 5, 5, 0.8) 100%);
         }
 
         .slide-bg {
             width: 100%; height: 100%; object-fit: cover;
-            transform: scale(1);
-            transition: transform 10s linear;
+            will-change: transform;
         }
-        
-        .swiper-slide-active .slide-bg { transform: scale(1.15); }
 
+        /* Snappier Content Animations */
         .hero-content {
             z-index: 10;
             text-align: center;
@@ -99,125 +70,70 @@
             padding: 0 30px;
         }
 
-        .hero-content h1 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: calc(2.8rem + 4vw);
-            margin-bottom: 25px;
-            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        .hero-content h1, .hero-content p, .btn-group-wrap {
             opacity: 0;
-            transform: translateY(40px);
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: opacity, transform;
         }
 
-        .hero-content p {
-            font-size: calc(1.1rem + 0.3vw);
-            font-weight: 300;
-            max-width: 700px;
-            margin: 0 auto 50px;
-            line-height: 1.8;
-            opacity: 0;
-            transform: translateY(30px);
-        }
+        /* Active Slide States (Instant triggers) */
+        .swiper-slide-active .hero-content h1 { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+        .swiper-slide-active .hero-content p { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
+        .swiper-slide-active .btn-group-wrap { opacity: 1; transform: translateY(0); transition-delay: 0.3s; }
 
-        /* --- Buttons --- */
+        /* Buttons */
         .btn-gold { 
             background: var(--accent-gold);
-            color: #fff;
-            padding: 20px 50px;
-            font-weight: 700;
+            color: var(--deep-black);
+            padding: 15px 40px;
+            font-weight: 800;
             border-radius: 4px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.85rem;
-            transition: all 0.4s ease;
-            border: none;
-            box-shadow: 0 15px 35px rgba(197, 160, 89, 0.2);
+            letter-spacing: 1px;
+            border: 2px solid var(--accent-gold);
+            transition: 0.3s;
             text-decoration: none;
             display: inline-block;
         }
 
         .btn-gold:hover {
-            background: #b18e4a;
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(197, 160, 89, 0.4);
-            color: white;
+            background: transparent;
+            color: var(--accent-gold);
         }
 
         .btn-outline-white {
-            border: 1px solid rgba(255,255,255,0.3);
-            backdrop-filter: blur(5px);
-            padding: 20px 45px;
+            border: 2px solid var(--off-white);
+            padding: 13px 35px;
             border-radius: 4px;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.85rem;
-            margin-left: 15px;
-            transition: 0.4s;
+            letter-spacing: 1px;
+            margin-left: 10px;
+            transition: 0.3s;
             text-decoration: none;
-            color: white;
+            color: var(--off-white);
             display: inline-block;
         }
 
         .btn-outline-white:hover {
-            background: white;
-            color: black;
-            border-color: white;
-        }
-
-        /* --- Scroll Indicator --- */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 60px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            opacity: 0.5;
-        }
-
-        .mouse {
-            width: 20px; height: 32px;
-            border: 2px solid white;
-            border-radius: 20px;
-            position: relative;
-        }
-
-        .mouse::before {
-            content: '';
-            width: 4px; height: 4px;
-            background: white;
-            position: absolute;
-            left: 50%; top: 6px;
-            transform: translateX(-50%);
-            border-radius: 50%;
-            animation: scrollDown 2s infinite;
-        }
-
-        @keyframes scrollDown {
-            0% { opacity: 0; top: 6px; }
-            50% { opacity: 1; }
-            100% { opacity: 0; top: 18px; }
+            background: var(--off-white);
+            color: var(--primary-green);
         }
 
         footer {
-            padding: 15px 0;
+            padding: 10px 0;
             position: fixed;
             bottom: 0; width: 100%;
             z-index: 100;
-            background: rgba(0,0,0,0.8);
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-            border-top: 1px solid rgba(255,255,255,0.05);
+            background: var(--primary-green);
+            border-top: 2px solid var(--accent-gold);
         }
 
         @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.5rem; }
+            .hero-content h1 { font-size: 2.2rem; }
             .btn-outline-white { margin-left: 0; margin-top: 10px; display: block; }
             .btn-gold { display: block; width: 100%; }
-            .scroll-indicator { bottom: 80px; }
         }
     </style>
 </head>
@@ -226,19 +142,15 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center fw-bold" href="index.html">
-                <img src="logo.jpg" alt="Logo" height="45" class="me-3 rounded-circle border border-secondary">
-                <span class="text-uppercase">The <span class="text-white">Continent</span> Ventures<br>
-                <small class="opacity-50 fw-light" style="font-size: 0.55em; letter-spacing: 3px;">Foundation</small></span>
+                <img src="logo.jpg" alt="Logo" height="40" class="me-3 rounded-circle border border-warning">
+                <span class="text-uppercase" style="font-size: 0.9rem;">The <span style="color:var(--accent-gold)">Continent</span> Ventures<br>
+                <small class="fw-light" style="font-size: 0.55em; letter-spacing: 2px;">Foundation</small></span>
             </a>
-            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">Impact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    <li class="nav-item ms-lg-4"><a class="btn btn-gold px-4 py-2" style="font-size: 0.7rem;" href="donate.html">Donate Now</a></li>
+                    <li class="nav-item"><a class="btn btn-gold py-2 ms-lg-3" style="font-size: 0.7rem;" href="donate.html">Donate</a></li>
                 </ul>
             </div>
         </div>
@@ -249,62 +161,42 @@
             
             <div class="swiper-slide d-flex align-items-center justify-content-center">
                 <div class="slide-bg-container">
-                    <img src="https://cdn.pixabay.com/photo/2016/11/29/03/42/mic-1867121_1280.jpg" class="slide-bg" alt="African children in classroom">
+                    <img src="https://cdn.pixabay.com/photo/2016/11/29/03/42/mic-1867121_1280.jpg" class="slide-bg" alt="Education">
                 </div>
                 <div class="hero-content">
-                    <h1>Hope for Every <br>African Child</h1>
-                    <p>Building a future where every child has access to quality education, safe spaces, and the tools they need to dream big.</p>
+                    <h1 style="font-family: 'Playfair Display', serif;">Empowering Through Education</h1>
+                    <p>Creating sustainable pathways for the African child to lead and innovate.</p>
                     <div class="btn-group-wrap">
-                        <a href="donate.html" class="btn btn-gold">Make an Impact</a>
-                        <a href="about.html" class="btn btn-outline-white">Our Mission</a>
+                        <a href="donate.html" class="btn btn-gold">Support a Child</a>
+                        <a href="about.html" class="btn btn-outline-white">Our Story</a>
                     </div>
                 </div>
             </div>
 
             <div class="swiper-slide d-flex align-items-center justify-content-center">
                 <div class="slide-bg-container">
-                    <img src="https://images.pexels.com/photos/1583211/pexels-photo-1583211.jpeg?auto=compress&cs=tinysrgb&w=1920" class="slide-bg" alt="Smiling African children">
+                    <img src="https://images.pexels.com/photos/1583211/pexels-photo-1583211.jpeg?auto=compress&cs=tinysrgb&w=1920" class="slide-bg" alt="Nutrition">
                 </div>
                 <div class="hero-content">
-                    <h1>Nourishing <br>Potential</h1>
-                    <p>Combating hunger through sustainable nutrition programs that empower local communities and fuel young minds for the future.</p>
+                    <h1 style="font-family: 'Playfair Display', serif;">Strong Bodies, Minds</h1>
+                    <p>Health and nutrition are the foundation of progress. Join us today.</p>
                     <div class="btn-group-wrap">
-                        <a href="donate.html" class="btn btn-gold">Feed a Child</a>
-                        <a href="about.html" class="btn btn-outline-white">The Program</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide d-flex align-items-center justify-content-center">
-                <div class="slide-bg-container">
-                    <img src="https://images.pexels.com/photos/6646923/pexels-photo-6646923.jpeg?auto=compress&cs=tinysrgb&w=1920" class="slide-bg" alt="African child at water source">
-                </div>
-                <div class="hero-content">
-                    <h1>Clean Water, <br>Pure Life</h1>
-                    <p>Transforming lives by providing sustainable access to clean, safe drinking water for schools and villages across the continent.</p>
-                    <div class="btn-group-wrap">
-                        <a href="donate.html" class="btn btn-gold">Support Health</a>
-                        <a href="about.html" class="btn btn-outline-white">Our Projects</a>
+                        <a href="donate.html" class="btn btn-gold">Provide a Meal</a>
+                        <a href="about.html" class="btn btn-outline-white">Impact Areas</a>
                     </div>
                 </div>
             </div>
 
         </div>
-        
-        <div class="scroll-indicator">
-            <div class="mouse"></div>
-        </div>
-
         <div class="swiper-pagination"></div>
     </div>
 
     <footer class="text-center">
-        <div class="container d-flex justify-content-between align-items-center opacity-50">
+        <div class="container d-flex justify-content-between align-items-center text-white" style="font-size: 0.7rem;">
             <p class="m-0">&copy; <span id="currentYear"></span> The Continent Ventures Foundation.</p>
-            <div class="socials d-none d-md-block">
+            <div class="socials">
                 <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
             </div>
         </div>
     </footer>
@@ -314,39 +206,13 @@
     <script>
         document.getElementById("currentYear").textContent = new Date().getFullYear();
         
-        var swiper = new Swiper(".myHeroSlider", {
+        const swiper = new Swiper(".myHeroSlider", {
             loop: true,
             effect: "fade",
-            autoplay: { delay: 7000, disableOnInteraction: false },
-            speed: 2000,
+            fadeEffect: { crossFade: true },
+            autoplay: { delay: 5000, disableOnInteraction: false },
+            speed: 800, // Snapier transition
             pagination: { el: ".swiper-pagination", clickable: true },
-            on: {
-                slideChangeTransitionStart: function () {
-                    const contents = document.querySelectorAll('.hero-content h1, .hero-content p, .btn-group-wrap');
-                    contents.forEach(el => {
-                        el.style.opacity = "0";
-                        el.style.transform = "translateY(30px)";
-                        el.style.transition = "none";
-                    });
-                },
-                slideChangeTransitionEnd: function () {
-                    const activeSlide = document.querySelector('.swiper-slide-active .hero-content');
-                    if(activeSlide) {
-                        const h1 = activeSlide.querySelector('h1');
-                        const p = activeSlide.querySelector('p');
-                        const btn = activeSlide.querySelector('.btn-group-wrap');
-
-                        h1.style.transition = "all 1s ease 0.2s";
-                        p.style.transition = "all 1s ease 0.4s";
-                        btn.style.transition = "all 1s ease 0.6s";
-
-                        [h1, p, btn].forEach(el => {
-                            el.style.opacity = "1";
-                            el.style.transform = "translateY(0)";
-                        });
-                    }
-                }
-            }
         });
     </script>
 </body>
