@@ -1,1 +1,9 @@
+title: The Continent Ventures Foundation
+email: info@thecontinentventures.com
+description: Empowering Africa's Future through sustainable ventures.
+baseurl: "/thecontinentventuresfoundation" # Important for GitHub Project pages
+url: "https://thecontinentventures.github.io"
 
+# Build settings
+theme: jekyll-theme-minimal # You can keep your custom CSS, this just enables the engine
+markdown: kramdown
