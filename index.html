@@ -16,9 +16,9 @@
     
     <style>
         :root {
-            --primary-green: #0a2f10;
-            --accent-gold: #d4af37;
-            --deep-black: #050505;
+            --primary-green: #0a2f10; /* Deep Forest Green */
+            --accent-gold: #d4af37;  /* Classic Gold */
+            --light-green: #1a4a1d;  /* Lighter Forest for gradients */
             --off-white: #ffffff;
         }
 
@@ -26,22 +26,36 @@
             height: 100%;
             margin: 0;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--deep-black);
+            background-color: var(--primary-green);
             overflow: hidden;
             color: var(--off-white);
         }
 
-        /* Premium Navbar */
+        /* --- Refined Green Navbar --- */
         .navbar { 
-            background: rgba(5, 5, 5, 0.85) !important;
+            background: rgba(10, 47, 16, 0.9) !important; /* Semi-transparent Green */
             backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
-            padding: 15px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 12px 0;
             z-index: 1000;
         }
 
-        /* Smooth Slider & Ken Burns Effect */
-        .myHeroSlider { width: 100%; height: 100vh; background: #000; }
+        .nav-link {
+            color: var(--off-white) !important;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-gold) !important;
+        }
+
+        /* --- Slider Styling --- */
+        .myHeroSlider { width: 100%; height: 100vh; background: var(--primary-green); }
 
         .slide-bg-container {
             position: absolute;
@@ -54,7 +68,8 @@
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(5, 5, 5, 0.3) 0%, rgba(5, 5, 5, 0.9) 100%);
+            /* Green-tinted dark gradient for better text readability */
+            background: linear-gradient(to bottom, rgba(10, 47, 16, 0.4) 0%, rgba(10, 47, 16, 0.9) 100%);
         }
 
         .slide-bg {
@@ -67,7 +82,7 @@
             transform: scale(1.1);
         }
 
-        /* Content Animations */
+        /* --- Content Animations --- */
         .hero-content {
             z-index: 10;
             text-align: center;
@@ -77,16 +92,17 @@
 
         .hero-content h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-size: clamp(2.5rem, 6vw, 4.2rem);
             margin-bottom: 20px;
             line-height: 1.1;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
         }
 
         .hero-content p {
-            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-size: clamp(1rem, 2vw, 1.2rem);
             max-width: 700px;
             margin: 0 auto 40px;
-            opacity: 0.9;
+            opacity: 0.95;
             font-weight: 300;
         }
 
@@ -100,27 +116,26 @@
         .swiper-slide-active .hero-content p { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
         .swiper-slide-active .btn-group-wrap { opacity: 1; transform: translateY(0); transition-delay: 0.6s; }
 
-        /* CTA Buttons */
+        /* --- CTA Buttons --- */
         .btn-gold { 
             background: var(--accent-gold);
-            color: var(--deep-black);
+            color: var(--primary-green);
             padding: 16px 45px;
             font-weight: 800;
             border-radius: 50px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             border: 2px solid var(--accent-gold);
-            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: 0.4s;
             text-decoration: none;
             display: inline-block;
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
         .btn-gold:hover {
             background: transparent;
             color: var(--accent-gold);
-            transform: scale(1.05);
-            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3);
+            transform: translateY(-3px);
         }
 
         .btn-outline-white {
@@ -142,19 +157,33 @@
             color: var(--primary-green);
         }
 
+        /* --- Footer --- */
         footer {
-            padding: 15px 0;
+            padding: 12px 0;
             position: fixed;
             bottom: 0; width: 100%;
             z-index: 100;
-            background: rgba(10, 47, 16, 0.95);
+            background: var(--primary-green);
             border-top: 1px solid var(--accent-gold);
+        }
+
+        .swiper-pagination-bullet { background: var(--off-white) !important; }
+        .swiper-pagination-bullet-active { background: var(--accent-gold) !important; }
+
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background: var(--primary-green);
+                padding: 20px;
+                border-radius: 10px;
+                margin-top: 10px;
+                border: 1px solid var(--accent-gold);
+            }
+            .nav-link { margin: 10px 0; }
         }
 
         @media (max-width: 768px) {
             .btn-outline-white { margin-left: 0; margin-top: 15px; display: block; }
             .btn-gold { display: block; width: 100%; }
-            .hero-content h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
@@ -165,10 +194,22 @@
             <a class="navbar-brand d-flex align-items-center fw-bold" href="index.html">
                 <img src="logo.jpg" alt="Logo" height="45" class="me-3 rounded-circle border border-warning">
                 <span class="text-uppercase" style="font-size: 0.95rem; line-height: 1.2;">The <span style="color:var(--accent-gold)">Continent</span> Ventures<br>
-                <small class="fw-light" style="font-size: 0.55em; letter-spacing: 3px; color: #aaa;">Foundation</small></span>
+                <small class="fw-light" style="font-size: 0.55em; letter-spacing: 3px; color: #ddd;">Foundation</small></span>
             </a>
-            <div class="ms-auto">
-                <a class="btn btn-gold py-2 px-4" style="font-size: 0.75rem; border-radius: 4px;" href="donate.html">Donate Now</a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-gold py-2 px-4" style="font-size: 0.75rem; border-radius: 4px;" href="donate.html">Donate</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -224,7 +265,7 @@
 
     <footer class="text-center">
         <div class="container d-flex justify-content-between align-items-center text-white" style="font-size: 0.75rem;">
-            <p class="m-0">&copy; <span id="currentYear"></span> The Continent Ventures Foundation. <span class="d-none d-md-inline">Empowering the African Child.</span></p>
+            <p class="m-0">&copy; <span id="currentYear"></span> The Continent Ventures Foundation.</p>
             <div class="socials">
                 <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
@@ -243,10 +284,10 @@
             effect: "fade",
             fadeEffect: { crossFade: true },
             autoplay: { 
-                delay: 6000, 
+                delay: 5000, 
                 disableOnInteraction: false 
             },
-            speed: 1200, // Silky smooth fade
+            speed: 1200, 
             pagination: { 
                 el: ".swiper-pagination", 
                 clickable: true 
