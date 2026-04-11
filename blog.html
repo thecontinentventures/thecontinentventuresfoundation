@@ -6,10 +6,10 @@ layout: null
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Field Updates | The Continent Ventures Foundation</title>
+    <title>Newsroom | The Continent Ventures Foundation</title>
     
     <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -20,6 +20,7 @@ layout: null
             --accent-gold: #d4af37;
             --soft-gold: rgba(212, 175, 55, 0.15);
             --white: #ffffff;
+            --news-border: rgba(255, 255, 255, 0.1);
         }
 
         body {
@@ -27,120 +28,136 @@ layout: null
             color: var(--white);
             font-family: 'Plus Jakarta Sans', sans-serif;
             margin: 0;
-            padding-top: 100px;
+            padding-top: 80px;
         }
 
+        /* --- News Navbar --- */
         .navbar { 
             background: var(--deep-forest) !important;
-            border-bottom: 1px solid var(--soft-gold);
-            padding: 1rem 0;
+            border-bottom: 2px solid var(--accent-gold);
+            padding: 0.8rem 0;
         }
         
         .nav-link {
             color: var(--white) !important;
-            font-weight: 500;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-size: 0.85rem;
-            margin: 0 10px;
-            transition: 0.3s;
-        }
-
-        .nav-link:hover {
-            color: var(--accent-gold) !important;
-        }
-
-        /* --- Header Section --- */
-        .blog-header {
-            padding: 60px 0;
-            text-align: center;
-            background: linear-gradient(to bottom, var(--deep-forest), var(--primary-green));
-        }
-
-        .blog-header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            color: var(--accent-gold);
-        }
-
-        /* --- Full Story Layout --- */
-        .story-section {
-            max-width: 800px;
-            margin: 0 auto 100px;
-            padding: 0 20px;
-        }
-
-        .story-item {
-            border-bottom: 1px solid var(--soft-gold);
-            padding-bottom: 80px;
-            margin-bottom: 80px;
-        }
-
-        .story-item:last-child {
-            border-bottom: none;
-        }
-
-        .story-meta {
-            color: var(--accent-gold);
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
             font-size: 0.8rem;
+            margin: 0 12px;
+        }
+
+        /* --- News Ticker / Header --- */
+        .news-header {
+            border-bottom: 1px solid var(--news-border);
+            padding: 40px 0;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .news-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        /* --- Hero Article (Latest) --- */
+        .hero-article {
+            border-bottom: 3px double var(--news-border);
+            padding-bottom: 50px;
+            margin-bottom: 50px;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            line-height: 1.1;
+            margin-top: 20px;
+            font-weight: 900;
+        }
+
+        .hero-img-wrap {
+            overflow: hidden;
+            border-radius: 4px;
+            max-height: 500px;
+        }
+
+        .hero-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        /* --- News Feed Styling --- */
+        .news-sidebar {
+            border-left: 1px solid var(--news-border);
+            padding-left: 30px;
+        }
+
+        .sidebar-item {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--news-border);
+        }
+
+        .sidebar-item:last-child { border-bottom: none; }
+
+        .category-label {
+            background: var(--accent-gold);
+            color: var(--primary-green);
+            font-weight: 800;
+            font-size: 0.65rem;
+            padding: 2px 8px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .news-content {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.85);
+        }
+
+        .byline {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-gold);
             margin-bottom: 15px;
             display: block;
         }
 
-        .story-title {
+        /* --- Section Dividers --- */
+        .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 25px;
-            line-height: 1.2;
-        }
-
-        .story-image {
-            width: 100%;
-            height: auto;
-            border-radius: 20px;
-            margin-bottom: 35px;
-            border: 1px solid var(--soft-gold);
-        }
-
-        .story-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            opacity: 0.9;
-        }
-
-        .story-content p {
-            margin-bottom: 20px;
-        }
-
-        /* --- Footer --- */
-        footer {
-            background: var(--deep-forest);
-            padding: 60px 0 30px;
-            border-top: 1px solid var(--soft-gold);
-            text-align: center;
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--accent-gold);
+            display: inline-block;
+            margin-bottom: 30px;
+            padding-bottom: 5px;
         }
 
         .btn-gold {
             background: var(--accent-gold);
             color: var(--primary-green);
-            font-weight: 700;
-            padding: 12px 30px;
-            border-radius: 50px;
+            font-weight: 800;
+            padding: 10px 25px;
             text-decoration: none;
             display: inline-block;
-            transition: 0.3s;
-        }
-        
-        .btn-gold:hover {
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-            color: var(--primary-green);
+            text-transform: uppercase;
+            font-size: 0.8rem;
         }
 
-        @media (max-width: 768px) {
-            .story-title { font-size: 1.8rem; }
+        @media (max-width: 991px) {
+            .news-sidebar {
+                border-left: none;
+                border-top: 1px solid var(--news-border);
+                margin-top: 40px;
+                padding-left: 0;
+            }
         }
     </style>
 </head>
@@ -149,71 +166,100 @@ layout: null
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="assets/images/logo.jpg" alt="Logo" height="45" class="me-3 rounded-circle border border-warning">
-                <span class="text-uppercase fw-bold">The <span style="color:var(--accent-gold)">Continent</span> Ventures</span>
+                <img src="assets/images/logo.jpg" alt="Logo" height="40" class="me-2 rounded-circle">
+                <span class="fw-bold" style="font-size: 1.1rem; letter-spacing: -0.5px;">TCV <span style="color:var(--accent-gold)">JOURNAL</span></span>
             </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="story.html">Our Story</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-                    <li class="nav-item ms-lg-3"><a class="btn-gold py-1 px-3" href="donate.html">Donate</a></li>
-                </ul>
+            <div class="ms-auto d-none d-lg-flex align-items-center">
+                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="story.html">Story</a>
+                <a class="nav-link" href="contact.html">Contact</a>
+                <a href="donate.html" class="btn-gold ms-3">Support Us</a>
             </div>
         </div>
     </nav>
 
-    <header class="blog-header">
+    <div class="news-header">
         <div class="container">
-            <span class="text-uppercase fw-bold opacity-50" style="letter-spacing: 4px; font-size: 0.8rem;">Journal</span>
-            <h1>Field Updates & Stories</h1>
+            <p class="small opacity-50 mb-0">NAIROBI, KENYA • {{ "now" | date: "%A, %B %d, %Y" }}</p>
+            <h1>The Field Journal</h1>
         </div>
-    </header>
+    </div>
 
-    <main class="story-section">
-        {% for post in site.posts %}
-        <article class="story-item">
-            <span class="story-meta">
-                {% if forloop.first %}Latest Update{% else %}Archive{% endif %} • {{ post.date | date: "%B %d, %Y" }}
-            </span>
-            <h2 class="story-title">{{ post.title }}</h2>
-            
-            {% if post.image %}
-            <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="story-image">
-            {% endif %}
-            
-            <div class="story-content">
-                {{ post.content }}
+    <main class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                {% assign posts = site.posts %}
+                
+                {% if posts.size > 0 %}
+                {% assign hero = posts.first %}
+                <article class="hero-article">
+                    <span class="category-label">Top Story</span>
+                    <h2 class="hero-title">{{ hero.title }}</h2>
+                    <span class="byline">By Field Correspondents • {{ hero.date | date: "%B %d" }}</span>
+                    
+                    <div class="hero-img-wrap mb-4">
+                        <img src="{{ hero.image | default: 'assets/images/hero-bg.jpg' }}" alt="Featured Image">
+                    </div>
+                    
+                    <div class="news-content">
+                        {{ hero.content }}
+                    </div>
+                    
+                    <div class="mt-4 pt-3 border-top border-secondary">
+                        <small class="opacity-50">Share this report:</small>
+                        <a href="#" class="text-white ms-3 opacity-50"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white ms-3 opacity-50"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </article>
+                {% endif %}
+
+                <h3 class="section-title">Earlier Reports</h3>
+                {% for post in posts offset:1 %}
+                <div class="row mb-5 pb-5 border-bottom border-secondary opacity-90">
+                    <div class="col-md-4">
+                        <img src="{{ post.image | default: 'assets/images/logo.jpg' }}" class="img-fluid rounded" alt="post image">
+                    </div>
+                    <div class="col-md-8">
+                        <span class="category-label" style="background: transparent; border: 1px solid var(--accent-gold); color: var(--accent-gold);">Update</span>
+                        <h4 class="font-playfair fw-bold mb-2">{{ post.title }}</h4>
+                        <p class="small opacity-75 mb-3">{{ post.date | date: "%B %d, %Y" }}</p>
+                        <div class="small news-content">
+                            {{ post.excerpt | strip_html | truncatewords: 40 }}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
-            
-            <div class="mt-4">
-                <a href="https://twitter.com/intent/tweet?text={{ post.title }}&url={{ site.url }}{{ post.url }}" target="_blank" class="text-white opacity-50 me-3"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ post.url }}" target="_blank" class="text-white opacity-50"><i class="fab fa-facebook-f"></i></a>
+
+            <div class="col-lg-4">
+                <div class="news-sidebar">
+                    <h3 class="section-title w-100">At a Glance</h3>
+                    
+                    {% for post in posts limit:6 %}
+                    <div class="sidebar-item">
+                        <p class="small text-uppercase fw-bold mb-1" style="color:var(--accent-gold); font-size: 0.7rem;">{{ post.date | date: "%b %d" }}</p>
+                        <h5 class="h6 fw-bold mb-0" style="line-height: 1.4;">{{ post.title }}</h5>
+                    </div>
+                    {% endfor %}
+
+                    <div class="mt-5 p-4 text-center" style="background: var(--deep-forest); border: 1px solid var(--accent-gold);">
+                        <h5 class="font-playfair fw-bold">Daily Briefing</h5>
+                        <p class="small opacity-75">Get the latest impact reports delivered to your inbox.</p>
+                        <form action="contact.html">
+                            <button class="btn-gold w-100 mt-2">Sign Up</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-        </article>
-        {% endfor %}
+        </div>
     </main>
 
-    <section class="container text-center py-5 mb-5">
-        <div style="background: var(--soft-gold); padding: 50px; border-radius: 30px; border: 1px solid var(--accent-gold);">
-            <h2 style="font-family: 'Playfair Display', serif;" class="mb-3">Join the Journey</h2>
-            <p class="opacity-75 mb-4">Subscribe to receive these field updates directly in your inbox.</p>
-            <a href="contact.html" class="btn-gold">Subscribe to Newsletter</a>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 The Continent Ventures Foundation. All Rights Reserved.</p>
-            <div class="mt-3">
-                <a href="#" class="text-white mx-2 opacity-50"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-white mx-2 opacity-50"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-white mx-2 opacity-50"><i class="fab fa-linkedin-in"></i></a>
-            </div>
+    <footer class="mt-5">
+        <div class="container py-5 text-center">
+            <h2 class="font-playfair fw-900 text-uppercase mb-4">TCV Journal</h2>
+            <p class="small opacity-50 mb-0">&copy; 2026 The Continent Ventures Foundation. All Rights Reserved.</p>
+            <p class="small opacity-50">Headquartered in Nairobi, Kenya</p>
         </div>
     </footer>
 
