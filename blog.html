@@ -28,7 +28,7 @@ layout: null
             color: var(--white);
             font-family: 'Plus Jakarta Sans', sans-serif;
             margin: 0;
-            padding-top: 80px;
+            padding-top: 65px; /* Reduced from 80px */
             font-size: 0.85rem;
             overflow-x: hidden;
         }
@@ -37,7 +37,7 @@ layout: null
         .navbar { 
             background: rgba(5, 26, 9, 0.98) !important;
             border-bottom: 1px solid var(--accent-gold);
-            padding: 0.6rem 0;
+            padding: 0.4rem 0; /* More compact padding */
             backdrop-filter: blur(10px);
         }
         
@@ -45,43 +45,43 @@ layout: null
             color: var(--white) !important;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.7rem;
-            padding: 10px 15px !important;
+            letter-spacing: 0.5px;
+            font-size: 0.65rem; /* Reduced font size */
+            padding: 8px 12px !important;
         }
 
         .nav-link.active { color: var(--accent-gold) !important; }
 
-        /* --- Header --- */
+        /* --- Header (Reduced Height) --- */
         .news-header {
             border-bottom: 1px solid var(--news-border);
-            padding: 40px 0;
-            margin-bottom: 40px;
+            padding: 20px 0; /* Reduced from 40px */
+            margin-bottom: 30px;
             text-align: center;
         }
 
         .news-header h1 {
             font-family: 'Playfair Display', serif;
             font-weight: 900;
-            font-size: clamp(2.2rem, 6vw, 3.8rem);
-            letter-spacing: -1px;
+            font-size: clamp(1.5rem, 4vw, 2.2rem); /* Compact font size range */
+            letter-spacing: -0.5px;
             text-transform: uppercase;
-            margin: 10px 0;
+            margin: 5px 0;
             color: var(--white);
         }
 
         /* --- Hero Article --- */
         .hero-article {
             border-bottom: 1px solid var(--news-border);
-            padding-bottom: 40px;
-            margin-bottom: 40px;
+            padding-bottom: 35px;
+            margin-bottom: 35px;
         }
 
         .hero-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
-            line-height: 1.1;
-            margin: 15px 0;
+            font-size: clamp(1.4rem, 3.5vw, 1.8rem); /* Reduced from 2.8rem */
+            line-height: 1.2;
+            margin: 12px 0;
             font-weight: 900;
         }
 
@@ -90,7 +90,7 @@ layout: null
 
         .hero-img-wrap {
             overflow: hidden;
-            border-radius: 8px;
+            border-radius: 6px;
             height: auto;
             aspect-ratio: 16 / 9;
             border: 1px solid var(--news-border);
@@ -107,13 +107,13 @@ layout: null
         /* --- Sidebar --- */
         .news-sidebar {
             border-left: 1px solid var(--news-border);
-            padding-left: 30px;
+            padding-left: 25px;
             position: sticky;
-            top: 100px;
+            top: 85px;
         }
 
         .sidebar-item {
-            padding: 15px 0;
+            padding: 12px 0;
             border-bottom: 1px solid var(--news-border);
             transition: 0.3s;
         }
@@ -123,32 +123,32 @@ layout: null
             background: var(--accent-gold);
             color: var(--primary-green);
             font-weight: 800;
-            font-size: 0.6rem;
-            padding: 2px 8px;
+            font-size: 0.55rem;
+            padding: 1px 6px;
             text-transform: uppercase;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             display: inline-block;
-            border-radius: 3px;
+            border-radius: 2px;
         }
 
         .byline {
-            font-size: 0.75rem;
+            font-size: 0.65rem;
             text-transform: uppercase;
             color: var(--accent-gold);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             display: block;
             letter-spacing: 1px;
         }
 
         .section-title {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            border-bottom: 2px solid var(--accent-gold);
+            letter-spacing: 1.5px;
+            border-bottom: 1.5px solid var(--accent-gold);
             display: inline-block;
-            margin-bottom: 25px;
-            padding-bottom: 5px;
+            margin-bottom: 20px;
+            padding-bottom: 4px;
             color: var(--accent-gold);
         }
 
@@ -156,36 +156,35 @@ layout: null
             background: var(--accent-gold);
             color: var(--primary-green);
             font-weight: 800;
-            padding: 12px 24px;
+            padding: 10px 20px;
             border-radius: 4px;
             text-decoration: none;
             display: inline-block;
             text-transform: uppercase;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             transition: 0.3s;
             border: none;
         }
-        .btn-gold:hover { background: var(--white); transform: translateY(-2px); }
+        .btn-gold:hover { background: var(--white); transform: translateY(-1px); }
 
         /* --- Secondary Posts --- */
         .secondary-post-img {
             aspect-ratio: 4/3;
             width: 100%;
             object-fit: cover;
-            border-radius: 6px;
+            border-radius: 4px;
             border: 1px solid var(--news-border);
         }
 
         /* --- Responsive Tweaks --- */
         @media (max-width: 991px) {
-            body { padding-top: 70px; }
-            .news-sidebar { border-left: none; border-top: 2px solid var(--news-border); margin-top: 50px; padding-left: 0; padding-top: 30px; }
-            .hero-title { font-size: 1.8rem; }
+            body { padding-top: 60px; }
+            .news-sidebar { border-left: none; border-top: 1.5px solid var(--news-border); margin-top: 40px; padding-left: 0; padding-top: 25px; }
         }
 
         @media (max-width: 576px) {
-            .news-header { padding: 25px 0; }
-            .secondary-post-img { margin-bottom: 15px; aspect-ratio: 16/9; }
+            .news-header { padding: 15px 0; }
+            .secondary-post-img { margin-bottom: 12px; aspect-ratio: 16/9; }
         }
     </style>
 </head>
@@ -194,13 +193,13 @@ layout: null
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center fw-bold" href="{{ '/' | relative_url }}">
-                <img src="{{ '/assets/images/logo.jpg' | relative_url }}" alt="Logo" height="40" class="me-2 rounded-circle border border-warning">
-                <span class="text-uppercase d-none d-sm-inline" style="font-size: 0.9rem; line-height: 1.2;">The <span style="color:var(--accent-gold)">Continent</span> Ventures<br>
-                <small class="fw-light" style="font-size: 0.55em; letter-spacing: 3px; color: #ddd;">Foundation</small></span>
+                <img src="{{ '/assets/images/logo.jpg' | relative_url }}" alt="Logo" height="35" class="me-2 rounded-circle border border-warning">
+                <span class="text-uppercase d-none d-sm-inline" style="font-size: 0.75rem; line-height: 1.1;">The <span style="color:var(--accent-gold)">Continent</span> Ventures<br>
+                <small class="fw-light" style="font-size: 0.5em; letter-spacing: 2px; color: #ddd;">Foundation</small></span>
             </a>
             
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon" style="font-size: 0.8rem;"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -210,7 +209,7 @@ layout: null
                     <li class="nav-item"><a class="nav-link" href="{{ '/story' | relative_url }}">Our Story</a></li>
                     <li class="nav-item"><a class="nav-link active" href="{{ '/blog' | relative_url }}">Journal</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ '/contact' | relative_url }}">Contact</a></li>
-                    <li class="nav-item mt-2 mt-lg-0"><a href="{{ '/donate' | relative_url }}" class="btn-gold ms-lg-3">Donate</a></li>
+                    <li class="nav-item mt-2 mt-lg-0"><a href="{{ '/donate' | relative_url }}" class="btn-gold ms-lg-2 py-1 px-3" style="font-size: 0.6rem;">Donate</a></li>
                 </ul>
             </div>
         </div>
@@ -218,52 +217,47 @@ layout: null
 
     <div class="news-header">
         <div class="container">
-            <p class="small opacity-50 mb-1" style="font-size: 0.7rem; letter-spacing: 2px;">NAIROBI, KENYA • {{ "now" | date: "%A, %B %d, %Y" }}</p>
+            <p class="small opacity-50 mb-1" style="font-size: 0.6rem; letter-spacing: 2px;">NAIROBI, KENYA • {{ "now" | date: "%A, %B %d, %Y" }}</p>
             <h1>The Field Journal</h1>
         </div>
     </div>
 
     <main class="container">
-        <div class="row g-lg-5">
+        <div class="row g-lg-4">
             <div class="col-lg-8">
                 {% assign posts = site.posts %}
                 
                 {% if posts.size > 0 %}
                     {% assign hero = posts.first %}
                     <article class="hero-article">
-                        <span class="category-label">{{ hero.category | default: "Featured Report" }}</span>
+                        <span class="category-label">{{ hero.category | default: "Report" }}</span>
                         <h2 class="hero-title"><a href="{{ hero.url | relative_url }}">{{ hero.title }}</a></h2>
-                        <span class="byline">Dispatch by Field Correspondents • {{ hero.date | date: "%B %d, %Y" }}</span>
+                        <span class="byline">{{ hero.date | date: "%B %d, %Y" }} • Field Correspondent</span>
                         
-                        <div class="hero-img-wrap mb-4">
+                        <div class="hero-img-wrap mb-3">
                             {% if hero.featured_image %}
                                 <img src="{{ '/assets/images/blog/' | append: hero.featured_image | relative_url }}" alt="{{ hero.title }}">
                             {% else %}
-                                <img src="{{ '/assets/images/hero-bg.jpg' | relative_url }}" alt="TCV Update">
+                                <img src="{{ '/assets/images/hero-bg.jpg' | relative_url }}" alt="TCV">
                             {% endif %}
                         </div>
                         
-                        <div class="news-content opacity-75 mb-4" style="font-size: 1rem; line-height: 1.7;">
-                            {{ hero.excerpt | strip_html | truncatewords: 60 }}
+                        <div class="news-content opacity-75 mb-3" style="font-size: 0.9rem; line-height: 1.6;">
+                            {{ hero.excerpt | strip_html | truncatewords: 50 }}
                         </div>
                         
-                        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
-                            <a href="{{ hero.url | relative_url }}" class="btn-gold">Read Full Update</a>
-                            <div class="d-flex align-items-center opacity-50">
-                                <small class="me-3">SHARE</small>
-                                <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-                                <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                        <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
+                            <a href="{{ hero.url | relative_url }}" class="btn-gold">Read More</a>
+                            <div class="d-flex align-items-center opacity-40">
+                                <a href="#" class="text-white me-3 small"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="text-white small"><i class="fab fa-facebook-f"></i></a>
                             </div>
                         </div>
                     </article>
 
-                    <div class="mb-4">
-                        <span class="section-title">Archive Feed</span>
-                    </div>
-
                     {% for post in posts offset:1 %}
-                    <div class="row mb-5 secondary-post align-items-center">
-                        <div class="col-sm-4">
+                    <div class="row mb-4 secondary-post align-items-center">
+                        <div class="col-sm-3 col-4">
                             <a href="{{ post.url | relative_url }}">
                                 {% if post.featured_image %}
                                     <img src="{{ '/assets/images/blog/' | append: post.featured_image | relative_url }}" class="secondary-post-img" alt="{{ post.title }}">
@@ -272,63 +266,41 @@ layout: null
                                 {% endif %}
                             </a>
                         </div>
-                        <div class="col-sm-8 mt-3 mt-sm-0">
-                            <span class="byline mb-1" style="font-size: 0.65rem;">{{ post.date | date: "%B %d, %Y" }}</span>
-                            <h4 class="fw-bold mb-2">
-                                <a href="{{ post.url | relative_url }}" class="text-white text-decoration-none" style="transition:0.3s" onmouseover="this.style.color='var(--accent-gold)'" onmouseout="this.style.color='white'">{{ post.title }}</a>
+                        <div class="col-sm-9 col-8">
+                            <span class="byline mb-1" style="font-size: 0.6rem;">{{ post.date | date: "%B %d, %Y" }}</span>
+                            <h4 class="fw-bold mb-1" style="font-size: 1rem; line-height: 1.3;">
+                                <a href="{{ post.url | relative_url }}" class="text-white text-decoration-none hover-gold">{{ post.title }}</a>
                             </h4>
-                            <p class="opacity-50 small mb-0">
-                                {{ post.excerpt | strip_html | truncatewords: 20 }}
-                            </p>
                         </div>
                     </div>
                     {% endfor %}
                 {% else %}
                     <div class="text-center py-5">
-                        <i class="fas fa-feather fa-3x opacity-25 mb-3"></i>
-                        <p class="opacity-50">No reports have been filed in the journal yet.</p>
+                        <p class="opacity-50">Journal updates coming soon.</p>
                     </div>
                 {% endif %}
             </div>
 
             <div class="col-lg-4">
                 <aside class="news-sidebar">
-                    <span class="section-title">Recent Briefings</span>
-                    
+                    <span class="section-title">Briefings</span>
                     {% for post in site.posts limit:5 %}
                     <div class="sidebar-item">
-                        <p class="small text-uppercase fw-bold mb-1" style="color:var(--accent-gold); font-size: 0.65rem;">{{ post.date | date: "%b %d, %Y" }}</p>
-                        <h5 class="fw-bold mb-0" style="line-height: 1.4; font-size: 0.95rem;">
-                            <a href="{{ post.url | relative_url }}" class="text-white text-decoration-none" style="transition:0.3s" onmouseover="this.style.color='var(--accent-gold)'" onmouseout="this.style.color='white'">{{ post.title }}</a>
+                        <p class="small text-uppercase fw-bold mb-1" style="color:var(--accent-gold); font-size: 0.55rem;">{{ post.date | date: "%b %d" }}</p>
+                        <h5 class="fw-bold mb-0" style="line-height: 1.3; font-size: 0.85rem;">
+                            <a href="{{ post.url | relative_url }}" class="text-white text-decoration-none hover-gold">{{ post.title }}</a>
                         </h5>
                     </div>
                     {% endfor %}
-
-                    <div class="mt-5 p-4" style="background: rgba(255,255,255,0.03); border: 1px solid var(--soft-gold); border-radius: 8px;">
-                        <h5 class="font-playfair fw-bold mb-2">Join the Mission</h5>
-                        <p class="small opacity-75 mb-3">Get monthly dispatches from our projects in Nairobi delivered to your inbox.</p>
-                        <form onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
-                            <div class="mb-3">
-                                <input type="email" class="form-control form-control-sm bg-dark border-secondary text-white" placeholder="Email address" required>
-                            </div>
-                            <button class="btn-gold w-100 py-2" style="font-size: 0.7rem;">Subscribe Now</button>
-                        </form>
-                    </div>
                 </aside>
             </div>
         </div>
     </main>
 
-    <footer class="mt-5 border-top border-secondary bg-black bg-opacity-25">
-        <div class="container py-5 text-center">
-            <h2 class="font-playfair fw-900 text-uppercase mb-3" style="font-size: 1.5rem; letter-spacing: 4px; color: var(--accent-gold);">TCV Journal</h2>
-            <p class="small opacity-50 mb-0">&copy; 2026 The Continent Ventures Foundation. All Rights Reserved.</p>
-            <p class="small opacity-50">Nairobi, Kenya • Impacting Lives through Education & Tech</p>
-            <div class="mt-4">
-                <a href="#" class="text-white mx-3 opacity-50"><i class="fab fa-instagram fa-lg"></i></a>
-                <a href="#" class="text-white mx-3 opacity-50"><i class="fab fa-linkedin fa-lg"></i></a>
-                <a href="#" class="text-white mx-3 opacity-50"><i class="fab fa-facebook fa-lg"></i></a>
-            </div>
+    <footer class="mt-5 border-top border-secondary bg-black bg-opacity-25 py-4">
+        <div class="container text-center">
+            <h2 class="font-playfair fw-900 text-uppercase mb-2" style="font-size: 1.1rem; letter-spacing: 3px; color: var(--accent-gold);">TCV</h2>
+            <p class="small opacity-50 mb-0" style="font-size: 0.65rem;">&copy; 2026 The Continent Ventures Foundation</p>
         </div>
     </footer>
 
