@@ -122,6 +122,7 @@ layout: default
             color: rgba(255, 255, 255, 0.9);
         }
 
+        /* Dropcap effect for the first letter of the Markdown content */
         .story-content > p:first-of-type::first-letter {
             font-family: 'Playfair Display', serif;
             float: left;
@@ -130,6 +131,12 @@ layout: default
             padding: 10px 15px 0 0;
             color: var(--accent-gold);
             font-weight: 900;
+        }
+
+        .story-content img {
+            max-width: 100%;
+            border-radius: 15px;
+            margin: 30px 0;
         }
 
         /* Right Side Widget */
@@ -160,7 +167,6 @@ layout: default
             opacity: 0.6;
         }
 
-        /* Responsive */
         @media (max-width: 1100px) {
             .story-wrapper { grid-template-columns: 1fr 300px; }
             .sidebar-left { display: none; }
@@ -174,7 +180,6 @@ layout: default
             }
             .mission-widget { position: static; margin-top: 40px; }
             .floating-title-card h1 { font-size: 2.5rem; }
-            .btn-donate { margin-left: 0; margin-top: 10px; width: 100%; text-align: center; }
         }
     </style>
 </head>
@@ -184,7 +189,7 @@ layout: default
         <div class="container">
             <a class="navbar-brand" href="{{ '/' | relative_url }}">
                 <img src="{{ '/logo.jpg' | relative_url }}" alt="Logo" class="brand-logo">
-                <span>THE <span class="brand-text-gold">CONTINENT</span> VENTURES</span>
+                <span>THE <span class="brand-text-gold">CONTINENT</span></span>
             </a>
             
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -205,9 +210,21 @@ layout: default
         </div>
     </nav>
 
+    <div class="story-wrapper">
+        <aside class="sidebar-left">
+            <div style="position: sticky; top: 120px;">
+                <p class="small opacity-50 text-uppercase" style="letter-spacing: 2px;">Foundation Insight</p>
+                <p class="small">Empowering Africa's Future through sustainable digital and structural innovation.</p>
+                <hr class="border-secondary opacity-25">
+                <a href="https://github.com/thecontinentventures" target="_blank" class="text-white small text-decoration-none">
+                    <i class="fab fa-github me-2"></i> View on GitHub
+                </a>
+            </div>
+        </aside>
+
         <main>
             <div class="floating-title-card">
-                <span class="label">{{ page.category | default: "Foundation Update" }}</span>
+                <span class="label">{{ page.category | default: "Legacy Update" }}</span>
                 <h1>{{ page.title }}</h1>
                 <div class="small opacity-50">
                     <span>{{ page.date | date: "%B %d, %Y" }}</span>
@@ -221,7 +238,7 @@ layout: default
             </article>
 
             <div class="mt-5 pt-5 border-top border-secondary">
-                <a href="{{ '/blog.html' | relative_url }}" class="text-decoration-none text-white opacity-75 small text-uppercase letter-spacing-2">
+                <a href="{{ '/stories' | relative_url }}" class="text-decoration-none text-white opacity-75 small text-uppercase" style="letter-spacing: 2px;">
                     <i class="fas fa-chevron-left me-2"></i> Back to all stories
                 </a>
             </div>
