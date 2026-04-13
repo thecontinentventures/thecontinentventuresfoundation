@@ -15,208 +15,163 @@ layout: default
             --primary-green: #0a2f10;
             --deep-forest: #051a09;
             --accent-gold: #d4af37;
-            --soft-gold: rgba(212, 175, 55, 0.15);
             --white: #ffffff;
-            --text-gray: rgba(255, 255, 255, 0.7);
-            --glass: rgba(255, 255, 255, 0.04);
-            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-light: #f8f9fa;
+            --text-muted: rgba(255, 255, 255, 0.6);
         }
 
         body {
             background-color: var(--deep-forest);
-            color: var(--white);
+            color: var(--text-light);
             font-family: 'Plus Jakarta Sans', sans-serif;
-            line-height: 1.8;
-            font-size: 1rem;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
 
-        /* --- Navbar Fixes --- */
+        /* --- Minimalist Navbar --- */
         .navbar {
-            background: rgba(5, 26, 9, 0.95) !important;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--glass-border);
-            padding: 1rem 0;
+            background: rgba(5, 26, 9, 0.98) !important;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
         }
 
-        /* --- Refined Hero Header --- */
-        .editorial-header {
-            position: relative;
-            padding: 160px 0 80px;
-            background: radial-gradient(circle at top right, var(--primary-green), var(--deep-forest));
+        .nav-link {
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--white) !important;
+            margin: 0 15px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-gold) !important;
+        }
+
+        .btn-donate {
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold) !important;
+            border-radius: 0;
+            padding: 8px 25px !important;
+            transition: all 0.3s;
+        }
+
+        .btn-donate:hover {
+            background: var(--accent-gold);
+            color: var(--primary-green) !important;
+        }
+
+        /* --- News Feature Header --- */
+        .feature-header {
+            padding: 180px 0 60px;
             text-align: center;
-        }
-
-        .header-box {
-            max-width: 850px;
+            max-width: 900px;
             margin: 0 auto;
-            background: rgba(0, 0, 0, 0.5); /* Use solid dark background to prevent overlap */
-            padding: 50px 40px;
-            border-radius: 30px;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
         }
 
-        .post-category {
+        .category-tag {
             color: var(--accent-gold);
             text-transform: uppercase;
             font-weight: 800;
-            letter-spacing: 4px;
-            font-size: 0.75rem;
-            margin-bottom: 20px;
+            letter-spacing: 5px;
+            font-size: 0.8rem;
             display: block;
+            margin-bottom: 20px;
         }
 
-        .post-title {
+        .entry-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.2rem, 6vw, 4rem);
-            line-height: 1.1;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            line-height: 1;
             font-weight: 900;
-            margin-bottom: 30px;
-            color: #fff;
-        }
-
-        .post-meta {
-            font-size: 0.85rem;
-            color: var(--accent-gold);
-            font-weight: 600;
-            display: flex;
-            gap: 25px;
-            justify-content: center;
-            opacity: 0.9;
-        }
-
-        /* --- Content Layout --- */
-        .content-wrapper {
-            max-width: 1140px;
-            margin: 0 auto;
-            padding: 0 25px 100px;
-            display: grid;
-            grid-template-columns: 1fr 340px;
-            gap: 80px;
-        }
-
-        .post-main-content {
-            font-size: 1.1rem;
-            color: var(--text-gray);
-        }
-
-        /* Editorial Dropcap */
-        .post-main-content > p:first-of-type::first-letter {
-            font-family: 'Playfair Display', serif;
-            float: left;
-            font-size: 5rem;
-            line-height: 0.7;
-            padding: 12px 18px 0 0;
-            color: var(--accent-gold);
-            font-weight: 900;
-        }
-
-        .post-main-content h2, .post-main-content h3 {
-            font-family: 'Playfair Display', serif;
-            color: white;
-            margin: 50px 0 25px;
-            letter-spacing: -0.5px;
-        }
-
-        /* --- Clean Images --- */
-        .post-main-content img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 20px;
-            margin: 40px 0;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            border: 1px solid var(--glass-border);
-        }
-
-        /* --- Enhanced Sticky Sidebar --- */
-        .post-sidebar {
-            position: sticky;
-            top: 120px;
-        }
-
-        .sidebar-card {
-            background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
-            border: 1px solid var(--glass-border);
-            padding: 35px;
-            border-radius: 28px;
             margin-bottom: 40px;
         }
 
-        .sidebar-title {
-            font-size: 0.8rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            color: var(--accent-gold);
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .sidebar-text {
+        .entry-meta {
             font-size: 0.9rem;
-            color: var(--text-gray);
-            margin-bottom: 25px;
-        }
-
-        .btn-impact {
-            background: var(--accent-gold);
-            color: var(--primary-green) !important;
-            font-weight: 800;
-            border-radius: 12px;
-            padding: 14px;
-            transition: 0.3s;
+            color: var(--text-muted);
             text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            border: none;
-            width: 100%;
+            letter-spacing: 2px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
         }
 
-        .btn-impact:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
-            background: #fff;
-        }
-
-        /* --- Footer Navigation --- */
-        .post-footer {
-            max-width: 1140px;
+        /* --- Clean Story Content --- */
+        .story-container {
+            max-width: 800px;
             margin: 0 auto;
-            padding: 60px 25px;
-            border-top: 1px solid var(--glass-border);
+            padding: 60px 20px 100px;
         }
 
-        .nav-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+        .story-content {
+            font-size: 1.25rem;
+            line-height: 2;
+            color: rgba(255,255,255,0.9);
         }
 
-        .impact-btn {
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            padding: 30px;
-            border-radius: 20px;
-            text-decoration: none !important;
-            transition: 0.4s;
-            display: block;
+        .story-content p {
+            margin-bottom: 35px;
         }
 
-        .impact-btn:hover {
-            background: var(--soft-gold);
-            border-color: var(--accent-gold);
-            transform: scale(1.02);
+        /* Editorial Dropcap */
+        .story-content > p:first-of-type::first-letter {
+            font-family: 'Playfair Display', serif;
+            float: left;
+            font-size: 6rem;
+            line-height: 0.7;
+            padding: 10px 20px 0 0;
+            color: var(--accent-gold);
+            font-weight: 900;
         }
 
-        .impact-btn small { color: var(--accent-gold); text-transform: uppercase; font-weight: 700; font-size: 0.7rem; }
-        .impact-btn span { color: white; display: block; font-size: 1.2rem; font-weight: 600; margin-top: 8px; font-family: 'Playfair Display', serif; }
+        .story-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #fff;
+            margin: 60px 0 30px;
+        }
+
+        /* Large Bleed Images */
+        .story-content img {
+            width: 120%;
+            margin-left: -10%;
+            height: auto;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            border-radius: 4px;
+        }
+
+        /* --- News Footer Nav --- */
+        .story-footer {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-link {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+        }
+
+        .footer-link:hover {
+            color: #fff;
+        }
 
         @media (max-width: 992px) {
-            .content-wrapper { grid-template-columns: 1fr; }
-            .post-sidebar { position: static; margin-top: 40px; }
-            .btn-nav-donate { border-radius: 10px; padding: 6px 20px !important; margin: 10px 0;}
+            .story-content img {
+                width: 100%;
+                margin-left: 0;
+            }
+            .entry-title { font-size: 3rem; }
         }
     </style>
 </head>
@@ -224,85 +179,51 @@ layout: default
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="{{ '/index.html' | relative_url }}">
-                <img src="{{ '/assets/images/logo.jpg' | relative_url }}" alt="Logo" height="40" class="me-3 rounded-circle border border-warning">
-                <span class="text-uppercase fw-bold" style="letter-spacing:1px">The <span style="color:var(--accent-gold)">Continent</span></span>
+            <a class="navbar-brand fw-bold" href="{{ '/index.html' | relative_url }}">
+                THE <span style="color:var(--accent-gold)">CONTINENT</span>
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link mx-2" href="{{ '/index.html' | relative_url }}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link mx-2 active" href="{{ '/story.html' | relative_url }}">Stories</a></li>
-                    <li class="nav-item"><a class="nav-link btn-nav-donate ms-lg-3 py-2 px-4" href="{{ '/donate.html' | relative_url }}">Donate</a></li>
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="{{ '/index.html' | relative_url }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ '/about.html' | relative_url }}">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{{ '/story.html' | relative_url }}">Our Story</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ '/contact.html' | relative_url }}">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link btn-donate ms-lg-3" href="{{ '/donate.html' | relative_url }}">Donate</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <header class="editorial-header">
-        <div class="container">
-            <div class="header-box">
-                <span class="post-category">{{ page.categories | first | default: "Foundation Impact" }}</span>
-                <h1 class="post-title">{{ page.title }}</h1>
-                <div class="post-meta">
-                    <span><i class="far fa-calendar-alt me-2"></i> {{ page.date | date: "%B %d, %Y" }}</span>
-                    <span><i class="far fa-clock me-2"></i> 5 Min Read</span>
-                </div>
-            </div>
+    <header class="feature-header container">
+        <span class="category-tag">{{ page.categories | first | default: "Special Report" }}</span>
+        <h1 class="entry-title">{{ page.title }}</h1>
+        <div class="entry-meta">
+            <span>{{ page.date | date: "%B %d, %Y" }}</span>
+            <span>&bull;</span>
+            <span>By Foundation Dispatch</span>
         </div>
     </header>
 
-    <main class="content-wrapper">
-        <article class="post-main-content">
+    <main class="story-container">
+        <article class="story-content">
             {{ content }}
         </article>
 
-        <aside class="post-sidebar">
-            <div class="sidebar-card sticky-sidebar">
-                <span class="sidebar-title">Foundation Goal</span>
-                <p class="sidebar-text">Join us as we dismantle poverty through digital innovation. Our mission is to create a tech-savvy, self-reliant generation in Nairobi and beyond.</p>
-                <a href="{{ '/donate.html' | relative_url }}" class="btn btn-impact">Contribute Now</a>
-                
-                <hr class="my-4 opacity-10">
-                
-                <span class="sidebar-title">Spread the Word</span>
-                <div class="d-flex justify-content-start gap-4">
-                    <a href="#" class="text-white opacity-40 hover-gold transition-all"><i class="fab fa-twitter fs-5"></i></a>
-                    <a href="#" class="text-white opacity-40 hover-gold transition-all"><i class="fab fa-linkedin-in fs-5"></i></a>
-                    <a href="#" class="text-white opacity-40 hover-gold transition-all"><i class="fas fa-link fs-5"></i></a>
-                </div>
-            </div>
-        </aside>
-    </main>
+        <footer class="story-footer">
+            {% if page.previous.url %}
+            <a href="{{ page.previous.url | relative_url }}" class="footer-link"><i class="fas fa-arrow-left me-2"></i> Previous</a>
+            {% else %}
+            <span></span>
+            {% endif %}
 
-    <footer class="post-footer">
-        <div class="nav-grid">
-            <div>
-                {% if page.previous.url %}
-                <a class="impact-btn" href="{{ page.previous.url | relative_url }}">
-                    <small>Previous Story</small>
-                    <span>{{ page.previous.title | truncate: 35 }}</span>
-                </a>
-                {% endif %}
-            </div>
-            <div class="text-end">
-                {% if page.next.url %}
-                <a class="impact-btn" href="{{ page.next.url | relative_url }}">
-                    <small>Next Impact</small>
-                    <span>{{ page.next.title | truncate: 35 }}</span>
-                </a>
-                {% endif %}
-            </div>
-        </div>
-        
-        <div class="text-center mt-5 pt-4">
-            <a href="{{ '/story.html' | relative_url }}" class="text-white text-decoration-none opacity-40 fw-bold small transition-all hover-gold" style="letter-spacing: 2px">
-                VIEW ALL STORIES <i class="fas fa-arrow-right ms-2" style="font-size: 0.7rem"></i>
-            </a>
-        </div>
-    </footer>
+            {% if page.next.url %}
+            <a href="{{ page.next.url | relative_url }}" class="footer-link">Next <i class="fas fa-arrow-right ms-2"></i></a>
+            {% endif %}
+        </footer>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
