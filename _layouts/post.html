@@ -44,7 +44,7 @@ layout: null
             width: 0%;
         }
 
-        /* --- Navbar --- */
+        /* --- Updated Navbar (Story Style) --- */
         .navbar {
             background: var(--nav-bg) !important;
             padding: 0.8rem 0;
@@ -52,8 +52,51 @@ layout: null
             backdrop-filter: blur(15px);
         }
 
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            font-weight: 800;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: var(--white) !important;
+        }
+
         .brand-logo { 
-            height: 40px; width: 40px; border-radius: 50%; margin-right: 12px;
+            height: 45px; 
+            width: 45px; 
+            border-radius: 50%; 
+            margin-right: 12px;
+            object-fit: cover;
+        }
+
+        .brand-text-gold { color: var(--accent-gold); }
+
+        .nav-link {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            color: var(--white) !important;
+            opacity: 0.8;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            opacity: 1;
+            color: var(--accent-gold) !important;
+        }
+        
+        .btn-donate-nav {
+            background: var(--accent-gold);
+            color: var(--deep-forest) !important;
+            padding: 8px 20px !important;
+            border-radius: 4px;
+            font-weight: 800;
+            font-size: 0.75rem;
+            margin-left: 15px;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
         }
 
         /* --- Main Layout --- */
@@ -159,12 +202,25 @@ layout: null
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="{{ '/' | relative_url }}">
+            <a class="navbar-brand" href="{{ '/' | relative_url }}">
                 <img src="{{ '/assets/images/logo.jpg' | relative_url }}" alt="Logo" class="brand-logo">
-                <span style="font-size: 0.85rem; font-weight: 800; letter-spacing: 1px;">THE <span style="color:var(--accent-gold)">CONTINENT</span></span>
+                <span>THE <span class="brand-text-gold">CONTINENT</span></span>
             </a>
-            <div class="ms-auto">
-                <a href="{{ '/donate' | relative_url }}" class="btn btn-sm px-4" style="background:var(--accent-gold); color:var(--deep-forest); font-weight: 800; border-radius: 4px;">DONATE</a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link px-3" href="{{ '/' | relative_url }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="{{ '/about' | relative_url }}">About</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 active" href="{{ '/story' | relative_url }}">Our Story</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="{{ '/contact' | relative_url }}">Contact Us</a></li>
+                    <li class="nav-item">
+                        <a class="btn-donate-nav" href="{{ '/donate' | relative_url }}">Donate</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -173,20 +229,20 @@ layout: null
         <aside class="sidebar-left">
             <div class="sidebar-item">
                 <div class="mb-4">
-                    <p class="mb-1 opacity-50 small">PUBLISHED</p>
+                    <p class="mb-1 opacity-50 small text-uppercase" style="letter-spacing: 2px;">Published</p>
                     <p class="fw-bold">{{ page.date | date: "%B %d, %Y" }}</p>
                 </div>
                 <div class="mb-4">
-                    <p class="mb-1 opacity-50 small">READ TIME</p>
+                    <p class="mb-1 opacity-50 small text-uppercase" style="letter-spacing: 2px;">Read Time</p>
                     <p class="fw-bold">
                         {% assign words = content | number_of_words %}
                         {{ words | divided_by: 180 | plus: 1 }} min read
                     </p>
                 </div>
                 <div class="share-links">
-                    <p class="mb-2 opacity-50 small">SHARE</p>
-                    <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-white me-3"><i class="fab fa-linkedin"></i></a>
+                    <p class="mb-2 opacity-50 small text-uppercase" style="letter-spacing: 2px;">Share</p>
+                    <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ site.url }}{{ page.url }}" class="text-white me-3" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}{{ page.url }}" class="text-white me-3" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
         </aside>
@@ -218,6 +274,7 @@ layout: null
         </aside>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         window.onscroll = function() {
             var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
