@@ -26,71 +26,79 @@ layout: default
             background-color: var(--deep-forest);
             color: var(--white);
             font-family: 'Plus Jakarta Sans', sans-serif;
-            line-height: 1.7;
+            line-height: 1.8;
             font-size: 1rem;
+            margin: 0;
+            padding: 0;
         }
 
-        /* --- New Hero Header Style --- */
-        .editorial-header {
-            position: relative;
-            padding: 120px 0 60px;
-            background: linear-gradient(to bottom, var(--primary-green), var(--deep-forest));
+        /* --- Navbar Fixes --- */
+        .navbar {
+            background: rgba(5, 26, 9, 0.95) !important;
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--glass-border);
-            margin-bottom: 60px;
+            padding: 1rem 0;
+        }
+
+        /* --- Refined Hero Header --- */
+        .editorial-header {
+            padding: 160px 0 80px;
+            background: radial-gradient(circle at top right, var(--primary-green), var(--deep-forest));
+            text-align: center;
         }
 
         .header-box {
-            max-width: 800px;
+            max-width: 850px;
+            margin: 0 auto;
             background: var(--glass);
             backdrop-filter: blur(20px);
-            padding: 40px;
-            border-radius: 20px;
+            padding: 50px 40px;
+            border-radius: 30px;
             border: 1px solid var(--glass-border);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
         }
 
         .post-category {
             color: var(--accent-gold);
             text-transform: uppercase;
             font-weight: 800;
-            letter-spacing: 3px;
-            font-size: 0.7rem;
-            margin-bottom: 15px;
+            letter-spacing: 4px;
+            font-size: 0.75rem;
+            margin-bottom: 20px;
             display: block;
         }
 
         .post-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: clamp(2.2rem, 6vw, 4rem);
             line-height: 1.1;
             font-weight: 900;
-            margin-bottom: 25px;
-            background: linear-gradient(to right, #fff, var(--accent-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+            color: #fff;
         }
 
         .post-meta {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--accent-gold);
             font-weight: 600;
             display: flex;
-            gap: 20px;
-            align-items: center;
+            gap: 25px;
+            justify-content: center;
+            opacity: 0.9;
         }
 
-        /* --- Main Layout Grid --- */
+        /* --- Content Layout --- */
         .content-wrapper {
-            max-width: 1100px;
+            max-width: 1140px;
             margin: 0 auto;
-            padding: 0 25px;
+            padding: 0 25px 100px;
             display: grid;
-            grid-template-columns: 1fr 320px;
-            gap: 60px;
+            grid-template-columns: 1fr 340px;
+            gap: 80px;
         }
 
         .post-main-content {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             color: var(--text-gray);
         }
 
@@ -98,39 +106,29 @@ layout: default
         .post-main-content > p:first-of-type::first-letter {
             font-family: 'Playfair Display', serif;
             float: left;
-            font-size: 4.5rem;
-            line-height: 0.8;
-            padding: 10px 15px 0 0;
+            font-size: 5rem;
+            line-height: 0.7;
+            padding: 12px 18px 0 0;
             color: var(--accent-gold);
             font-weight: 900;
         }
 
-        .post-main-content h2 {
+        .post-main-content h2, .post-main-content h3 {
             font-family: 'Playfair Display', serif;
             color: white;
-            font-size: 1.8rem;
-            margin: 40px 0 20px;
+            margin: 50px 0 25px;
+            letter-spacing: -0.5px;
         }
 
-        .post-main-content img {
-            border-radius: 20px;
-            margin: 40px 0;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            border: 1px solid var(--glass-border);
-        }
-
-        /* --- Floating Sidebar --- */
-        .post-sidebar {
-            position: sticky;
-            top: 100px;
-        }
-
+        /* --- Enhanced Sidebar --- */
         .sidebar-card {
-            background: linear-gradient(145deg, var(--glass), rgba(10, 47, 16, 0.4));
+            background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
             border: 1px solid var(--glass-border);
-            padding: 30px;
-            border-radius: 24px;
-            margin-bottom: 30px;
+            padding: 35px;
+            border-radius: 28px;
+            margin-bottom: 40px;
+            position: sticky;
+            top: 120px;
         }
 
         .sidebar-title {
@@ -143,43 +141,62 @@ layout: default
             display: block;
         }
 
-        /* --- Modern Footer Nav --- */
+        .btn-impact {
+            background: var(--accent-gold);
+            color: var(--primary-green) !important;
+            font-weight: 800;
+            border-radius: 12px;
+            padding: 14px;
+            transition: 0.3s;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            border: none;
+        }
+
+        .btn-impact:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+            background: #fff;
+        }
+
+        /* --- Footer Navigation --- */
         .post-footer {
-            max-width: 1100px;
-            margin: 80px auto;
-            padding: 40px 25px;
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 60px 25px;
             border-top: 1px solid var(--glass-border);
         }
 
         .nav-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            gap: 40px;
         }
 
         .impact-btn {
             background: var(--glass);
             border: 1px solid var(--glass-border);
-            padding: 25px;
-            border-radius: 15px;
+            padding: 30px;
+            border-radius: 20px;
             text-decoration: none !important;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: 0.4s;
             display: block;
         }
 
         .impact-btn:hover {
-            transform: translateY(-10px);
             background: var(--soft-gold);
             border-color: var(--accent-gold);
+            transform: scale(1.02);
         }
 
-        .impact-btn small { color: var(--accent-gold); text-transform: uppercase; letter-spacing: 1px; font-size: 0.65rem; font-weight: 700; }
-        .impact-btn span { color: white; display: block; font-size: 1.1rem; font-weight: 600; margin-top: 5px; }
+        .impact-btn small { color: var(--accent-gold); text-transform: uppercase; font-weight: 700; font-size: 0.7rem; }
+        .impact-btn span { color: white; display: block; font-size: 1.2rem; font-weight: 600; margin-top: 8px; font-family: 'Playfair Display', serif; }
 
         @media (max-width: 992px) {
             .content-wrapper { grid-template-columns: 1fr; }
-            .post-sidebar { display: none; }
-            .header-box { margin: 0 20px; }
+            .sidebar-card { position: static; margin-top: 40px; }
+            .post-footer { padding-bottom: 100px; }
         }
     </style>
 </head>
@@ -188,7 +205,7 @@ layout: default
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{{ '/index.html' | relative_url }}">
-                <img src="{{ '/assets/images/logo.jpg' | relative_url }}" alt="Logo" height="35" class="me-3 rounded-circle border border-warning">
+                <img src="{{ '/assets/images/logo.jpg' | relative_url }}" alt="Logo" height="40" class="me-3 rounded-circle border border-warning">
                 <span class="text-uppercase fw-bold" style="letter-spacing:1px">The <span style="color:var(--accent-gold)">Continent</span></span>
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -205,12 +222,12 @@ layout: default
     </nav>
 
     <header class="editorial-header">
-        <div class="container d-flex justify-content-center">
+        <div class="container">
             <div class="header-box">
-                <span class="post-category">{{ page.categories | first | default: "Foundation Update" }}</span>
+                <span class="post-category">{{ page.categories | first | default: "Impact Update" }}</span>
                 <h1 class="post-title">{{ page.title }}</h1>
                 <div class="post-meta">
-                    <span><i class="far fa-calendar-check me-2"></i> {{ page.date | date: "%B %d, %Y" }}</span>
+                    <span><i class="far fa-calendar-alt me-2"></i> {{ page.date | date: "%B %d, %Y" }}</span>
                     <span><i class="far fa-clock me-2"></i> 5 Min Read</span>
                 </div>
             </div>
@@ -224,17 +241,17 @@ layout: default
 
         <aside class="post-sidebar">
             <div class="sidebar-card">
-                <span class="sidebar-title">The Foundation</span>
-                <p style="font-size: 0.85rem; color: var(--text-gray)">We are building a legacy of self-reliance across Nairobi and beyond. Join us in dismantling poverty through digital innovation.</p>
-                <a href="{{ '/donate.html' | relative_url }}" class="btn btn-warning w-100 fw-bold py-2 mt-2" style="border-radius:10px">CONTRIBUTE NOW</a>
-            </div>
-
-            <div class="sidebar-card text-center">
-                <span class="sidebar-title">Share the Story</span>
-                <div class="d-flex justify-content-center gap-4">
-                    <a href="#" class="text-white opacity-50 hover-gold"><i class="fab fa-twitter fs-5"></i></a>
-                    <a href="#" class="text-white opacity-50 hover-gold"><i class="fab fa-linkedin-in fs-5"></i></a>
-                    <a href="#" class="text-white opacity-50 hover-gold"><i class="fas fa-link fs-5"></i></a>
+                <span class="sidebar-title">Our Mission</span>
+                <p style="font-size: 0.95rem; color: var(--text-gray); margin-bottom: 25px;">Building a legacy of self-reliance across Nairobi. We empower the next generation through digital innovation and structural support.</p>
+                <a href="{{ '/donate.html' | relative_url }}" class="btn btn-impact w-100">Contribute Now</a>
+                
+                <hr class="my-4 opacity-10">
+                
+                <span class="sidebar-title">Spread the Word</span>
+                <div class="d-flex justify-content-start gap-4">
+                    <a href="#" class="text-white opacity-40 hover-gold"><i class="fab fa-twitter fs-5"></i></a>
+                    <a href="#" class="text-white opacity-40 hover-gold"><i class="fab fa-linkedin-in fs-5"></i></a>
+                    <a href="#" class="text-white opacity-40 hover-gold"><i class="fas fa-link fs-5"></i></a>
                 </div>
             </div>
         </aside>
@@ -245,8 +262,8 @@ layout: default
             <div>
                 {% if page.previous.url %}
                 <a class="impact-btn" href="{{ page.previous.url | relative_url }}">
-                    <small>Previous Insight</small>
-                    <span>{{ page.previous.title | truncate: 30 }}</span>
+                    <small>Previous Story</small>
+                    <span>{{ page.previous.title | truncate: 35 }}</span>
                 </a>
                 {% endif %}
             </div>
@@ -254,15 +271,15 @@ layout: default
                 {% if page.next.url %}
                 <a class="impact-btn" href="{{ page.next.url | relative_url }}">
                     <small>Next Impact</small>
-                    <span>{{ page.next.title | truncate: 30 }}</span>
+                    <span>{{ page.next.title | truncate: 35 }}</span>
                 </a>
                 {% endif %}
             </div>
         </div>
         
         <div class="text-center mt-5 pt-4">
-            <a href="{{ '/story.html' | relative_url }}" class="text-white text-decoration-none opacity-50 fw-bold small" style="letter-spacing: 2px">
-                BACK TO ALL STORIES <i class="fas fa-chevron-right ms-2" style="font-size: 0.6rem"></i>
+            <a href="{{ '/story.html' | relative_url }}" class="text-white text-decoration-none opacity-40 fw-bold small" style="letter-spacing: 2px">
+                VIEW ALL STORIES <i class="fas fa-arrow-right ms-2" style="font-size: 0.7rem"></i>
             </a>
         </div>
     </footer>
