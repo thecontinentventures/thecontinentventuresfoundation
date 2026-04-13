@@ -1,18 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://thecontinentventures.github.io/thecontinentventures/index.html</loc>
-    <lastmod>2026-04-09</lastmod>
+    <loc>https://thecontinentventures.github.io/thecontinentventuresfoundation/index.html</loc>
+    <lastmod>2026-04-13</lastmod>
     <priority>1.0</priority>
   </url>
+
   <url>
-    <loc>https://thecontinentventures.github.io/thecontinentventures/about.html</loc>
-    <lastmod>2026-04-09</lastmod>
+    <loc>https://thecontinentventures.github.io/thecontinentventuresfoundation/about.html</loc>
+    <lastmod>2026-04-13</lastmod>
     <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://thecontinentventures.github.io/thecontinentventures/contact.html</loc>
-    <lastmod>2026-04-09</lastmod>
+    <loc>https://thecontinentventures.github.io/thecontinentventuresfoundation/story.html</loc>
+    <lastmod>2026-04-13</lastmod>
     <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://thecontinentventures.github.io/thecontinentventuresfoundation/contact.html</loc>
+    <lastmod>2026-04-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://thecontinentventures.github.io/thecontinentventuresfoundation/donate.html</loc>
+    <lastmod>2026-04-13</lastmod>
+    <priority>0.7</priority>
   </url>
 </urlset>
