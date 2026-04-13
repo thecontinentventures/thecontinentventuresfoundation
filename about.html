@@ -34,6 +34,7 @@
             color: var(--off-white);
             overflow-x: hidden;
             margin: 0;
+            font-size: 0.95rem; /* Compact base font */
         }
 
         /* --- BACKGROUND EFFECT --- */
@@ -59,7 +60,7 @@
             background: rgba(10, 47, 16, 0.9) !important;
             backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--border-glow);
-            padding: 12px 0;
+            padding: 8px 0; /* Compact padding */
         }
 
         .nav-link {
@@ -67,7 +68,7 @@
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-size: 0.85rem;
+            font-size: 0.75rem; /* Reduced nav font */
             margin: 0 10px;
             transition: 0.3s;
         }
@@ -78,24 +79,24 @@
 
         /* --- CONTENT CARD --- */
         .scroll-container {
-            padding-top: 140px;
-            padding-bottom: 80px;
+            padding-top: 100px; /* More compact top spacing */
+            padding-bottom: 60px;
         }
 
         .main-card {
             background: var(--glass-bg);
             backdrop-filter: blur(30px);
             border: 1px solid var(--border-glow);
-            border-radius: 40px;
-            padding: clamp(30px, 6vw, 80px);
+            border-radius: 30px; /* Slightly more compact radius */
+            padding: clamp(25px, 4vw, 60px); /* Tighter padding */
             box-shadow: 0 40px 100px rgba(0,0,0,0.5);
         }
 
         h1.headline {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.2rem, 6vw, 3.8rem);
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
+            font-size: clamp(1.8rem, 5vw, 2.8rem); /* More compact headline */
+            line-height: 1.1;
+            margin-bottom: 1rem;
         }
 
         .accent-text { color: var(--accent-gold); }
@@ -103,62 +104,74 @@
         /* --- STATS --- */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
-            margin: 4rem 0;
-            padding: 2.5rem 0;
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
         }
 
         .stat-box h2 {
             font-weight: 800;
             color: var(--accent-gold);
-            font-size: 2.8rem;
-            margin-bottom: 5px;
+            font-size: 2.2rem; /* Compact stat size */
+            margin-bottom: 2px;
         }
 
         .stat-box p {
-            font-size: 0.75rem;
-            letter-spacing: 2px;
+            font-size: 0.65rem;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             opacity: 0.7;
+            margin-bottom: 0;
         }
 
         /* --- IMPACT BOXES --- */
         .impact-feature {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.1);
-            padding: 40px;
-            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(212, 175, 55, 0.08);
+            padding: 25px; /* Compact internal padding */
+            border-radius: 20px;
             height: 100%;
             transition: 0.4s;
         }
 
         .impact-feature:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
             border-color: var(--accent-gold);
             background: rgba(212, 175, 55, 0.05);
         }
 
         .icon-circle {
-            width: 60px; height: 60px;
+            width: 45px; height: 45px; /* Compact icon container */
             background: var(--accent-gold);
             color: var(--primary-green);
-            border-radius: 15px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 25px;
-            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .impact-feature h4 {
+            font-size: 1.1rem; /* Compact heading */
+        }
+
+        .impact-feature p {
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin-bottom: 0;
         }
 
         /* --- BUTTONS --- */
         .btn-gold {
             background: var(--accent-gold);
             color: var(--primary-green);
-            padding: 15px 40px;
-            font-weight: 800;
+            padding: 12px 35px; /* Compact button */
+            font-weight: 700;
+            font-size: 0.85rem;
             border-radius: 50px;
             text-transform: uppercase;
             border: 2px solid var(--accent-gold);
@@ -174,15 +187,15 @@
 
         /* --- FOOTER --- */
         .footer-section {
-            margin-top: 5rem;
-            padding-top: 3rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
             border-top: 1px solid rgba(212, 175, 55, 0.1);
         }
 
         .social-links a {
             color: var(--off-white);
-            margin: 0 15px;
-            font-size: 1.3rem;
+            margin: 0 12px;
+            font-size: 1.1rem;
             transition: 0.3s;
             opacity: 0.6;
         }
@@ -198,8 +211,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center fw-bold" href="index.html">
-                <img src="assets/images/logo.jpg" alt="The Continent Ventures Foundation Logo" height="45" class="me-3 rounded-circle border border-warning">
-                <span class="text-uppercase" style="font-size: 0.95rem;">The <span class="accent-text">Continent</span> Ventures</span>
+                <img src="assets/images/logo.jpg" alt="The Continent Ventures Foundation Logo" height="38" class="me-3 rounded-circle border border-warning">
+                <span class="text-uppercase" style="font-size: 0.85rem; letter-spacing: 0.5px;">The <span class="accent-text">Continent</span> Ventures</span>
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -210,7 +223,7 @@
                     <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="story.html">Our Story</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-                    <li class="nav-item ms-lg-3"><a class="btn btn-gold py-2 px-4" style="font-size: 0.75rem;" href="donate.html">Donate</a></li>
+                    <li class="nav-item ms-lg-3"><a class="btn btn-gold py-1 px-3" style="font-size: 0.7rem;" href="donate.html">Donate</a></li>
                 </ul>
             </div>
         </div>
@@ -222,67 +235,67 @@
     <div class="scroll-container">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-xl-11">
+                <div class="col-xl-10">
                     
                     <div class="main-card">
-                        <div class="text-center mb-5">
-                            <span class="badge rounded-pill mb-3 px-3 py-2" style="border: 1px solid var(--accent-gold); color: var(--accent-gold);">WHO WE ARE</span>
-                            <h1 class="headline">Building a Future Where <br><span class="accent-text">No Child is Left Behind.</span></h1>
-                            <p class="lead opacity-75 mx-auto" style="max-width: 850px; font-weight: 300; line-height: 1.8;">
-                                At <strong>The Continent Ventures Foundation</strong>, we believe that the zip code a child is born in should not determine their destiny. In the heart of Nairobi and across Africa, we are more than just a foundation—we are a lifeline. We transform empathy into action, ensuring that every African child has the health, education, and nutrition required to become a global leader.
+                        <div class="text-center mb-4">
+                            <span class="badge rounded-pill mb-3 px-3 py-1" style="border: 1px solid var(--accent-gold); color: var(--accent-gold); font-size: 0.65rem; letter-spacing: 1.5px;">MISSION & VISION</span>
+                            <h1 class="headline">Strategic Impact for the <br><span class="accent-text">Next Generation.</span></h1>
+                            <p class="mx-auto opacity-75" style="max-width: 780px; font-weight: 300; line-height: 1.6; font-size: 0.95rem;">
+                                <strong>The Continent Ventures Foundation</strong> is a dedicated non-profit organization focused on systemic change. Based in Nairobi, we provide a strategic framework for community empowerment, ensuring every child access to essential health, nutrition, and world-class education.
                             </p>
                         </div>
 
                         <div class="stats-grid text-center">
-                            <div class="stat-box"><h2>15k+</h2><p>Meals Served</p></div>
-                            <div class="stat-box"><h2>1.2k</h2><p>Scholars Funded</p></div>
-                            <div class="stat-box"><h2>5+</h2><p>Water Projects</p></div>
-                            <div class="stat-box"><h2>100%</h2><p>Direct Impact</p></div>
+                            <div class="stat-box"><h2>15k+</h2><p>Meals Provided</p></div>
+                            <div class="stat-box"><h2>1.2k</h2><p>Scholars Supported</p></div>
+                            <div class="stat-box"><h2>5+</h2><p>Water Systems</p></div>
+                            <div class="stat-box"><h2>100%</h2><p>Transparency</p></div>
                         </div>
 
-                        <div class="row g-4 mb-5">
+                        <div class="row g-3 mb-4 text-center">
                             <div class="col-lg-4 col-md-6">
                                 <div class="impact-feature">
-                                    <div class="icon-circle"><i class="fa-solid fa-graduation-cap"></i></div>
-                                    <h4 class="fw-bold mb-3">Education First</h4>
-                                    <p class="opacity-75">We don't just pay fees; we provide uniforms, books, and digital literacy tools that break the cycle of generational poverty in Nairobi's slums.</p>
+                                    <div class="icon-circle mx-auto"><i class="fa-solid fa-graduation-cap"></i></div>
+                                    <h4 class="fw-bold mb-2">Education Equity</h4>
+                                    <p class="opacity-75">Deploying resources, uniforms, and digital tools to bridge the literacy gap in underserved urban regions.</p>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6">
                                 <div class="impact-feature">
-                                    <div class="icon-circle"><i class="fa-solid fa-apple-whole"></i></div>
-                                    <h4 class="fw-bold mb-3">Total Nutrition</h4>
-                                    <p class="opacity-75">Our school feeding programs increase attendance by 40% and ensure that children are focusing on their books, not their hunger.</p>
+                                    <div class="icon-circle mx-auto"><i class="fa-solid fa-apple-whole"></i></div>
+                                    <h4 class="fw-bold mb-2">Nutritional Security</h4>
+                                    <p class="opacity-75">Implementing institutional feeding programs that stabilize health and improve academic performance metrics.</p>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-12">
                                 <div class="impact-feature">
-                                    <div class="icon-circle"><i class="fa-solid fa-droplet"></i></div>
-                                    <h4 class="fw-bold mb-3">Clean Access</h4>
-                                    <p class="opacity-75">Health begins with water. We install sustainable filtration systems in local schools to eliminate water-borne illnesses in Kenya.</p>
+                                    <div class="icon-circle mx-auto"><i class="fa-solid fa-droplet"></i></div>
+                                    <h4 class="fw-bold mb-2">Clean Infrastructure</h4>
+                                    <p class="opacity-75">Developing sustainable filtration systems to ensure safe water access for learning centers across Kenya.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="text-center py-5">
-                            <h3 class="fw-bold mb-4">Ready to change a life today?</h3>
-                            <a href="donate.html" class="btn btn-gold px-5 py-3">Start Your Impact</a>
+                        <div class="text-center py-3">
+                            <h4 class="fw-bold mb-3" style="font-size: 1.1rem;">Partner with us to redefine possibilities.</h4>
+                            <a href="donate.html" class="btn btn-gold px-4 py-2">Collaborate Now</a>
                         </div>
 
                         <div class="footer-section text-center">
-                            <div class="social-links mb-4">
+                            <div class="social-links mb-3">
                                 <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                                 <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                                 <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                             </div>
-                            <div class="address-text opacity-75 small">
+                            <div class="address-text opacity-75" style="font-size: 0.75rem;">
                                 <p class="mb-1"><i class="fas fa-location-dot accent-text me-2"></i> Nairobi, Kenya | P.O. Box 27475-00100 GPO</p>
                                 <p><i class="fas fa-envelope accent-text me-2"></i> info@thecontinentventures.org</p>
                             </div>
                         </div>
                     </div>
 
-                    <footer class="text-center mt-5">
+                    <footer class="text-center mt-4">
                         <p class="small opacity-50">&copy; <span id="autoYear"></span> The Continent Ventures Foundation. All Rights Reserved.</p>
                     </footer>
 
