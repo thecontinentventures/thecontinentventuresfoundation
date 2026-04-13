@@ -12,27 +12,25 @@ layout: default
     
     <style>
         :root {
-            --primary-green: #0a2f10;
             --deep-forest: #051a09;
             --accent-gold: #d4af37;
             --white: #ffffff;
-            --text-light: #f8f9fa;
-            --text-muted: rgba(255, 255, 255, 0.5);
+            --text-muted: rgba(255, 255, 255, 0.6);
         }
 
         body {
             background-color: var(--deep-forest);
-            color: var(--text-light);
+            color: var(--white);
             font-family: 'Plus Jakarta Sans', sans-serif;
             margin: 0;
             line-height: 1.6;
-            font-size: 0.95rem; /* Reduced base font */
+            font-size: 0.9rem;
         }
 
-        /* --- Compact Navbar --- */
+        /* --- Navbar --- */
         .navbar {
-            background: rgba(5, 26, 9, 0.98) !important;
-            padding: 0.8rem 0; /* Tighter padding */
+            background: rgba(5, 26, 9, 0.95) !important;
+            padding: 1rem 0;
             border-bottom: 1px solid rgba(212, 175, 55, 0.1);
         }
 
@@ -42,70 +40,64 @@ layout: default
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--white) !important;
-            margin: 0 10px;
         }
 
         .btn-donate {
             border: 1px solid var(--accent-gold);
             color: var(--accent-gold) !important;
-            font-size: 0.75rem !important;
-            padding: 5px 18px !important;
+            padding: 6px 20px !important;
+            font-size: 0.8rem !important;
+            border-radius: 4px;
         }
 
-        /* --- Compact Header --- */
-        .feature-header {
-            padding: 120px 0 30px; /* Reduced top/bottom padding */
+        /* --- Compact Editorial Header --- */
+        .post-header {
+            padding: 120px 0 40px;
             text-align: center;
             max-width: 800px;
             margin: 0 auto;
         }
 
-        .category-tag {
+        .category-label {
             color: var(--accent-gold);
             text-transform: uppercase;
             font-weight: 800;
             letter-spacing: 3px;
-            font-size: 0.65rem;
-            margin-bottom: 10px;
+            font-size: 0.7rem;
             display: block;
+            margin-bottom: 10px;
         }
 
-        .entry-title {
+        .post-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(1.8rem, 5vw, 2.8rem); /* Reduced title size */
-            line-height: 1.2;
+            font-size: clamp(2rem, 5vw, 3rem);
+            line-height: 1.1;
             font-weight: 900;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            color: var(--white);
         }
 
-        .entry-meta {
+        .post-meta {
             font-size: 0.75rem;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 1px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
         }
 
-        /* --- Tighter Content Layout --- */
-        .story-container {
-            max-width: 700px; /* Narrower for better readability */
+        /* --- Focused Content Area --- */
+        .post-container {
+            max-width: 720px;
             margin: 0 auto;
-            padding: 20px 20px 60px;
+            padding: 0 20px 80px;
         }
 
-        .story-content {
-            font-size: 1.05rem; /* More compact body text */
-            color: rgba(255,255,255,0.85);
+        .post-body {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.9);
         }
 
-        .story-content p {
-            margin-bottom: 20px;
-        }
-
-        /* Editorial Dropcap (Smaller) */
-        .story-content > p:first-of-type::first-letter {
+        /* Subtle Dropcap */
+        .post-body > p:first-of-type::first-letter {
             font-family: 'Playfair Display', serif;
             float: left;
             font-size: 3.5rem;
@@ -115,42 +107,43 @@ layout: default
             font-weight: 900;
         }
 
-        .story-content h2 {
+        .post-body h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.6rem; /* Scaled down subheaders */
-            color: #fff;
-            margin: 35px 0 15px;
+            font-size: 1.75rem;
+            margin: 40px 0 20px;
         }
 
-        .story-content img {
-            width: 100%; /* No longer bleeds out, stays compact */
+        .post-body img {
+            width: 100%;
             height: auto;
+            border-radius: 12px;
             margin: 30px 0;
-            border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
         }
 
-        /* --- Footer --- */
-        .story-footer {
-            margin-top: 40px;
-            padding: 30px 0;
+        /* --- Simple Navigation Footer --- */
+        .post-nav {
+            margin-top: 50px;
+            padding-top: 30px;
             border-top: 1px solid rgba(255,255,255,0.1);
             display: flex;
             justify-content: space-between;
         }
 
-        .footer-link {
+        .nav-link-item {
             color: var(--accent-gold);
             text-decoration: none;
             font-weight: 700;
-            font-size: 0.7rem;
-            letter-spacing: 1px;
+            font-size: 0.75rem;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
+        .nav-link-item:hover { color: var(--white); }
+
         @media (max-width: 768px) {
-            .feature-header { padding: 100px 15px 20px; }
-            .entry-title { font-size: 1.8rem; }
+            .post-header { padding: 100px 20px 30px; }
+            .post-title { font-size: 2rem; }
         }
     </style>
 </head>
@@ -159,47 +152,51 @@ layout: default
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="{{ '/index.html' | relative_url }}">
-                <span style="font-size: 0.9rem; letter-spacing: 1px;">THE <span style="color:var(--accent-gold)">CONTINENT</span></span>
+                THE <span style="color:var(--accent-gold)">CONTINENT</span>
             </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="{{ '/index.html' | relative_url }}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ '/about.html' | relative_url }}">About</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="{{ '/story.html' | relative_url }}">Our Story</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ '/contact.html' | relative_url }}">Contact Us</a></li>
-                    <li class="nav-item"><a class="nav-link btn-donate ms-lg-3" href="{{ '/donate.html' | relative_url }}">Donate</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="{{ '/index.html' | relative_url }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="{{ '/about.html' | relative_url }}">About</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 active" href="{{ '/story.html' | relative_url }}">Our Story</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="{{ '/contact.html' | relative_url }}">Contact Us</a></li>
+                    <li class="nav-item ms-lg-3"><a class="nav-link btn-donate" href="{{ '/donate.html' | relative_url }}">Donate</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <header class="feature-header">
-        <span class="category-tag">{{ page.categories | first | default: "Impact Report" }}</span>
-        <h1 class="entry-title">{{ page.title }}</h1>
-        <div class="entry-meta">
+    <header class="post-header">
+        <span class="category-label">{{ page.categories | first | default: "Foundation News" }}</span>
+        <h1 class="post-title">{{ page.title }}</h1>
+        <div class="post-meta">
             <span>{{ page.date | date: "%B %d, %Y" }}</span>
-            <span>&bull;</span>
-            <span>Foundation Dispatch</span>
+            <span class="mx-2">&bull;</span>
+            <span>By Foundation Dispatch</span>
         </div>
     </header>
 
-    <main class="story-container">
-        <article class="story-content">
+    <main class="post-container">
+        <div class="post-body">
             {{ content }}
-        </article>
+        </div>
 
-        <footer class="story-footer">
+        <footer class="post-nav">
             {% if page.previous.url %}
-            <a href="{{ page.previous.url | relative_url }}" class="footer-link"><i class="fas fa-chevron-left me-1"></i> Prev Story</a>
+            <a href="{{ page.previous.url | relative_url }}" class="nav-link-item">
+                <i class="fas fa-chevron-left me-1"></i> Previous Story
+            </a>
             {% else %}
             <span></span>
             {% endif %}
 
             {% if page.next.url %}
-            <a href="{{ page.next.url | relative_url }}" class="footer-link">Next Story <i class="fas fa-chevron-right ms-1"></i></a>
+            <a href="{{ page.next.url | relative_url }}" class="nav-link-item">
+                Next Story <i class="fas fa-chevron-right ms-1"></i>
+            </a>
             {% endif %}
         </footer>
     </main>
