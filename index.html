@@ -23,9 +23,9 @@
     
     <style>
         :root {
-            --primary-green: #0a2f10;
-            --accent-gold: #d4af37; 
-            --light-green: #1a4a1d; 
+            --primary-green: #0a2f10; /* Deep Forest Green */
+            --accent-gold: #d4af37;  /* Classic Gold */
+            --light-green: #1a4a1d;  /* Lighter Forest for gradients */
             --off-white: #ffffff;
         }
 
@@ -34,49 +34,38 @@
             margin: 0;
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--primary-green);
+            overflow: hidden;
             color: var(--off-white);
-            /* Removed overflow:hidden to allow scrolling on small devices if content overflows */
         }
 
-        /* --- Dynamic Navbar --- */
+        /* --- Refined Green Navbar --- */
         .navbar { 
-            background: rgba(10, 47, 16, 0.95) !important;
+            background: rgba(10, 47, 16, 0.9) !important; /* Semi-transparent Green */
             backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 10px 0;
+            padding: 12px 0;
             z-index: 1000;
         }
 
         .nav-link {
             color: var(--off-white) !important;
-            font-weight: 600;
+            font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-size: 0.8rem;
-            margin: 0 8px;
+            font-size: 0.85rem;
+            margin: 0 10px;
             transition: 0.3s;
         }
 
-        .nav-link:hover { color: var(--accent-gold) !important; }
-
-        /* --- Hero Slider & Content Distribution --- */
-        .myHeroSlider { 
-            width: 100%; 
-            height: 100vh; /* Full viewport height */
-            min-height: 600px; /* Ensures enough space for content on small mobiles */
+        .nav-link:hover {
+            color: var(--accent-gold) !important;
         }
 
-        .swiper-slide {
-            display: flex;
-            align-items: center; /* Vertical center */
-            justify-content: center; /* Horizontal center */
-            padding-top: 80px; /* Space for fixed navbar */
-            padding-bottom: 60px; /* Space for fixed footer */
-        }
+        /* --- Slider Styling --- */
+        .myHeroSlider { width: 100%; height: 100vh; background: var(--primary-green); }
 
         .slide-bg-container {
             position: absolute;
-            top: 0; left: 0;
             width: 100%; height: 100%;
             z-index: -1;
             overflow: hidden;
@@ -86,74 +75,88 @@
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(10, 47, 16, 0.3) 0%, rgba(10, 47, 16, 0.85) 100%);
+            /* Green-tinted dark gradient for better text readability */
+            background: linear-gradient(to bottom, rgba(10, 47, 16, 0.4) 0%, rgba(10, 47, 16, 0.9) 100%);
         }
 
         .slide-bg {
             width: 100%; height: 100%; object-fit: cover;
-            transition: transform 10s ease-out;
+            transition: transform 8s ease-out;
+            will-change: transform;
         }
 
-        .swiper-slide-active .slide-bg { transform: scale(1.15); }
+        .swiper-slide-active .slide-bg {
+            transform: scale(1.1);
+        }
 
+        /* --- Content Animations --- */
         .hero-content {
             z-index: 10;
             text-align: center;
-            max-width: 850px;
-            width: 90%;
-            margin: auto;
+            max-width: 900px;
+            padding: 0 20px;
         }
 
         .hero-content h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 8vw, 4rem);
-            margin-bottom: 1.5rem;
+            font-size: clamp(2.5rem, 6vw, 4.2rem);
+            margin-bottom: 20px;
             line-height: 1.1;
-            font-weight: 700;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
         }
 
         .hero-content p {
-            font-size: clamp(0.95rem, 2.5vw, 1.15rem);
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-            line-height: 1.6;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.95;
+            font-weight: 300;
         }
 
-        /* --- CTA Group --- */
-        .btn-group-wrap {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
+        .hero-content h1, .hero-content p, .btn-group-wrap {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
+        .swiper-slide-active .hero-content h1 { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
+        .swiper-slide-active .hero-content p { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
+        .swiper-slide-active .btn-group-wrap { opacity: 1; transform: translateY(0); transition-delay: 0.6s; }
+
+        /* --- CTA Buttons --- */
         .btn-gold { 
             background: var(--accent-gold);
-            color: var(--primary-green) !important;
-            padding: 14px 35px;
+            color: var(--primary-green);
+            padding: 16px 45px;
             font-weight: 800;
             border-radius: 50px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             border: 2px solid var(--accent-gold);
             transition: 0.4s;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
         .btn-gold:hover {
             background: transparent;
-            color: var(--accent-gold) !important;
-            transform: translateY(-2px);
+            color: var(--accent-gold);
+            transform: translateY(-3px);
         }
 
         .btn-outline-white {
             border: 2px solid var(--off-white);
-            padding: 14px 35px;
+            padding: 14px 40px;
             border-radius: 50px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--off-white);
+            letter-spacing: 1.5px;
+            margin-left: 15px;
             transition: 0.3s;
+            text-decoration: none;
+            color: var(--off-white);
+            display: inline-block;
         }
 
         .btn-outline-white:hover {
@@ -161,25 +164,33 @@
             color: var(--primary-green);
         }
 
-        /* --- Fixed Footer --- */
+        /* --- Footer --- */
         footer {
-            padding: 15px 0;
+            padding: 12px 0;
             position: fixed;
             bottom: 0; width: 100%;
             z-index: 100;
-            background: rgba(10, 47, 16, 0.95);
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            background: var(--primary-green);
+            border-top: 1px solid var(--accent-gold);
         }
 
-        .swiper-pagination-bullet { background: var(--off-white); opacity: 0.5; }
-        .swiper-pagination-bullet-active { background: var(--accent-gold); opacity: 1; }
+        .swiper-pagination-bullet { background: var(--off-white) !important; }
+        .swiper-pagination-bullet-active { background: var(--accent-gold) !important; }
 
-        /* --- Mobile Responsiveness --- */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background: var(--primary-green);
+                padding: 20px;
+                border-radius: 10px;
+                margin-top: 10px;
+                border: 1px solid var(--accent-gold);
+            }
+            .nav-link { margin: 10px 0; }
+        }
+
         @media (max-width: 768px) {
-            .navbar-brand img { height: 35px; }
-            .navbar-brand span { font-size: 0.8rem !important; }
-            .hero-content { width: 95%; }
-            .btn-group-wrap .btn { width: 100%; max-width: 280px; }
+            .btn-outline-white { margin-left: 0; margin-top: 15px; display: block; }
+            .btn-gold { display: block; width: 100%; }
         }
     </style>
 </head>
@@ -188,12 +199,12 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center fw-bold" href="index.html">
-                <img src="assets/images/logo.jpg" alt="TCV Logo" height="42" class="me-2 rounded-circle border border-warning">
-                <span class="text-uppercase" style="font-size: 0.9rem; line-height: 1.2;">The <span style="color:var(--accent-gold)">Continent</span> Ventures<br>
-                <small class="fw-light" style="font-size: 0.55em; letter-spacing: 2px; color: #ddd;">Foundation</small></span>
+                <img src="assets/images/logo.jpg" alt="The Continent Ventures Foundation Logo" height="45" class="me-3 rounded-circle border border-warning">
+                <span class="text-uppercase" style="font-size: 0.95rem; line-height: 1.2;">The <span style="color:var(--accent-gold)">Continent</span> Ventures<br>
+                <small class="fw-light" style="font-size: 0.55em; letter-spacing: 3px; color: #ddd;">Foundation</small></span>
             </a>
             
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -203,8 +214,8 @@
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="story.html">Our Story</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
-                        <a class="btn btn-gold py-2 px-4" style="font-size: 0.7rem; border-radius: 4px;" href="donate.html">Donate Now</a>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-gold py-2 px-4" style="font-size: 0.75rem; border-radius: 4px;" href="donate.html">Donate</a>
                     </li>
                 </ul>
             </div>
@@ -214,13 +225,13 @@
     <div class="swiper myHeroSlider">
         <div class="swiper-wrapper">
             
-            <div class="swiper-slide">
+            <div class="swiper-slide d-flex align-items-center justify-content-center">
                 <div class="slide-bg-container">
-                    <img src="https://images.pexels.com/photos/10180800/pexels-photo-10180800.jpeg?auto=compress&cs=tinysrgb&w=1920" class="slide-bg" alt="Education">
+                    <img src="https://images.pexels.com/photos/10180800/pexels-photo-10180800.jpeg?auto=compress&cs=tinysrgb&w=1920" class="slide-bg" alt="African children in classroom - Education Impact">
                 </div>
                 <div class="hero-content">
-                    <h1>Empowering Minds <br><span style="color: var(--accent-gold);">Shaping Destinies</span></h1>
-                    <p>We provide the tools, teachers, and technology to turn African dreams into reality. Education is the ultimate equalizer.</p>
+                    <h1>A Pen Can Change <br><span style="color: var(--accent-gold);">A Child's Destiny</span></h1>
+                    <p>Talent is universal, but opportunity is not. We provide the tools, teachers, and technology to turn African dreams into reality.</p>
                     <div class="btn-group-wrap">
                         <a href="donate.html" class="btn btn-gold">Sponsor a Student</a>
                         <a href="about.html" class="btn btn-outline-white">Our Impact</a>
@@ -228,12 +239,12 @@
                 </div>
             </div>
 
-            <div class="swiper-slide">
+            <div class="swiper-slide d-flex align-items-center justify-content-center">
                 <div class="slide-bg-container">
-                    <img src="https://images.pexels.com/photos/1125850/pexels-photo-1125850.jpeg?auto=compress&cs=tinysrgb&w=1920" class="slide-bg" alt="Nutrition">
+                    <img src="https://images.pexels.com/photos/1125850/pexels-photo-1125850.jpeg?auto=compress&cs=tinysrgb&w=1920" class="slide-bg" alt="Smiling African children - Nutrition Programs">
                 </div>
                 <div class="hero-content">
-                    <h1>Nourishing Growth <br><span style="color: var(--accent-gold);">One Meal at a Time</span></h1>
+                    <h1>Fueling the Future <br><span style="color: var(--accent-gold);">One Meal at a Time</span></h1>
                     <p>A hungry child cannot learn. Our nutrition programs ensure every student has the strength to reach their full potential.</p>
                     <div class="btn-group-wrap">
                         <a href="donate.html" class="btn btn-gold">Provide a Meal</a>
@@ -242,16 +253,16 @@
                 </div>
             </div>
 
-            <div class="swiper-slide">
+            <div class="swiper-slide d-flex align-items-center justify-content-center">
                 <div class="slide-bg-container">
-                    <img src="https://images.pexels.com/photos/1539225/pexels-photo-1539225.jpeg?auto=compress&cs=tinysrgb&w=1920" class="slide-bg" alt="Water">
+                    <img src="https://images.pexels.com/photos/1539225/pexels-photo-1539225.jpeg?auto=compress&cs=tinysrgb&w=1920" class="slide-bg" alt="African community water project - Sustainable Solutions">
                 </div>
                 <div class="hero-content">
-                    <h1>Sustainable Water <br><span style="color: var(--accent-gold);">For Every Child</span></h1>
-                    <p>Building clean water systems in Nairobi's heart to keep our children healthy and our communities thriving.</p>
+                    <h1>Clean Water Is <br><span style="color: var(--accent-gold);">A Human Right</span></h1>
+                    <p>We are building sustainable water systems in Nairobi's heart to keep our children healthy and our communities thriving.</p>
                     <div class="btn-group-wrap">
                         <a href="donate.html" class="btn btn-gold">Give Clean Water</a>
-                        <a href="contact.html" class="btn btn-outline-white">Join the Cause</a>
+                        <a href="contact.html" class="btn btn-outline-white">Join Us</a>
                     </div>
                 </div>
             </div>
@@ -261,12 +272,12 @@
     </div>
 
     <footer class="text-center">
-        <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-center text-white" style="font-size: 0.7rem; opacity: 0.8;">
-            <p class="mb-2 mb-sm-0">&copy; <span id="currentYear"></span> The Continent Ventures Foundation.</p>
+        <div class="container d-flex justify-content-between align-items-center text-white" style="font-size: 0.75rem;">
+            <p class="m-0">&copy; <span id="currentYear"></span> The Continent Ventures Foundation.</p>
             <div class="socials">
-                <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-white mx-2"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="text-white mx-2" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white mx-2" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white mx-2" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
     </footer>
@@ -284,11 +295,12 @@
                 delay: 5000, 
                 disableOnInteraction: false 
             },
-            speed: 1500, 
+            speed: 1200, 
             pagination: { 
                 el: ".swiper-pagination", 
                 clickable: true 
             },
+            allowTouchMove: true,
         });
     </script>
 </body>
