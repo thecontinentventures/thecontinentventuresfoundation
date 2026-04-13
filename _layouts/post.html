@@ -24,17 +24,50 @@ layout: default
             font-family: 'Plus Jakarta Sans', sans-serif;
             margin: 0;
             line-height: 1.8;
+            overflow-x: hidden;
         }
 
-        /* --- Navbar Fixes --- */
+        /* --- Navbar --- */
         .navbar {
             background: var(--nav-bg) !important;
-            padding: 1rem 0;
+            padding: 0.8rem 0;
             border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            backdrop-filter: blur(15px);
         }
 
-        .brand-logo { height: 45px; border-radius: 50%; margin-right: 12px; }
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            font-weight: 800;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: var(--white) !important;
+        }
+
+        .brand-logo { 
+            height: 45px; 
+            width: 45px; 
+            border-radius: 50%; 
+            margin-right: 12px;
+            object-fit: cover;
+        }
+
         .brand-text-gold { color: var(--accent-gold); }
+
+        .nav-link {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            color: var(--white) !important;
+            opacity: 0.8;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            opacity: 1;
+            color: var(--accent-gold) !important;
+        }
         
         .btn-donate {
             background: var(--accent-gold);
@@ -44,6 +77,7 @@ layout: default
             font-weight: 800;
             font-size: 0.75rem;
             margin-left: 15px;
+            border: none;
         }
 
         /* --- Editorial Layout --- */
@@ -52,28 +86,25 @@ layout: default
             margin: 140px auto 100px;
             padding: 0 40px;
             display: grid;
-            grid-template-columns: 1fr 1fr 300px; /* Left info, Content, Right sidebar */
-            gap: 60px;
+            grid-template-columns: 250px 1fr 300px;
+            gap: 40px;
         }
 
-        /* The Large Floating Title Card */
         .floating-title-card {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(212, 175, 55, 0.2);
-            padding: 60px 40px;
+            padding: 40px;
             border-radius: 20px;
             text-align: center;
-            backdrop-filter: blur(10px);
-            grid-column: 2; /* Sits in the middle column */
             margin-bottom: 40px;
         }
 
         .floating-title-card h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 900;
-            line-height: 1;
-            margin: 20px 0;
+            line-height: 1.1;
+            margin: 15px 0;
         }
 
         .floating-title-card .label {
@@ -81,11 +112,11 @@ layout: default
             letter-spacing: 4px;
             font-size: 0.7rem;
             color: var(--accent-gold);
+            font-weight: 800;
         }
 
         /* Content Column */
         .story-content {
-            grid-column: 2;
             font-size: 1.15rem;
             font-weight: 300;
             color: rgba(255, 255, 255, 0.9);
@@ -98,6 +129,7 @@ layout: default
             line-height: 0.7;
             padding: 10px 15px 0 0;
             color: var(--accent-gold);
+            font-weight: 900;
         }
 
         /* Right Side Widget */
@@ -116,6 +148,7 @@ layout: default
             font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 2px;
+            font-weight: 800;
             margin-bottom: 20px;
         }
 
@@ -128,14 +161,20 @@ layout: default
         }
 
         /* Responsive */
+        @media (max-width: 1100px) {
+            .story-wrapper { grid-template-columns: 1fr 300px; }
+            .sidebar-left { display: none; }
+        }
+
         @media (max-width: 991px) {
             .story-wrapper {
                 grid-template-columns: 1fr;
                 padding: 0 20px;
+                margin-top: 100px;
             }
-            .floating-title-card, .story-content { grid-column: 1; }
             .mission-widget { position: static; margin-top: 40px; }
             .floating-title-card h1 { font-size: 2.5rem; }
+            .btn-donate { margin-left: 0; margin-top: 10px; width: 100%; text-align: center; }
         }
     </style>
 </head>
@@ -143,28 +182,57 @@ layout: default
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="/assets/logo.jpg" class="brand-logo">
-                <span>THE <span class="brand-text-gold">CONTINENT</span></span>
+            <a class="navbar-brand" href="{{ '/' | relative_url }}">
+                <img src="{{ '/logo.jpg' | relative_url }}" alt="Logo" class="brand-logo">
+                <span>THE <span class="brand-text-gold">CONTINENT</span> VENTURES</span>
             </a>
-            <div class="collapse navbar-collapse">
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="#">Stories</a></li>
-                    <li class="nav-item"><a class="nav-link btn-donate" href="#">Donate</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="{{ '/' | relative_url }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="{{ '/about' | relative_url }}">About</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 active" href="{{ '/stories' | relative_url }}">Our Story</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="{{ '/contact' | relative_url }}">Contact Us</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-donate" href="{{ '/donate' | relative_url }}">Donate</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-        <main>
 
+    <div class="story-wrapper">
+        <aside class="sidebar-left">
+            <div style="position: sticky; top: 120px;">
+                <p class="small opacity-50 uppercase letter-spacing-2">Project Insight</p>
+                <p class="small">Empowering Africa's Future through sustainable ventures and digital innovation.</p>
+                <hr class="border-secondary opacity-25">
+
+                </a>
+            </div>
+        </aside>
+
+        <main>
+            <div class="floating-title-card">
+                <span class="label">{{ page.category | default: "Foundation Update" }}</span>
+                <h1>{{ page.title }}</h1>
+                <div class="small opacity-50">
+                    <span>{{ page.date | date: "%B %d, %Y" }}</span>
+                    <span class="mx-2">|</span>
+                    <span>5 Min Read</span>
+                </div>
+            </div>
 
             <article class="story-content">
                 {{ content }}
             </article>
 
             <div class="mt-5 pt-5 border-top border-secondary">
-                <a href="#" class="text-decoration-none text-white opacity-75 small uppercase letter-spacing-2">
+                <a href="{{ '/stories' | relative_url }}" class="text-decoration-none text-white opacity-75 small text-uppercase letter-spacing-2">
                     <i class="fas fa-chevron-left me-2"></i> Back to all stories
                 </a>
             </div>
@@ -174,16 +242,17 @@ layout: default
             <div class="mission-widget">
                 <h4>Our Mission</h4>
                 <p class="small opacity-75">Building a legacy of self-reliance across Nairobi and beyond. Join us in dismantling poverty through digital innovation.</p>
-                <a href="#" class="btn btn-donate w-100 m-0 mt-3">SUPPORT OUR MISSION</a>
+                <a href="{{ '/donate' | relative_url }}" class="btn btn-donate w-100 m-0 mt-3">SUPPORT OUR MISSION</a>
                 
                 <div class="social-share">
-                    <i class="fab fa-twitter"></i>
-                    <i class="fab fa-linkedin-in"></i>
-                    <i class="fas fa-link"></i>
+                    <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="text-white"><i class="fas fa-link"></i></a>
                 </div>
             </div>
         </aside>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
