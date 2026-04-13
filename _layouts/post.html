@@ -18,14 +18,16 @@ layout: null
             --accent-gold: #d4af37;
             --white: #ffffff;
             --nav-bg: rgba(5, 26, 9, 0.98);
+            --content-gray: rgba(255, 255, 255, 0.85);
         }
 
         body {
             background-color: var(--deep-forest);
             color: var(--white);
             font-family: 'Plus Jakarta Sans', sans-serif;
-            line-height: 1.8;
+            line-height: 1.6;
             margin: 0;
+            font-size: 0.95rem;
         }
 
         /* Reading Progress Bar */
@@ -47,99 +49,93 @@ layout: null
         /* --- Navbar --- */
         .navbar {
             background: var(--nav-bg) !important;
-            padding: 0.8rem 0;
+            padding: 0.5rem 0;
             border-bottom: 1px solid rgba(212, 175, 55, 0.1);
             backdrop-filter: blur(15px);
         }
 
         .navbar-brand {
-            display: flex;
-            align-items: center;
-            font-weight: 800;
-            font-size: 0.9rem;
-            text-transform: uppercase;
+            font-size: 0.8rem;
             color: var(--white) !important;
         }
 
         .brand-logo { 
-            height: 45px; 
-            width: 45px; 
+            height: 35px; 
+            width: 35px; 
             border-radius: 50%; 
-            margin-right: 12px;
+            margin-right: 10px;
             object-fit: cover;
         }
 
         .nav-link {
-            font-size: 0.75rem;
+            font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--white) !important;
             opacity: 0.8;
-            transition: 0.3s;
         }
 
-        .nav-link:hover, .nav-link.active {
-            opacity: 1;
-            color: var(--accent-gold) !important;
-        }
-        
         .btn-donate-nav {
             background: var(--accent-gold);
             color: var(--deep-forest) !important;
-            padding: 8px 20px !important;
-            border-radius: 4px;
+            padding: 5px 15px !important;
+            border-radius: 3px;
             font-weight: 800;
-            font-size: 0.75rem;
-            margin-left: 15px;
-            border: none;
+            font-size: 0.65rem;
+            margin-left: 10px;
             text-decoration: none;
-            display: inline-block;
         }
 
         /* --- Main Layout --- */
         .story-wrapper {
-            max-width: 1200px;
-            margin: 140px auto 80px;
-            padding: 0 25px;
+            max-width: 1100px;
+            margin: 100px auto 60px;
+            padding: 0 20px;
             display: grid;
-            grid-template-columns: 200px 1fr 280px;
-            gap: 50px;
+            grid-template-columns: 180px 1fr 240px;
+            gap: 40px;
         }
 
         /* Header Card */
         .post-header {
             text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 40px;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .post-header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.2rem, 5vw, 4rem);
-            font-weight: 900;
+            font-size: clamp(1.8rem, 3vw, 2.5rem); /* Reduced Font Size */
+            font-weight: 800;
             color: var(--white);
-            line-height: 1.1;
-            margin: 20px 0;
+            line-height: 1.2;
+            margin: 15px 0;
         }
 
         .category-label {
             color: var(--accent-gold);
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             font-weight: 800;
-            font-size: 0.75rem;
+            font-size: 0.65rem;
+        }
+
+        .lead-text {
+            font-size: 1rem;
+            opacity: 0.8;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         /* Featured Image Styling */
         .featured-image-container {
             width: 100%;
-            margin-bottom: 50px;
-            border-radius: 16px;
+            margin-bottom: 35px;
+            border-radius: 8px;
             overflow: hidden;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .featured-image-container img {
@@ -147,69 +143,69 @@ layout: null
             height: auto;
             display: block;
             object-fit: cover;
-            max-height: 600px;
+            max-height: 450px; /* More compact height */
         }
 
         /* Sidebar Elements */
         .sidebar-item {
             position: sticky;
-            top: 120px;
-            font-size: 0.85rem;
+            top: 100px;
+            font-size: 0.75rem;
         }
 
         /* Content Styling */
         .story-content {
-            font-size: 1.15rem;
-            font-weight: 300;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.05rem;
+            color: var(--content-gray);
+            font-weight: 400;
         }
 
         .story-content p:first-of-type::first-letter {
             font-family: 'Playfair Display', serif;
             float: left;
-            font-size: 4.5rem;
+            font-size: 3.5rem;
             line-height: 0.8;
-            padding: 8px 12px 0 0;
+            padding: 4px 8px 0 0;
             color: var(--accent-gold);
             font-weight: 900;
         }
 
-        /* Standardize in-post images */
         .story-content img {
             width: 100%;
-            border-radius: 12px;
-            margin: 40px 0;
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            max-width: 100%;
+            border-radius: 6px;
+            margin: 25px 0;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .btn-back {
             display: inline-block;
-            margin-top: 50px;
+            margin-top: 40px;
             color: var(--accent-gold);
             text-decoration: none;
             font-weight: 700;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         /* Mission Card */
         .mission-card {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(212, 175, 55, 0.1);
-            padding: 30px;
-            border-radius: 16px;
+            padding: 20px;
+            border-radius: 12px;
         }
 
         @media (max-width: 1100px) {
-            .story-wrapper { grid-template-columns: 1fr 300px; }
+            .story-wrapper { grid-template-columns: 1fr 240px; }
             .sidebar-left { display: none; }
         }
 
         @media (max-width: 850px) {
-            .story-wrapper { grid-template-columns: 1fr; }
+            .story-wrapper { grid-template-columns: 1fr; margin-top: 80px; }
             .sidebar-right { display: none; }
-            .post-header h1 { font-size: 2.5rem; }
+            .post-header h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -221,20 +217,16 @@ layout: null
         <div class="container">
             <a class="navbar-brand d-flex align-items-center fw-bold" href="{{ '/' | relative_url }}">
                 <img src="{{ '/assets/images/logo.jpg' | relative_url }}" alt="Logo" class="brand-logo rounded-circle border border-warning">
-                <span class="text-uppercase" style="font-size: 0.95rem; line-height: 1.2;">The <span style="color:var(--accent-gold)">Continent</span> Ventures<br>
-                <small class="fw-light" style="font-size: 0.55em; letter-spacing: 3px; color: #ddd;">Foundation</small></span>
+                <span class="text-uppercase" style="line-height: 1.2;">The <span style="color:var(--accent-gold)">Continent</span> Ventures<br>
+                <small class="fw-light" style="font-size: 0.55em; letter-spacing: 2px; color: #ddd;">Foundation</small></span>
             </a>
             
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link px-3" href="{{ '/' | relative_url }}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="{{ '/about' | relative_url }}">About</a></li>
-                    <li class="nav-item"><a class="nav-link px-3 active" href="{{ '/story' | relative_url }}">Our Story</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="{{ '/contact' | relative_url }}">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="{{ '/' | relative_url }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="{{ '/about' | relative_url }}">About</a></li>
+                    <li class="nav-item"><a class="nav-link px-2 active" href="{{ '/blog' | relative_url }}">Stories</a></li>
+                    <li class="nav-item"><a class="nav-link px-2" href="{{ '/contact' | relative_url }}">Contact</a></li>
                     <li class="nav-item">
                         <a class="btn-donate-nav" href="{{ '/donate' | relative_url }}">Donate</a>
                     </li>
@@ -246,30 +238,31 @@ layout: null
     <div class="story-wrapper">
         <aside class="sidebar-left">
             <div class="sidebar-item">
-                <div class="mb-4">
-                    <p class="mb-1 opacity-50 small text-uppercase" style="letter-spacing: 2px;">Published</p>
+                <div class="mb-3">
+                    <p class="mb-0 opacity-50 x-small text-uppercase" style="letter-spacing: 1px; font-size: 0.6rem;">Published</p>
                     <p class="fw-bold">{{ page.date | date: "%B %d, %Y" }}</p>
                 </div>
-                <div class="mb-4">
-                    <p class="mb-1 opacity-50 small text-uppercase" style="letter-spacing: 2px;">Read Time</p>
+                <div class="mb-3">
+                    <p class="mb-0 opacity-50 x-small text-uppercase" style="letter-spacing: 1px; font-size: 0.6rem;">Reading Time</p>
                     <p class="fw-bold">
                         {% assign words = content | number_of_words %}
                         {{ words | divided_by: 180 | plus: 1 }} min read
                     </p>
                 </div>
                 <div class="share-links">
-                    <p class="mb-2 opacity-50 small text-uppercase" style="letter-spacing: 2px;">Share</p>
-                    <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ site.url }}{{ page.url }}" class="text-white me-3" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}{{ page.url }}" class="text-white me-3" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <p class="mb-1 opacity-50 x-small text-uppercase" style="letter-spacing: 1px; font-size: 0.6rem;">Share</p>
+                    <a href="#" class="text-white me-2 small opacity-75"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white me-2 small opacity-75"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="text-white small opacity-75"><i class="fab fa-facebook-f"></i></a>
                 </div>
             </div>
         </aside>
 
         <main>
             <header class="post-header">
-                <span class="category-label">{{ page.category | default: "Field Dispatch" }}</span>
+                <span class="category-label">{{ page.category | default: "Field Journal" }}</span>
                 <h1>{{ page.title }}</h1>
-                <p class="lead opacity-75">{{ page.description }}</p>
+                <p class="lead-text">{{ page.description }}</p>
             </header>
 
             {% if page.featured_image %}
@@ -283,16 +276,16 @@ layout: null
             </article>
 
             <a href="{{ '/blog' | relative_url }}" class="btn-back">
-                <i class="fas fa-arrow-left me-2"></i> Return to Stories
+                <i class="fas fa-arrow-left me-1"></i> Back to Journal
             </a>
         </main>
 
         <aside class="sidebar-right">
             <div class="sidebar-item">
                 <div class="mission-card">
-                    <h5 style="color:var(--accent-gold); font-size: 0.8rem; font-weight: 800; letter-spacing: 1px;" class="mb-3">OUR MISSION</h5>
-                    <p class="small opacity-75 mb-4">Empowering the next generation of African leaders through education and sustainable innovation.</p>
-                    <a href="{{ '/donate' | relative_url }}" class="btn btn-outline-light btn-sm w-100 py-2" style="font-size: 0.7rem; font-weight: 700;">SUPPORT THIS WORK</a>
+                    <h5 style="color:var(--accent-gold); font-size: 0.7rem; font-weight: 800; letter-spacing: 1px;" class="mb-2">OUR IMPACT</h5>
+                    <p style="font-size: 0.75rem; line-height: 1.4;" class="opacity-75 mb-3">Building sustainable infrastructure and education across Kenya.</p>
+                    <a href="{{ '/donate' | relative_url }}" class="btn btn-outline-light btn-sm w-100 py-1" style="font-size: 0.6rem; font-weight: 700;">SUPPORT US</a>
                 </div>
             </div>
         </aside>
