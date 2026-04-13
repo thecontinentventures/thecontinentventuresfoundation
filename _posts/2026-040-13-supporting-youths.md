@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Launching the New Tech Lab"
+title: "Partnering Through Sustainable Drive"
 ---
 
 Today we officially opened the doors to the **The Continent Ventures Tech Lab**. 
