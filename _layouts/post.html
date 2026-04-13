@@ -16,6 +16,7 @@ layout: default
             --accent-gold: #d4af37;
             --white: #ffffff;
             --text-muted: rgba(255, 255, 255, 0.6);
+            --nav-bg: rgba(5, 26, 9, 0.98);
         }
 
         body {
@@ -23,67 +24,78 @@ layout: default
             color: var(--white);
             font-family: 'Plus Jakarta Sans', sans-serif;
             margin: 0;
-            line-height: 1.6;
-            font-size: 0.95rem;
+            line-height: 1.8;
+            font-size: 1rem;
             overflow-x: hidden;
         }
 
-        /* --- Dynamic Navbar --- */
+        /* --- Refined Navbar --- */
         .navbar {
-            background: rgba(5, 26, 9, 0.98) !important;
-            padding: 0.75rem 0;
+            background: var(--nav-bg) !important;
+            padding: 0.8rem 0;
             border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
         }
 
         .navbar-brand {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
+            font-weight: 800;
+            letter-spacing: 1px;
             font-size: 0.9rem;
-            letter-spacing: 0.5px;
-            white-space: normal; /* Allows text to wrap on very small screens */
-            max-width: 250px;
+            color: var(--white) !important;
+            text-transform: uppercase;
         }
 
         .brand-logo {
-            height: 40px;
+            height: 50px;
             width: auto;
             border-radius: 50%;
+        }
+
+        .brand-text-gold {
+            color: var(--accent-gold);
         }
 
         .nav-link {
             font-weight: 600;
             font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             color: var(--white) !important;
-            transition: color 0.3s ease;
+            transition: 0.3s ease;
+            opacity: 0.8;
         }
 
         .nav-link:hover, .nav-link.active {
             color: var(--accent-gold) !important;
+            opacity: 1;
         }
 
         .btn-donate {
-            border: 1px solid var(--accent-gold);
-            color: var(--accent-gold) !important;
-            padding: 8px 20px !important;
+            background: var(--accent-gold);
+            color: var(--deep-forest) !important;
+            padding: 10px 25px !important;
             font-size: 0.75rem !important;
-            border-radius: 4px;
-            transition: all 0.3s ease;
+            border-radius: 6px;
+            font-weight: 800;
+            margin-left: 20px;
+            border: none;
+            transition: transform 0.2s ease;
         }
 
         .btn-donate:hover {
-            background: var(--accent-gold);
-            color: var(--deep-forest) !important;
+            transform: translateY(-2px);
+            background: #e5c04a;
         }
 
-        /* --- Responsive Header --- */
+        /* --- Post Header (Clean & Centered) --- */
         .post-header {
-            padding: 140px 15px 40px;
+            padding: 180px 20px 80px;
             text-align: center;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
@@ -91,62 +103,69 @@ layout: default
             color: var(--accent-gold);
             text-transform: uppercase;
             font-weight: 800;
-            letter-spacing: 3px;
+            letter-spacing: 5px;
             font-size: 0.7rem;
             display: block;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .post-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(1.8rem, 6vw, 3.5rem);
-            line-height: 1.2;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            line-height: 1.1;
             font-weight: 900;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .post-meta {
             font-size: 0.8rem;
             color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 3px;
         }
 
-        /* --- Responsive Content Wrapper --- */
+        /* --- Content Layout (No Sidebar) --- */
         .post-container {
-            max-width: 760px;
+            max-width: 800px; 
             margin: 0 auto;
-            padding: 0 20px 100px;
+            padding: 0 25px 120px;
         }
 
         .post-body {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
         }
 
-        /* Dynamic Dropcap */
+        /* Editorial Dropcap */
         .post-body > p:first-of-type::first-letter {
             font-family: 'Playfair Display', serif;
             float: left;
-            font-size: clamp(3rem, 10vw, 4.5rem);
-            line-height: 0.8;
-            padding: 8px 15px 0 0;
+            font-size: 5.5rem;
+            line-height: 0.7;
+            padding: 12px 20px 0 0;
             color: var(--accent-gold);
             font-weight: 900;
         }
 
-        .post-body img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-            margin: 40px 0;
-            display: block;
+        .post-body h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-top: 60px;
+            color: var(--white);
         }
 
-        /* --- Footer Nav --- */
+        .post-body img {
+            width: 100%;
+            border-radius: 20px;
+            margin: 50px 0;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+
+        /* --- Navigation Footer --- */
         .post-nav {
-            margin-top: 60px;
-            padding-top: 30px;
+            margin-top: 100px;
+            padding-top: 40px;
             border-top: 1px solid rgba(255,255,255,0.1);
             display: flex;
             justify-content: space-between;
@@ -157,22 +176,23 @@ layout: default
             color: var(--accent-gold);
             text-decoration: none;
             font-weight: 700;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
-        /* Mobile Adjustments */
         @media (max-width: 991px) {
+            .navbar-brand { font-size: 0.7rem; gap: 8px; }
+            .brand-logo { height: 40px; }
             .navbar-collapse {
                 background: var(--deep-forest);
-                padding: 20px;
-                margin-top: 10px;
+                margin-top: 15px;
+                padding: 30px;
+                border-radius: 15px;
                 border: 1px solid rgba(212, 175, 55, 0.2);
-                border-radius: 8px;
             }
-            .nav-item { margin-bottom: 10px; }
-            .btn-donate { display: inline-block; width: 100%; text-align: center; }
+            .nav-item { width: 100%; text-align: center; margin: 12px 0; }
+            .btn-donate { margin-left: 0; width: 100%; }
         }
     </style>
 </head>
@@ -180,12 +200,12 @@ layout: default
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="{{ '/index.html' | relative_url }}">
-                <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="Logo" class="brand-logo d-inline-block align-text-top">
-                <span>THE <span style="color:var(--accent-gold)">CONTINENT</span> VENTURES FOUNDATION</span>
+            <a class="navbar-brand" href="{{ '/index.html' | relative_url }}">
+                <img src="{{ '/assets/logo.jpg' | relative_url }}" alt="Logo" class="brand-logo">
+                <span>THE <span class="brand-text-gold">CONTINENT</span> VENTURES FOUNDATION</span>
             </a>
             
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -195,7 +215,7 @@ layout: default
                     <li class="nav-item"><a class="nav-link px-lg-3" href="{{ '/about.html' | relative_url }}">About</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3 active" href="{{ '/story.html' | relative_url }}">Our Story</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3" href="{{ '/contact.html' | relative_url }}">Contact Us</a></li>
-                    <li class="nav-item ms-lg-3 w-100-mobile">
+                    <li class="nav-item">
                         <a class="nav-link btn-donate" href="{{ '/donate.html' | relative_url }}">Donate</a>
                     </li>
                 </ul>
@@ -204,36 +224,32 @@ layout: default
     </nav>
 
     <header class="post-header">
-        <span class="category-label">{{ page.categories | first | default: "Impact Story" }}</span>
+        <span class="category-label">{{ page.categories | first | default: "Legacy Update" }}</span>
         <h1 class="post-title">{{ page.title }}</h1>
         <div class="post-meta">
             <span>{{ page.date | date: "%B %d, %Y" }}</span>
-            <span class="mx-2">&bull;</span>
+            <span class="mx-3 brand-text-gold">|</span>
             <span>Foundation Dispatch</span>
         </div>
     </header>
 
     <main class="post-container">
-        <div class="post-body">
+        <article class="post-body">
             {{ content }}
-        </div>
+        </article>
 
         <footer class="post-nav">
             {% if page.previous.url %}
             <a href="{{ page.previous.url | relative_url }}" class="nav-link-item">
-                <i class="fas fa-arrow-left me-1"></i> Prev
+                <i class="fas fa-arrow-left me-2"></i> Previous Story
             </a>
             {% else %}
             <span></span>
             {% endif %}
 
-            <div class="text-center d-none d-md-block">
-                <a href="{{ '/story.html' | relative_url }}" class="text-muted small text-decoration-none">Back to Stories</a>
-            </div>
-
             {% if page.next.url %}
             <a href="{{ page.next.url | relative_url }}" class="nav-link-item">
-                Next <i class="fas fa-arrow-right ms-1"></i>
+                Next Story <i class="fas fa-arrow-right ms-2"></i>
             </a>
             {% endif %}
         </footer>
