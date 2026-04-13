@@ -11,7 +11,7 @@ layout: null
     <meta name="description" content="Learn about the journey of The Continent Ventures Foundation and our commitment to empowering children in Nairobi through education and health.">
     <meta name="keywords" content="TCV Foundation Story, NGO Nairobi, African child education, community impact Kenya">
 
-    <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
+    <link rel="icon" type="image/jpeg" href="{{ '/assets/images/logo.jpg' | relative_url }}">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -57,10 +57,10 @@ layout: null
             font-weight: 800;
         }
 
-        /* --- Hero: Compacted --- */
+        /* --- Hero --- */
         .hero-section {
             padding: 100px 0 40px;
-            background: linear-gradient(rgba(5, 26, 9, 0.85), rgba(10, 47, 16, 0.95)), url('assets/images/hero-bg.jpg') center/cover;
+            background: linear-gradient(rgba(5, 26, 9, 0.85), rgba(10, 47, 16, 0.95)), url("{{ '/assets/images/hero-bg.jpg' | relative_url }}") center/cover;
             text-align: center;
         }
 
@@ -71,7 +71,7 @@ layout: null
             margin-top: 8px;
         }
 
-        /* --- Story Grid: Balanced --- */
+        /* --- Story Grid --- */
         .content-container {
             max-width: 1100px;
             margin: 0 auto;
@@ -108,7 +108,7 @@ layout: null
             margin-bottom: 10px;
         }
 
-        /* --- Ticker: Seamless --- */
+        /* --- Ticker --- */
         .updates-container {
             background: var(--deep-forest);
             padding: 45px 0;
@@ -211,8 +211,8 @@ layout: null
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="logo.jpg" alt="TCV Logo" height="30" class="me-2 rounded-circle">
+            <a class="navbar-brand d-flex align-items-center" href="{{ '/' | relative_url }}">
+                <img src="{{ '/assets/images/logo.jpg' | relative_url }}" alt="TCV Logo" height="30" class="me-2 rounded-circle">
                 <span class="text-uppercase fw-bold" style="font-size: 0.8rem;">The <span style="color:var(--accent-gold)">Continent</span> Ventures</span>
             </a>
             
@@ -222,11 +222,11 @@ layout: null
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link mx-2" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link mx-2" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link mx-2 active" href="story.html">Our Story</a></li>
-                    <li class="nav-item"><a class="nav-link mx-2" href="contact.html">Contact Us</a></li>
-                    <li class="nav-item"><a class="nav-link btn-nav-donate ms-lg-3" href="donate.html">Donate</a></li>
+                    <li class="nav-item"><a class="nav-link mx-2" href="{{ '/' | relative_url }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link mx-2" href="{{ '/about' | relative_url }}">About</a></li>
+                    <li class="nav-item"><a class="nav-link mx-2 active" href="{{ '/story' | relative_url }}">Our Story</a></li>
+                    <li class="nav-item"><a class="nav-link mx-2" href="{{ '/contact' | relative_url }}">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link btn-nav-donate ms-lg-3" href="{{ '/donate' | relative_url }}">Donate</a></li>
                 </ul>
             </div>
         </div>
@@ -243,12 +243,12 @@ layout: null
         <div class="story-grid">
             <div class="story-block">
                 <h2>The Spark in Nairobi</h2>
-                <p>The Continent Ventures Foundation was born from a simple observation in the streets of Nairobi: that the brightest minds often face the steepest hurdles. We saw that talent is evenly distributed across the continent, but opportunity is not. This realization sparked a movement to ensure that every child, regardless of their background, has a platform to reach their full potential and lead Africa into the future.</p>
+                <p>The Continent Ventures Foundation was born from a simple observation in the streets of Nairobi: that the brightest minds often face the steepest hurdles. We saw that talent is evenly distributed across the continent, but opportunity is not. This realization sparked a movement to ensure that every child, regardless of their background, has a platform to reach their full potential.</p>
             </div>
 
             <div class="story-block">
                 <h2>A Sustainable Future</h2>
-                <p>We don't believe in temporary fixes. Our mission is built on long-term sustainability. By investing in modern education and local community infrastructure, we are creating a self-sustaining cycle of growth. We believe that when you empower a child with a pen, a meal, and clean water, you aren't just changing one life—you are changing the trajectory of an entire community.</p>
+                <p>We don't believe in temporary fixes. Our mission is built on long-term sustainability. By investing in modern education and local community infrastructure, we are creating a self-sustaining cycle of growth. We believe that when you empower a child, you aren't just changing one life—you are changing the trajectory of an entire community.</p>
             </div>
         </div>
     </main>
@@ -259,27 +259,27 @@ layout: null
             <p class="opacity-50 small">Live stories and milestones from our active projects.</p>
         </div>
 
+        {% if site.posts.size > 0 %}
         <div class="ticker-window">
             <div class="ticker-track">
-                {% for post in site.posts %}
-                <a href="{{ post.url | relative_url }}" class="ticker-card">
-                    <span style="color: var(--accent-gold); font-weight: 800; font-size: 0.6rem;">{{ post.date | date: "%B %d, %Y" }}</span>
-                    <h4 style="font-size: 0.95rem; margin: 8px 0;">{{ post.title }}</h4>
-                    <p class="small opacity-75" style="font-size: 0.75rem;">{{ post.excerpt | strip_html | truncatewords: 10 }}</p>
-                </a>
-                {% endfor %}
-                {% for post in site.posts %}
-                <a href="{{ post.url | relative_url }}" class="ticker-card">
-                    <span style="color: var(--accent-gold); font-weight: 800; font-size: 0.6rem;">{{ post.date | date: "%B %d, %Y" }}</span>
-                    <h4 style="font-size: 0.95rem; margin: 8px 0;">{{ post.title }}</h4>
-                    <p class="small opacity-75" style="font-size: 0.75rem;">{{ post.excerpt | strip_html | truncatewords: 10 }}</p>
-                </a>
+                {% comment %} Double loop for seamless infinite scroll animation {% endcomment %}
+                {% for i in (1..2) %}
+                    {% for post in site.posts %}
+                    <a href="{{ post.url | relative_url }}" class="ticker-card">
+                        <span style="color: var(--accent-gold); font-weight: 800; font-size: 0.6rem;">{{ post.date | date: "%B %d, %Y" }}</span>
+                        <h4 style="font-size: 0.95rem; margin: 8px 0;">{{ post.title }}</h4>
+                        <p class="small opacity-75" style="font-size: 0.75rem;">{{ post.excerpt | strip_html | truncatewords: 10 }}</p>
+                    </a>
+                    {% endfor %}
                 {% endfor %}
             </div>
         </div>
+        {% else %}
+        <div class="text-center opacity-50 small py-4">Checking for field dispatches...</div>
+        {% endif %}
 
         <div class="text-center mt-4">
-            <a href="blog.html" class="btn-archive">View All Updates <i class="fas fa-chevron-right ms-1"></i></a>
+            <a href="{{ '/blog' | relative_url }}" class="btn-archive">View All Updates <i class="fas fa-chevron-right ms-1"></i></a>
         </div>
     </section>
 
@@ -287,7 +287,7 @@ layout: null
         <div class="container">
             <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem;" class="mb-2">Write the Next Chapter With Us</h2>
             <p class="mb-4 opacity-75 mx-auto small" style="max-width: 450px;">Every story of success starts with a single supporter. Join our community of donors and help us transform more lives.</p>
-            <a href="donate.html" class="btn-gold">Sponsor a Child Today</a>
+            <a href="{{ '/donate' | relative_url }}" class="btn-gold">Sponsor a Child Today</a>
         </div>
     </section>
 
