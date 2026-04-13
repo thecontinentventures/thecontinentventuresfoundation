@@ -87,7 +87,7 @@ layout: null
         .hero-img-wrap {
             overflow: hidden;
             border-radius: 4px;
-            max-height: 380px;
+            height: 380px; /* Fixed height for consistency */
             border: 1px solid var(--news-border);
         }
 
@@ -165,10 +165,11 @@ layout: null
         .btn-gold:hover { background: #fff; color: var(--primary-green); }
 
         .secondary-post img {
-            height: 120px;
+            height: 150px;
             width: 100%;
             object-fit: cover;
             border: 1px solid var(--news-border);
+            border-radius: 4px;
         }
 
         .hover-gold:hover { color: var(--accent-gold) !important; }
@@ -182,8 +183,8 @@ layout: null
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center fw-bold" href="index.html">
-                <img src="assets/images/logo.jpg" alt="The Continent Ventures Foundation Logo" height="45" class="me-3 rounded-circle border border-warning">
+            <a class="navbar-brand d-flex align-items-center fw-bold" href="{{ '/' | relative_url }}">
+                <img src="{{ '/assets/images/logo.jpg' | relative_url }}" alt="Logo" height="45" class="me-3 rounded-circle border border-warning">
                 <span class="text-uppercase" style="font-size: 0.95rem; line-height: 1.2;">The <span style="color:var(--accent-gold)">Continent</span> Ventures<br>
                 <small class="fw-light" style="font-size: 0.55em; letter-spacing: 3px; color: #ddd;">Foundation</small></span>
             </a>
@@ -217,7 +218,11 @@ layout: null
                         <span class="byline">Field Correspondents • {{ hero.date | date: "%B %d, %Y" }}</span>
                         
                         <div class="hero-img-wrap mb-3">
-                            <img src="{{ hero.image | default: '/assets/images/hero-bg.jpg' | relative_url }}" alt="{{ hero.title }}">
+                            {% if hero.featured_image %}
+                                <img src="{{ '/assets/images/blog/' | append: hero.featured_image | relative_url }}" alt="{{ hero.title }}">
+                            {% else %}
+                                <img src="{{ '/assets/images/hero-bg.jpg' | relative_url }}" alt="Default Image">
+                            {% endif %}
                         </div>
                         
                         <div class="news-content">
@@ -239,7 +244,11 @@ layout: null
                     <div class="row mb-4 pb-4 border-bottom border-secondary opacity-90 secondary-post">
                         <div class="col-md-3">
                             <a href="{{ post.url | relative_url }}">
-                                <img src="{{ post.image | default: '/assets/images/logo.jpg' | relative_url }}" class="img-fluid rounded" alt="{{ post.title }}">
+                                {% if post.featured_image %}
+                                    <img src="{{ '/assets/images/blog/' | append: post.featured_image | relative_url }}" alt="{{ post.title }}">
+                                {% else %}
+                                    <img src="{{ '/assets/images/logo.jpg' | relative_url }}" alt="Logo Fallback">
+                                {% endif %}
                             </a>
                         </div>
                         <div class="col-md-9">
