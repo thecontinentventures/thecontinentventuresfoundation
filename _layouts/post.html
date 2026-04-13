@@ -110,7 +110,7 @@ layout: null
         /* Header Card */
         .post-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             padding-bottom: 40px;
             border-bottom: 1px solid rgba(212, 175, 55, 0.1);
         }
@@ -130,6 +130,24 @@ layout: null
             letter-spacing: 4px;
             font-weight: 800;
             font-size: 0.75rem;
+        }
+
+        /* Featured Image Styling */
+        .featured-image-container {
+            width: 100%;
+            margin-bottom: 50px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .featured-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            max-height: 600px;
         }
 
         /* Sidebar Elements */
@@ -156,6 +174,7 @@ layout: null
             font-weight: 900;
         }
 
+        /* Standardize in-post images */
         .story-content img {
             width: 100%;
             border-radius: 12px;
@@ -252,6 +271,12 @@ layout: null
                 <h1>{{ page.title }}</h1>
                 <p class="lead opacity-75">{{ page.description }}</p>
             </header>
+
+            {% if page.featured_image %}
+            <div class="featured-image-container">
+                <img src="{{ '/assets/images/blog/' | append: page.featured_image | relative_url }}" alt="{{ page.title }}">
+            </div>
+            {% endif %}
 
             <article class="story-content">
                 {{ content }}
