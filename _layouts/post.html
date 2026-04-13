@@ -15,7 +15,6 @@ layout: default
             --deep-forest: #051a09;
             --accent-gold: #d4af37;
             --white: #ffffff;
-            --text-muted: rgba(255, 255, 255, 0.6);
             --nav-bg: rgba(5, 26, 9, 0.98);
         }
 
@@ -25,174 +24,118 @@ layout: default
             font-family: 'Plus Jakarta Sans', sans-serif;
             margin: 0;
             line-height: 1.8;
-            font-size: 1rem;
-            overflow-x: hidden;
         }
 
-        /* --- Refined Navbar --- */
+        /* --- Navbar Fixes --- */
         .navbar {
             background: var(--nav-bg) !important;
-            padding: 0.8rem 0;
+            padding: 1rem 0;
             border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
         }
 
-        .navbar-brand {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-weight: 800;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-            color: var(--white) !important;
-            text-transform: uppercase;
-        }
-
-        .brand-logo {
-            height: 50px;
-            width: auto;
-            border-radius: 50%;
-        }
-
-        .brand-text-gold {
-            color: var(--accent-gold);
-        }
-
-        .nav-link {
-            font-weight: 600;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--white) !important;
-            transition: 0.3s ease;
-            opacity: 0.8;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            color: var(--accent-gold) !important;
-            opacity: 1;
-        }
-
+        .brand-logo { height: 45px; border-radius: 50%; margin-right: 12px; }
+        .brand-text-gold { color: var(--accent-gold); }
+        
         .btn-donate {
             background: var(--accent-gold);
             color: var(--deep-forest) !important;
-            padding: 10px 25px !important;
-            font-size: 0.75rem !important;
-            border-radius: 6px;
+            padding: 8px 20px !important;
+            border-radius: 4px;
             font-weight: 800;
-            margin-left: 20px;
-            border: none;
-            transition: transform 0.2s ease;
+            font-size: 0.75rem;
+            margin-left: 15px;
         }
 
-        .btn-donate:hover {
-            transform: translateY(-2px);
-            background: #e5c04a;
+        /* --- Editorial Layout --- */
+        .story-wrapper {
+            max-width: 1200px;
+            margin: 140px auto 100px;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 300px; /* Left info, Content, Right sidebar */
+            gap: 60px;
         }
 
-        /* --- Post Header (Clean & Centered) --- */
-        .post-header {
-            padding: 180px 20px 80px;
+        /* The Large Floating Title Card */
+        .floating-title-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 60px 40px;
+            border-radius: 20px;
             text-align: center;
-            max-width: 1000px;
-            margin: 0 auto;
+            backdrop-filter: blur(10px);
+            grid-column: 2; /* Sits in the middle column */
+            margin-bottom: 40px;
         }
 
-        .category-label {
-            color: var(--accent-gold);
+        .floating-title-card h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1;
+            margin: 20px 0;
+        }
+
+        .floating-title-card .label {
             text-transform: uppercase;
-            font-weight: 800;
-            letter-spacing: 5px;
+            letter-spacing: 4px;
             font-size: 0.7rem;
-            display: block;
+            color: var(--accent-gold);
+        }
+
+        /* Content Column */
+        .story-content {
+            grid-column: 2;
+            font-size: 1.15rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .story-content > p:first-of-type::first-letter {
+            font-family: 'Playfair Display', serif;
+            float: left;
+            font-size: 5rem;
+            line-height: 0.7;
+            padding: 10px 15px 0 0;
+            color: var(--accent-gold);
+        }
+
+        /* Right Side Widget */
+        .mission-widget {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+        }
+
+        .mission-widget h4 {
+            color: var(--accent-gold);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             margin-bottom: 20px;
         }
 
-        .post-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            line-height: 1.1;
-            font-weight: 900;
-            margin-bottom: 30px;
-        }
-
-        .post-meta {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        /* --- Content Layout (No Sidebar) --- */
-        .post-container {
-            max-width: 800px; 
-            margin: 0 auto;
-            padding: 0 25px 120px;
-        }
-
-        .post-body {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 300;
-        }
-
-        /* Editorial Dropcap */
-        .post-body > p:first-of-type::first-letter {
-            font-family: 'Playfair Display', serif;
-            float: left;
-            font-size: 5.5rem;
-            line-height: 0.7;
-            padding: 12px 20px 0 0;
-            color: var(--accent-gold);
-            font-weight: 900;
-        }
-
-        .post-body h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            margin-top: 60px;
-            color: var(--white);
-        }
-
-        .post-body img {
-            width: 100%;
-            border-radius: 20px;
-            margin: 50px 0;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-        }
-
-        /* --- Navigation Footer --- */
-        .post-nav {
-            margin-top: 100px;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+        .social-share {
+            margin-top: 30px;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            gap: 20px;
+            color: var(--white);
+            opacity: 0.6;
         }
 
-        .nav-link-item {
-            color: var(--accent-gold);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
+        /* Responsive */
         @media (max-width: 991px) {
-            .navbar-brand { font-size: 0.7rem; gap: 8px; }
-            .brand-logo { height: 40px; }
-            .navbar-collapse {
-                background: var(--deep-forest);
-                margin-top: 15px;
-                padding: 30px;
-                border-radius: 15px;
-                border: 1px solid rgba(212, 175, 55, 0.2);
+            .story-wrapper {
+                grid-template-columns: 1fr;
+                padding: 0 20px;
             }
-            .nav-item { width: 100%; text-align: center; margin: 12px 0; }
-            .btn-donate { margin-left: 0; width: 100%; }
+            .floating-title-card, .story-content { grid-column: 1; }
+            .mission-widget { position: static; margin-top: 40px; }
+            .floating-title-card h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -200,61 +143,65 @@ layout: default
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="{{ '/index.html' | relative_url }}">
-                <img src="{{ '/assets/logo.jpg' | relative_url }}" alt="Logo" class="brand-logo">
-                <span>THE <span class="brand-text-gold">CONTINENT</span> VENTURES FOUNDATION</span>
+            <a class="navbar-brand" href="#">
+                <img src="/assets/logo.jpg" class="brand-logo">
+                <span>THE <span class="brand-text-gold">CONTINENT</span></span>
             </a>
-            
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link px-lg-3" href="{{ '/index.html' | relative_url }}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link px-lg-3" href="{{ '/about.html' | relative_url }}">About</a></li>
-                    <li class="nav-item"><a class="nav-link px-lg-3 active" href="{{ '/story.html' | relative_url }}">Our Story</a></li>
-                    <li class="nav-item"><a class="nav-link px-lg-3" href="{{ '/contact.html' | relative_url }}">Contact Us</a></li>
-                    <li class="nav-item">
-                        <a class="nav-link btn-donate" href="{{ '/donate.html' | relative_url }}">Donate</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Stories</a></li>
+                    <li class="nav-item"><a class="nav-link btn-donate" href="#">Contribute Now</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <header class="post-header">
-        <span class="category-label">{{ page.categories | first | default: "Legacy Update" }}</span>
-        <h1 class="post-title">{{ page.title }}</h1>
-        <div class="post-meta">
-            <span>{{ page.date | date: "%B %d, %Y" }}</span>
-            <span class="mx-3 brand-text-gold">|</span>
-            <span>Foundation Dispatch</span>
+    <div class="story-wrapper">
+        <div class="d-none d-lg-block">
+            <div style="position: sticky; top: 120px;">
+                <p class="small opacity-50">THE CONTINENT VENTURES FOUNDATION</p>
+                <p class="small">Empowering Africa's Future through sustainable ventures.</p>
+                <a href="#" class="text-info small text-decoration-none">View on GitHub</a>
+            </div>
         </div>
-    </header>
 
-    <main class="post-container">
-        <article class="post-body">
-            {{ content }}
-        </article>
+        <main>
+            <div class="floating-title-card">
+                <span class="label">Legacy Update</span>
+                <h1>Launching the New Tech Lab</h1>
+                <div class="small opacity-50">
+                    <i class="far fa-calendar-alt me-2"></i> April 11, 2026 
+                    <span class="mx-3">|</span>
+                    <i class="far fa-clock me-2"></i> 5 Min Read
+                </div>
+            </div>
 
-        <footer class="post-nav">
-            {% if page.previous.url %}
-            <a href="{{ page.previous.url | relative_url }}" class="nav-link-item">
-                <i class="fas fa-arrow-left me-2"></i> Previous Story
-            </a>
-            {% else %}
-            <span></span>
-            {% endif %}
+            <article class="story-content">
+                {{ content }}
+            </article>
 
-            {% if page.next.url %}
-            <a href="{{ page.next.url | relative_url }}" class="nav-link-item">
-                Next Story <i class="fas fa-arrow-right ms-2"></i>
-            </a>
-            {% endif %}
-        </footer>
-    </main>
+            <div class="mt-5 pt-5 border-top border-secondary">
+                <a href="#" class="text-decoration-none text-white opacity-75 small uppercase letter-spacing-2">
+                    <i class="fas fa-chevron-left me-2"></i> Back to all stories
+                </a>
+            </div>
+        </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <aside>
+            <div class="mission-widget">
+                <h4>Our Mission</h4>
+                <p class="small opacity-75">Building a legacy of self-reliance across Nairobi and beyond. Join us in dismantling poverty through digital innovation.</p>
+                <a href="#" class="btn btn-donate w-100 m-0 mt-3">SUPPORT OUR MISSION</a>
+                
+                <div class="social-share">
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-linkedin-in"></i>
+                    <i class="fas fa-link"></i>
+                </div>
+            </div>
+        </aside>
+    </div>
+
 </body>
 </html>
